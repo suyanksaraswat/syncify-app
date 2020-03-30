@@ -10,6 +10,12 @@ Users can listen at the exact same time (live-sync) or catch up on things the ot
 
 Due to the covid-19 crisis this app suddenly felt a more urgent priority with it's purpose of reducing feelings of isolation. As such I am making it Open source to get things moving faster and contribute to maintaining the sanity of many people going through hard times.
 
+## Become a User
+
+The app isn't released yet but you can signup to be a beta tester here
+
+[Syncify Sign Up](https://syncify.landen.co)
+
 ---
 ### Background Work
 
