@@ -1,2 +1,2 @@
-# sam-jam-bc.com
+# Syncify
 Syncify
