@@ -1,0 +1,6 @@
+module Pods_Syncify {
+  umbrella header "Pods-Syncify-umbrella.h"
+
+  export *
+  module * { export * }
+}
