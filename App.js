@@ -1,21 +1,13 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ThemeProvider } from 'styled-components';
 
+import theme from './src/styles';
 import EntryFile from './src';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <EntryFile />
+  </ThemeProvider>
+);
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <EntryFile />
-    </View>
-  );
-}
+export default App;
