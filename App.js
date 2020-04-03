@@ -1,15 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import EntryFile from './src'
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <EntryFile />
-    </View>
-  );
-}
+import EntryFile from './src';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +11,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <EntryFile />
+    </View>
+  );
+}
