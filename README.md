@@ -38,5 +38,14 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/sharris48/)
 Thank you!
 
 ---
+### Database
+
+The current database structure for the MVP (subject to change)
+
+[Image](https://i.imgur.com/87wC3PK.png)
+
+Details and code here - https://dbdiagram.io/d/5e8648fb4495b02c3b892c24
+
+---
 ### License
 This project is licensed under the GNU License - see the LICENSE.md file for details
