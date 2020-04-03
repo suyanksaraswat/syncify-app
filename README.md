@@ -41,7 +41,9 @@ Thank you!
 ### Database
 
 The current database structure for the MVP (subject to change)
-![](https://imgur.com/87wC3PK)
+
+[Image](https://i.imgur.com/87wC3PK.png)
+
 Details and code here - https://dbdiagram.io/d/5e8648fb4495b02c3b892c24
 
 ---
