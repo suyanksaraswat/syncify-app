@@ -7,17 +7,18 @@ const Wrapper = styled(View)`
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: #f0f;
 `;
 
-const WelcomeMessage = styled(Text)`
+const Message = styled(Text)`
+  font-size: ${({ theme }) => theme.metrics.extraLargeSize}px;
   color: ${({ theme }) => theme.colors.text};
 `;
 
-const EntryFile = () => (
+const Playlists = () => (
   <Wrapper>
-    <WelcomeMessage>UHUL! Syncify app is up and running!</WelcomeMessage>
+    <Message>Playlists</Message>
   </Wrapper>
 );
 
-export default EntryFile;
+export default Playlists;

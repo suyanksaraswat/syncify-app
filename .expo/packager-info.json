@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 5026,
+  "packagerPid": 6400,
   "expoServerNgrokUrl": "https://hi-gwu.syncifyapp.syncify.exp.direct",
   "packagerNgrokUrl": "https://packager.hi-gwu.syncifyapp.syncify.exp.direct",
-  "ngrokPid": 5037,
+  "ngrokPid": 6414,
   "webpackServerPort": null
 }
