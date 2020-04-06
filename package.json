@@ -7,7 +7,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
-    "prettier:fix": "prettier '**/*.+(js|jsx)' --write"
+    "prettier:fix": "prettier '**/*.+(js|jsx)' --write",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
@@ -29,6 +30,7 @@
     "@babel/core": "^7.8.6",
     "babel-eslint": "^10.1.0",
     "babel-preset-expo": "~8.1.0",
+    "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
@@ -52,5 +54,10 @@
       "yarn lint:fix"
     ]
   },
-  "private": true
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
