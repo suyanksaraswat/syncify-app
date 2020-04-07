@@ -27,6 +27,14 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 [Synckick - Commenting demo](https://github.com/samjam48/sync-kick-hack)
 - Creating of transcripts on podcasts allowing users to add comments as they listen and converse with their friends around content
 
+
+---
+### Run locally
+
+clone the repo. Run these commands inside.
+`$ rm -rf node_modules && yarn && yarn clear && cd ios && pod install && cd ..`
+`$ react-native run-ios`
+
 ---
 ### Contributing
 You can assign yourself tasks to work on the priority features. Or build features you feel are useful and make a PR and we'll happily review.
