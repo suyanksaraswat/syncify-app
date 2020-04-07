@@ -8,6 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "test:coverage": "jest --coverage",
+    "test:e2e": "detox build -c ios.release && detox test -c ios.release",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "prettier:fix": "prettier '**/*.+(js|jsx)' --write",
     "clear:ios": "cd ios && rm -rf build && cd ..",
@@ -45,9 +46,11 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^24.9.0",
+    "detox": "^16.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-detox": "^1.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
@@ -62,5 +65,18 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios.release": {
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/Syncify.app",
+        "build": "xcodebuild -workspace ios/Syncify.xcworkspace -scheme Syncify -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "device": {
+          "type": "iPhone 11 Pro"
+        }
+      }
+    }
   }
 }

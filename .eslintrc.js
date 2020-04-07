@@ -2,6 +2,7 @@ module.exports = {
   env: {
     es6: true,
     jest: true,
+    'detox/detox': true,
   },
   extends: ['plugin:react/recommended', 'airbnb'],
   globals: {
@@ -15,7 +16,8 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  parser: 'babel-eslint',
+  plugins: ['react', 'detox', 'prettier'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-max-props-per-line': [1, { maximum: 1, when: 'always' }],
