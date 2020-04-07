@@ -6,13 +6,14 @@ import routeNames from './routeNames';
 
 const Stack = createStackNavigator();
 
-const ExploreStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name={routeNames.EXPLORE} component={Explore} />
-    </Stack.Navigator>
-  );
-};
+const ExploreStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name={routeNames.EXPLORE}
+      component={Explore}
+    />
+  </Stack.Navigator>
+);
 
 const Wrapper = (props) => (
   <ExploreStack

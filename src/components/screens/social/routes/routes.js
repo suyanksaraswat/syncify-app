@@ -6,13 +6,14 @@ import routeNames from './routeNames';
 
 const Stack = createStackNavigator();
 
-const SocialStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name={routeNames.SOCIAL} component={Social} />
-    </Stack.Navigator>
-  );
-};
+const SocialStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name={routeNames.SOCIAL}
+      component={Social}
+    />
+  </Stack.Navigator>
+);
 
 const Wrapper = (props) => (
   <SocialStack

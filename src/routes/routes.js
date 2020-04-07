@@ -27,11 +27,26 @@ const Tab = createBottomTabNavigator();
 const Routes = () => (
   <NavigationContainer>
     <Tab.Navigator>
-      <Tab.Screen name={PlaylistsStackId} component={PlaylistsStack} />
-      <Tab.Screen name={TopChartsStackId} component={TopChartsStack} />
-      <Tab.Screen name={ExploreStackId} component={ExploreStack} />
-      <Tab.Screen name={SocialStackId} component={SocialStack} />
-      <Tab.Screen name={SettingsStackId} component={SettingsStack} />
+      <Tab.Screen
+        name={PlaylistsStackId}
+        component={PlaylistsStack}
+      />
+      <Tab.Screen
+        name={TopChartsStackId}
+        component={TopChartsStack}
+      />
+      <Tab.Screen
+        name={ExploreStackId}
+        component={ExploreStack}
+      />
+      <Tab.Screen
+        name={SocialStackId}
+        component={SocialStack}
+      />
+      <Tab.Screen
+        name={SettingsStackId}
+        component={SettingsStack}
+      />
     </Tab.Navigator>
   </NavigationContainer>
 );

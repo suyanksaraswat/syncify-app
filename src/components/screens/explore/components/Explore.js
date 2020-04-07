@@ -16,7 +16,9 @@ const Message = styled(Text)`
 `;
 
 const Explore = () => (
-  <Wrapper>
+  <Wrapper
+    testID="123"
+  >
     <Message>Explore</Message>
   </Wrapper>
 );

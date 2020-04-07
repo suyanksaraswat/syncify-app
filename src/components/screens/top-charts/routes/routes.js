@@ -6,13 +6,14 @@ import routeNames from './routeNames';
 
 const Stack = createStackNavigator();
 
-const TopChartsStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name={routeNames.TOP_CHARTS} component={TopCharts} />
-    </Stack.Navigator>
-  );
-};
+const TopChartsStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name={routeNames.TOP_CHARTS}
+      component={TopCharts}
+    />
+  </Stack.Navigator>
+);
 
 const Wrapper = (props) => (
   <TopChartsStack

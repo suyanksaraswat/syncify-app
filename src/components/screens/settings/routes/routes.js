@@ -6,13 +6,14 @@ import routeNames from './routeNames';
 
 const Stack = createStackNavigator();
 
-const SettingsStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name={routeNames.SETTINGS} component={Settings} />
-    </Stack.Navigator>
-  );
-};
+const SettingsStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name={routeNames.SETTINGS}
+      component={Settings}
+    />
+  </Stack.Navigator>
+);
 
 const Wrapper = (props) => (
   <SettingsStack
