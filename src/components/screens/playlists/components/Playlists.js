@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styled from 'styled-components';
 
+import Icon from '../../../common/Icon';
+
 const Wrapper = styled(View)`
   width: 100%;
   height: 100%;
@@ -20,6 +22,11 @@ const Playlists = () => (
     testID="playlists-wrapper"
   >
     <Message>Playlists</Message>
+    <Icon
+      color="#f00"
+      name="magnify"
+      size={40}
+    />
   </Wrapper>
 );
 

@@ -22,6 +22,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-max-props-per-line': [1, { maximum: 1, when: 'always' }],
     'react/jsx-first-prop-new-line': [1, 'always'],
+    'react/prop-types': 'off',
     'no-unused-vars': [
       'warn',
       {

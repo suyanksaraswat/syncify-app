@@ -20,6 +20,7 @@
 		628976D1AA45C3A4AE4F8401 /* libPods-Syncify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B182D1336647CDE53E1ED447 /* libPods-Syncify.a */; };
 		8803EEC3CCD0DA0E39A65DD6 /* libPods-Syncify-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BB44D9C88453C57600B696 /* libPods-Syncify-tvOS.a */; };
 		9F6169F5985B06AED27E9A18 /* libPods-Syncify-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C47F31AD8483DBF9368D748 /* libPods-Syncify-tvOSTests.a */; };
+		C0C987F1243E279C0093356D /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0C987F0243E279C0093356D /* MaterialCommunityIcons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		7C47F31AD8483DBF9368D748 /* libPods-Syncify-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Syncify-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9365F24814D07C785A61A1D1 /* Pods-Syncify-SyncifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-SyncifyTests.debug.xcconfig"; path = "Target Support Files/Pods-Syncify-SyncifyTests/Pods-Syncify-SyncifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B182D1336647CDE53E1ED447 /* libPods-Syncify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Syncify.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0C987F0243E279C0093356D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		C5C53F4B596C9046489E6CFF /* Pods-Syncify-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Syncify-tvOS/Pods-Syncify-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E9EAC2817F8CC3C70EF096 /* Pods-Syncify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify.release.xcconfig"; path = "Target Support Files/Pods-Syncify/Pods-Syncify.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* Syncify */ = {
 			isa = PBXGroup;
 			children = (
+				C0C987F0243E279C0093356D /* MaterialCommunityIcons.ttf */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +164,6 @@
 				052DA2B545484F4EFD21A305 /* Pods-Syncify-tvOSTests.debug.xcconfig */,
 				34206D12F6BC1109EEF186E6 /* Pods-Syncify-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -339,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C0C987F1243E279C0093356D /* MaterialCommunityIcons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
