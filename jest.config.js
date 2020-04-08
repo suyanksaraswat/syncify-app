@@ -11,7 +11,7 @@ const dependenciesToBeTranspiled = [
 module.exports = {
   preset: 'react-native',
   moduleFileExtensions: ['js', 'json', 'jsx', 'node'],
-  testPathIgnorePatterns: ['/node_modules/'],
+  testPathIgnorePatterns: ['/node_modules/', '/e2e/'],
   transformIgnorePatterns: [`node_modules/(?!(${dependenciesToBeTranspiled})/)`],
   setupFiles: ['./jest.setup.js'],
   testMatch: ['**/*.spec.(js|jsx)'],

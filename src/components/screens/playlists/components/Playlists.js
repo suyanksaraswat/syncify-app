@@ -16,7 +16,9 @@ const Message = styled(Text)`
 `;
 
 const Playlists = () => (
-  <Wrapper>
+  <Wrapper
+    testID="playlists-wrapper"
+  >
     <Message>Playlists</Message>
   </Wrapper>
 );

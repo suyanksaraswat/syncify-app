@@ -4,6 +4,6 @@ describe('App', () => {
   });
 
   it('should show the welcome message', async () => {
-    await expect(element(by.id('hello'))).toBeVisible();
+    await expect(element(by.id('playlists-wrapper'))).toBeVisible();
   });
 });
