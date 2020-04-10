@@ -1,34 +1,79 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import styled from 'styled-components';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
+import TrackPlayer, {
+  Capability,
+  useProgress,
+  usePlaybackState,
+} from 'react-native-track-player';
 
-import Icon from '../Icon';
+function ProgressBar() {
+  const progress = useProgress();
+  console.log(progress);
+  return (
+    <View
+      style={{
+        height: 10,
+        width: '100%',
+        marginTop: 10,
+        backgroundColor: '#f0f',
+        flexDirection: 'row',
+      }}
+    >
+      <View
+        style={{ flex: progress.position, backgroundColor: 'red' }}
+      />
+      <View
+        style={{
+          flex: progress.duration - progress.position,
+          backgroundColor: 'grey',
+        }}
+      />
+    </View>
+  );
+}
 
-const Wrapper = styled(View)`
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-`;
+export default function LandingScreen() {
+  const playbackState = usePlaybackState();
 
-const PlayerText = styled(Text)`
-  font-family: CircularStd-Black;
-  font-size: ${({ theme }) => theme.metrics.extraLargeSize}px;
-`;
+  useEffect(() => {
+    TrackPlayer.setupPlayer({ waitForBuffer: true });
 
-const PlayIcon = styled(Icon).attrs(({ theme }) => ({
-  name: 'play',
-  size: theme.metrics.getWidthFromDP('10%'),
-  color: theme.colors.text,
-}))``;
+    TrackPlayer.updateOptions({
+      stopWithApp: true,
+      capabilities: [
+        Capability.Play,
+        Capability.Pause,
+        Capability.SkipToNext,
+        Capability.SkipToPrevious,
+        Capability.Stop,
+      ],
+      compactCapabilities: [Capability.Play, Capability.Pause],
+    });
 
-const Player = () => (
-  <Wrapper
-    testID="player"
-  >
-    <PlayerText>Player</PlayerText>
-    <PlayIcon />
-  </Wrapper>
-);
+    TrackPlayer.add([
+      {
+        id: 'local-track',
+        url:
+          'https://stenio-portifolio-mindcast.herokuapp.com/mind-cast/api/v1/podcasts/5ce8ba48e11dd20017361691/listen',
+        title: 'Pure (Demo)',
+        artist: 'David Chavez',
+        artwork: 'https://picsum.photos/200',
+      },
+    ]);
 
-export default Player;
+    TrackPlayer.play();
+  }, []);
+
+  return (
+    <View
+      testID="player"
+      style={{
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#fff',
+      }}
+    >
+      <ProgressBar />
+    </View>
+  );
+}
