@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "start:clean": "npx react-native start --reset-cache",
     "start": "react-native start",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -47,6 +48,7 @@
     "react-native-reanimated": "^1.7.1",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.4.0",
+    "react-native-vector-icons": "^6.6.0",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {

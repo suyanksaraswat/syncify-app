@@ -1,8 +1,9 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ThemeProvider } from 'styled-components';
-import { Text } from 'react-native';
-import Navigation from './routes/routes';
+
+// import Navigation from './routes/routes';
+import Player from './components/common/player/Player';
 import client from './config/client';
 import theme from './styles';
 
@@ -13,14 +14,7 @@ const App = () => (
     <ApolloProvider
       client={client}
     >
-      <Text
-        style={{
-          fontFamily: 'CircularStd-Black',
-          fontSize: 18,
-        }}
-      >
-        Hello!
-      </Text>
+      <Player />
     </ApolloProvider>
   </ThemeProvider>
 );

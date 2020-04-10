@@ -17,13 +17,14 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* SyncifyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SyncifyTests.m */; };
 		339CB6EC7FD259BEA22D8006 /* libPods-Syncify-SyncifyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ECA3CF4F333E9A3CA6E5A4 /* libPods-Syncify-SyncifyTests.a */; };
+		590207346F974B4DAEE43902 /* CircularStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C77A27F330C04F3F9423ACF5 /* CircularStd-Black.otf */; };
 		628976D1AA45C3A4AE4F8401 /* libPods-Syncify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B182D1336647CDE53E1ED447 /* libPods-Syncify.a */; };
+		8765B860BDA746A68DDFB541 /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7330C376315429C9ADD59AB /* CircularStd-Medium.otf */; };
 		8803EEC3CCD0DA0E39A65DD6 /* libPods-Syncify-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BB44D9C88453C57600B696 /* libPods-Syncify-tvOS.a */; };
 		9F6169F5985B06AED27E9A18 /* libPods-Syncify-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C47F31AD8483DBF9368D748 /* libPods-Syncify-tvOSTests.a */; };
-		590207346F974B4DAEE43902 /* CircularStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C77A27F330C04F3F9423ACF5 /* CircularStd-Black.otf */; };
-		BB82F299216D4982B6C91F04 /* CircularStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 776ECB3DF5B1440BB51FE869 /* CircularStd-Bold.otf */; };
 		B0877E4C513D4C559E01EC6E /* CircularStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 659C87FF6CA5456EB6121138 /* CircularStd-Book.otf */; };
-		8765B860BDA746A68DDFB541 /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7330C376315429C9ADD59AB /* CircularStd-Medium.otf */; };
+		BB82F299216D4982B6C91F04 /* CircularStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 776ECB3DF5B1440BB51FE869 /* CircularStd-Bold.otf */; };
+		C01174C3243FFD7D00F541B2 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C01174C2243FFD7D00F541B2 /* MaterialCommunityIcons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,18 +64,19 @@
 		34206D12F6BC1109EEF186E6 /* Pods-Syncify-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Syncify-tvOSTests/Pods-Syncify-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		39E89E146EF28A790B48097F /* Pods-Syncify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify.debug.xcconfig"; path = "Target Support Files/Pods-Syncify/Pods-Syncify.debug.xcconfig"; sourceTree = "<group>"; };
 		39ECA3CF4F333E9A3CA6E5A4 /* libPods-Syncify-SyncifyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Syncify-SyncifyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		659C87FF6CA5456EB6121138 /* CircularStd-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Book.otf"; path = "../assets/fonts/CircularStd-Book.otf"; sourceTree = "<group>"; };
+		776ECB3DF5B1440BB51FE869 /* CircularStd-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Bold.otf"; path = "../assets/fonts/CircularStd-Bold.otf"; sourceTree = "<group>"; };
 		7C47F31AD8483DBF9368D748 /* libPods-Syncify-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Syncify-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9365F24814D07C785A61A1D1 /* Pods-Syncify-SyncifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-SyncifyTests.debug.xcconfig"; path = "Target Support Files/Pods-Syncify-SyncifyTests/Pods-Syncify-SyncifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B182D1336647CDE53E1ED447 /* libPods-Syncify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Syncify.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01174C2243FFD7D00F541B2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		C5C53F4B596C9046489E6CFF /* Pods-Syncify-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Syncify-tvOS/Pods-Syncify-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C77A27F330C04F3F9423ACF5 /* CircularStd-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Black.otf"; path = "../assets/fonts/CircularStd-Black.otf"; sourceTree = "<group>"; };
+		E7330C376315429C9ADD59AB /* CircularStd-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Medium.otf"; path = "../assets/fonts/CircularStd-Medium.otf"; sourceTree = "<group>"; };
 		E8E9EAC2817F8CC3C70EF096 /* Pods-Syncify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify.release.xcconfig"; path = "Target Support Files/Pods-Syncify/Pods-Syncify.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F384E8A294B4C4E39E7582B6 /* Pods-Syncify-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Syncify-tvOS/Pods-Syncify-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		C77A27F330C04F3F9423ACF5 /* CircularStd-Black.otf */ = {isa = PBXFileReference; name = "CircularStd-Black.otf"; path = "../assets/fonts/CircularStd-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		776ECB3DF5B1440BB51FE869 /* CircularStd-Bold.otf */ = {isa = PBXFileReference; name = "CircularStd-Bold.otf"; path = "../assets/fonts/CircularStd-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		659C87FF6CA5456EB6121138 /* CircularStd-Book.otf */ = {isa = PBXFileReference; name = "CircularStd-Book.otf"; path = "../assets/fonts/CircularStd-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E7330C376315429C9ADD59AB /* CircularStd-Medium.otf */ = {isa = PBXFileReference; name = "CircularStd-Medium.otf"; path = "../assets/fonts/CircularStd-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		13B07FAE1A68108700A75B9A /* Syncify */ = {
 			isa = PBXGroup;
 			children = (
+				C01174C2243FFD7D00F541B2 /* MaterialCommunityIcons.ttf */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -169,7 +172,6 @@
 				052DA2B545484F4EFD21A305 /* Pods-Syncify-tvOSTests.debug.xcconfig */,
 				34206D12F6BC1109EEF186E6 /* Pods-Syncify-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,7 +210,7 @@
 			sourceTree = "<group>";
 		};
 		952232B8A0EB4CFA898C7CA5 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				C77A27F330C04F3F9423ACF5 /* CircularStd-Black.otf */,
 				776ECB3DF5B1440BB51FE869 /* CircularStd-Bold.otf */,
@@ -217,7 +219,6 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -360,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C01174C3243FFD7D00F541B2 /* MaterialCommunityIcons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				590207346F974B4DAEE43902 /* CircularStd-Black.otf in Resources */,
 				BB82F299216D4982B6C91F04 /* CircularStd-Bold.otf in Resources */,
