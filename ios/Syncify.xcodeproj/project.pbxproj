@@ -22,9 +22,13 @@
 		8765B860BDA746A68DDFB541 /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7330C376315429C9ADD59AB /* CircularStd-Medium.otf */; };
 		8803EEC3CCD0DA0E39A65DD6 /* libPods-Syncify-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BB44D9C88453C57600B696 /* libPods-Syncify-tvOS.a */; };
 		9F6169F5985B06AED27E9A18 /* libPods-Syncify-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C47F31AD8483DBF9368D748 /* libPods-Syncify-tvOSTests.a */; };
+<<<<<<< HEAD
 		B0877E4C513D4C559E01EC6E /* CircularStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 659C87FF6CA5456EB6121138 /* CircularStd-Book.otf */; };
 		BB82F299216D4982B6C91F04 /* CircularStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 776ECB3DF5B1440BB51FE869 /* CircularStd-Bold.otf */; };
 		C01174C3243FFD7D00F541B2 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C01174C2243FFD7D00F541B2 /* MaterialCommunityIcons.ttf */; };
+=======
+		C0C987F1243E279C0093356D /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0C987F0243E279C0093356D /* MaterialCommunityIcons.ttf */; };
+>>>>>>> 23ee3c07a03bd2b2ff195571982a9bd97be6e51e
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +73,11 @@
 		7C47F31AD8483DBF9368D748 /* libPods-Syncify-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Syncify-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9365F24814D07C785A61A1D1 /* Pods-Syncify-SyncifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-SyncifyTests.debug.xcconfig"; path = "Target Support Files/Pods-Syncify-SyncifyTests/Pods-Syncify-SyncifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B182D1336647CDE53E1ED447 /* libPods-Syncify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Syncify.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+<<<<<<< HEAD
 		C01174C2243FFD7D00F541B2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+=======
+		C0C987F0243E279C0093356D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+>>>>>>> 23ee3c07a03bd2b2ff195571982a9bd97be6e51e
 		C5C53F4B596C9046489E6CFF /* Pods-Syncify-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncify-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Syncify-tvOS/Pods-Syncify-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C77A27F330C04F3F9423ACF5 /* CircularStd-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Black.otf"; path = "../assets/fonts/CircularStd-Black.otf"; sourceTree = "<group>"; };
 		E7330C376315429C9ADD59AB /* CircularStd-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Medium.otf"; path = "../assets/fonts/CircularStd-Medium.otf"; sourceTree = "<group>"; };
@@ -135,7 +143,11 @@
 		13B07FAE1A68108700A75B9A /* Syncify */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C01174C2243FFD7D00F541B2 /* MaterialCommunityIcons.ttf */,
+=======
+				C0C987F0243E279C0093356D /* MaterialCommunityIcons.ttf */,
+>>>>>>> 23ee3c07a03bd2b2ff195571982a9bd97be6e51e
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -361,7 +373,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+<<<<<<< HEAD
 				C01174C3243FFD7D00F541B2 /* MaterialCommunityIcons.ttf in Resources */,
+=======
+				C0C987F1243E279C0093356D /* MaterialCommunityIcons.ttf in Resources */,
+>>>>>>> 23ee3c07a03bd2b2ff195571982a9bd97be6e51e
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				590207346F974B4DAEE43902 /* CircularStd-Black.otf in Resources */,
 				BB82F299216D4982B6C91F04 /* CircularStd-Bold.otf in Resources */,

@@ -6,6 +6,7 @@ const dependenciesToBeTranspiled = [
   '@react-native-community',
   'react-native-gesture-handler',
   'react-native-iphone-x-helper',
+  'react-native-vector-icons',
 ].join('|');
 
 module.exports = {
