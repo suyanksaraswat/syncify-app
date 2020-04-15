@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import {
+  View, Text, Image, TouchableOpacity,
+} from 'react-native';
+import TrackPlayer from 'react-native-track-player';
 
 import styled from 'styled-components';
 
 import EpisodesImages from './episodes-images/EpisodesImages';
 import usePlayer from './usePlayer';
+import Icon from '../../Icon';
 
 const Wrapper = styled(View)`
   width: 100%;
@@ -33,6 +37,19 @@ const AuthorText = styled(EpisodeTitleText)`
   margin: ${({ theme }) => theme.metrics.smallSize}px;
 `;
 
+const ButtonsWrapper = styled(View)`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const Touchable = styled(TouchableOpacity)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
 const Player = ({ route }) => {
   const { indexEpisodeSelected } = route.params;
   const { playlist } = usePlayer(route);
@@ -56,6 +73,26 @@ const Player = ({ route }) => {
         {route.params.episodeSelected.author}
         {' '}
       </AuthorText>
+      <ButtonsWrapper>
+        <Touchable
+          onPress={() => TrackPlayer.play()}
+        >
+          <Icon
+            color="black"
+            name="play-circle"
+            size={70}
+          />
+        </Touchable>
+        <Touchable
+          onPress={() => TrackPlayer.pause()}
+        >
+          <Icon
+            color="black"
+            name="pause-circle"
+            size={70}
+          />
+        </Touchable>
+      </ButtonsWrapper>
     </Wrapper>
   );
 };
