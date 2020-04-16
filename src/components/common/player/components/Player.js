@@ -8,6 +8,7 @@ import EpisodesImages from './episodes-images/EpisodesImages';
 import usePlayer from './usePlayer';
 import EpisodeCover from './EpisodeCover';
 import Button from './Button';
+import ProgressBar from './ProgressBar';
 
 const Wrapper = styled(View)`
   width: 100%;
@@ -34,7 +35,8 @@ const ButtonsWrapper = styled(View)`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 const Player = ({ route }) => {
@@ -60,7 +62,18 @@ const Player = ({ route }) => {
         {route.params.episodeSelected.author}
         {' '}
       </AuthorText>
+      <ProgressBar />
       <ButtonsWrapper>
+        <Button
+          onPress={() => console.log('Speed up pressed')}
+          name="speedometer"
+          size={35}
+        />
+        <Button
+          onPress={() => console.log('Rewind back pressed')}
+          name="skip-previous-circle"
+          size={55}
+        />
         <Button
           onPress={() => TrackPlayer.play()}
           name="play-circle"
@@ -71,9 +84,22 @@ const Player = ({ route }) => {
           name="pause-circle"
           size={70}
         />
+        <Button
+          onPress={() => console.log('Skip button pressed')}
+          name="skip-next-circle"
+          size={55}
+        />
+        <Button
+          onPress={() => console.log('Like is pressed')}
+          name="heart-outline"
+          size={35}
+        />
       </ButtonsWrapper>
     </Wrapper>
   );
 };
+
+// speedometer
+// surround-sound-2-0
 
 export default Player;
