@@ -1,14 +1,13 @@
 import React from 'react';
-import {
-  View, Text, Image, TouchableOpacity,
-} from 'react-native';
+import { View, Text } from 'react-native';
 import TrackPlayer from 'react-native-track-player';
 
 import styled from 'styled-components';
 
 import EpisodesImages from './episodes-images/EpisodesImages';
 import usePlayer from './usePlayer';
-import Icon from '../../Icon';
+import EpisodeCover from './EpisodeCover';
+import Button from './Button';
 
 const Wrapper = styled(View)`
   width: 100%;
@@ -17,12 +16,6 @@ const Wrapper = styled(View)`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const EpisodeCover = styled(Image)`
-  width: ${({ theme }) => theme.metrics.getWidthFromDP('90%')}px;
-  height: ${({ theme }) => theme.metrics.getWidthFromDP('90%')}px;
-  border-radius: ${({ theme }) => theme.metrics.extraSmallSize}px;
 `;
 
 const EpisodeTitleText = styled(Text)`
@@ -44,12 +37,6 @@ const ButtonsWrapper = styled(View)`
   justify-content: center;
 `;
 
-const Touchable = styled(TouchableOpacity)`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
 const Player = ({ route }) => {
   const { indexEpisodeSelected } = route.params;
   const { playlist } = usePlayer(route);
@@ -61,7 +48,7 @@ const Player = ({ route }) => {
         playlist={playlist}
       />
       <EpisodeCover
-        source={{ uri: route.params.episodeSelected.image }}
+        image={{ uri: route.params.episodeSelected.image }}
       />
       <EpisodeTitleText>
         {' '}
@@ -74,24 +61,16 @@ const Player = ({ route }) => {
         {' '}
       </AuthorText>
       <ButtonsWrapper>
-        <Touchable
+        <Button
           onPress={() => TrackPlayer.play()}
-        >
-          <Icon
-            color="black"
-            name="play-circle"
-            size={70}
-          />
-        </Touchable>
-        <Touchable
+          name="play-circle"
+          size={70}
+        />
+        <Button
           onPress={() => TrackPlayer.pause()}
-        >
-          <Icon
-            color="black"
-            name="pause-circle"
-            size={70}
-          />
-        </Touchable>
+          name="pause-circle"
+          size={70}
+        />
       </ButtonsWrapper>
     </Wrapper>
   );
