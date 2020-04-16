@@ -11,8 +11,8 @@ const EpisodeList = ({ navigation }) => (
     renderItem={({ item, index }) => (
       <EpisodeListItem
         onPress={() => navigation.navigate('PlayerScreen', {
-          playlist: episodes.filter((_, filterIndex) => filterIndex !== index),
-          episodeSelected: episodes[index],
+          indexEpisodeSelected: index,
+          playlist: episodes,
         })}
         episodeTitle={item.title}
         author={item.author}
