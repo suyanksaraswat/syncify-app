@@ -77,17 +77,6 @@ const episodes = [
     author: 'Tormund Giantsbane',
   },
   {
-    id: '8',
-    title: 'The history of Hydra',
-    image:
-      'https://s3-sa-east-1.amazonaws.com/mind-cast/images/authors/steve-rogers/hydra-image.jpg',
-    audio:
-      'https://stenio-portifolio-mindcast.herokuapp.com/mind-cast/api/v1/podcasts/5ce89f44ba27010017f0e959/listen',
-    duration: '00:20',
-    durationInSeconds: 20,
-    author: 'Steve Rogers',
-  },
-  {
     id: '9',
     title: 'The evolution of combat trial',
     image:
@@ -108,6 +97,17 @@ const episodes = [
     duration: '01:03',
     author: 'Ivar the Boneless',
     durationInSeconds: 63,
+  },
+  {
+    id: '8',
+    title: 'The history of Hydra',
+    image:
+      'https://s3-sa-east-1.amazonaws.com/mind-cast/images/authors/steve-rogers/hydra-image.jpg',
+    audio:
+      'https://stenio-portifolio-mindcast.herokuapp.com/mind-cast/api/v1/podcasts/5ce89f44ba27010017f0e959/listen',
+    duration: '00:20',
+    durationInSeconds: 20,
+    author: 'Steve Rogers',
   },
 ];
 
