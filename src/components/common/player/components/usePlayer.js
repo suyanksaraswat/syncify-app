@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Platform } from 'react-native';
 
 import TrackPlayer, {
@@ -9,9 +9,7 @@ import TrackPlayer, {
 } from 'react-native-track-player';
 
 const events = [
-  Event.PlaybackTrackChanged,
   Event.PlaybackQueueEnded,
-  Event.PlaybackState,
   Event.PlaybackError,
   Event.RemoteNext,
   Event.RemotePrevious,
@@ -26,8 +24,6 @@ const usePlayer = (route) => {
     android: playlistParam,
   });
 
-  const [currentTrack, setCurrentAudioTrack] = useState(null);
-
   const getCurrentQueueTrack = async () => {
     const currentTrackId = await TrackPlayer.getCurrentTrack();
 
@@ -39,7 +35,7 @@ const usePlayer = (route) => {
   const restartToFirstTrack = async () => {
     await TrackPlayer.skip(playlist[0].id);
 
-    await TrackPlayer.stop();
+    await TrackPlayer.pause();
   };
 
   const handleOnPlaybackQueueEndedAndroid = async () => {
@@ -59,37 +55,27 @@ const usePlayer = (route) => {
     }
   };
 
-  const handleOnPlaybackQueueEndedIos = async () => {
-    await TrackPlayer.skip(playlist[0].id);
-
-    const firstPlaylistTrack = await TrackPlayer.getTrack(playlist[0].id);
-
-    setCurrentAudioTrack(firstPlaylistTrack);
-  };
-
   const onPlaybackQueueEnded = async () => {
     if (Platform.OS === 'android') {
       await handleOnPlaybackQueueEndedAndroid();
     }
 
     if (Platform.OS === 'ios') {
-      await handleOnPlaybackQueueEndedIos();
+      await restartToFirstTrack();
     }
   };
 
+  const parseRawEpisodesToTrackableEpisodes = (rawEpisodes) => rawEpisodes.map((rawEpisode) => ({
+    duration: rawEpisode.durationInSeconds,
+    artwork: rawEpisode.image,
+    artist: rawEpisode.author,
+    title: rawEpisode.title,
+    url: rawEpisode.audio,
+    id: rawEpisode.id,
+  }));
+
   useTrackPlayerEvents(events, async (event) => {
-    console.log('event: ', event);
-    const isBuffering = event.type === Event.PlaybackState && event.state === State.Buffering;
-    const isPlaybackTrackChangedEvent = event.type === Event.PlaybackTrackChanged;
-
-    if (isPlaybackTrackChangedEvent || isBuffering) {
-      const queueCurrentTrack = await getCurrentQueueTrack();
-
-      if (!currentTrack || currentTrack.id !== queueCurrentTrack.id) {
-        setCurrentAudioTrack(queueCurrentTrack);
-      }
-    }
-
+    console.log(event);
     if (event.type === Event.PlaybackError) {
       console.warn('An error occurred while playing the current track.');
     }
@@ -100,8 +86,11 @@ const usePlayer = (route) => {
 
     if (event.type === Event.RemotePrevious) {
       const currentTrackId = await TrackPlayer.getCurrentTrack();
+      const firstTrackQueueId = playlistParam[0].id;
 
-      if (currentTrackId === playlistParam[0].id) {
+      if (currentTrackId === firstTrackQueueId) {
+        await TrackPlayer.pause();
+
         await TrackPlayer.skip(currentTrackId);
 
         await TrackPlayer.play();
@@ -109,18 +98,14 @@ const usePlayer = (route) => {
     }
 
     if (event.type === Event.RemoteNext) {
-      await restartToFirstTrack();
+      const currentTrackId = await TrackPlayer.getCurrentTrack();
+      const lastTrackQueueId = playlistParam[playlistParam.length - 1].id;
+
+      if (currentTrackId === lastTrackQueueId) {
+        await restartToFirstTrack();
+      }
     }
   });
-
-  const parseRawEpisodesToTrackableEpisodes = (rawEpisodes) => rawEpisodes.map((rawEpisode) => ({
-    duration: rawEpisode.durationInSeconds,
-    artwork: rawEpisode.image,
-    artist: rawEpisode.author,
-    title: rawEpisode.title,
-    url: rawEpisode.audio,
-    id: rawEpisode.id,
-  }));
 
   const setupInitialPlayerState = async () => {
     await TrackPlayer.setupPlayer({ waitForBuffer: true });
@@ -173,29 +158,35 @@ const usePlayer = (route) => {
     return true;
   };
 
+  const checkIsTryingToPlaySameTrack = async () => {
+    const currentQueueTrack = await getCurrentQueueTrack();
+
+    const isTryingToPlaySameTrack = currentQueueTrack.id === playlist[indexEpisodeSelected].id;
+
+    return isTryingToPlaySameTrack;
+  };
+
   const handleIsPlaying = async () => {
-    const queueCurrentTrack = await getCurrentQueueTrack();
+    const isTryingToPlaySameTrack = await checkIsTryingToPlaySameTrack();
 
-    const isTryingToPlaySameAudio = queueCurrentTrack.id === playlist[indexEpisodeSelected].id;
-    const isSamePlaylistPlaying = await checkIsSamePlaylist();
-
-    if (isTryingToPlaySameAudio && isSamePlaylistPlaying) {
-      setCurrentAudioTrack(queueCurrentTrack);
-
+    if (isTryingToPlaySameTrack) {
       return;
     }
 
-    const isPlayingSameAudioDifferentPlaylist = isTryingToPlaySameAudio && !isSamePlaylistPlaying;
-    const isNotPlayingSameAudioSamePlaylist = !isTryingToPlaySameAudio && !isSamePlaylistPlaying;
+    await TrackPlayer.skip(playlist[indexEpisodeSelected].id);
+  };
 
-    if (isNotPlayingSameAudioSamePlaylist || isPlayingSameAudioDifferentPlaylist) {
-      await setupInitialPlayerState();
+  const handleIsPaused = async () => {
+    const isTryingToPlaySameTrack = await checkIsTryingToPlaySameTrack();
 
-      return;
+    if (isTryingToPlaySameTrack) {
+      await TrackPlayer.play();
     }
 
-    if (!isTryingToPlaySameAudio && isSamePlaylistPlaying) {
+    if (!isTryingToPlaySameTrack) {
       await TrackPlayer.skip(playlist[indexEpisodeSelected].id);
+
+      await TrackPlayer.play();
     }
   };
 
@@ -208,8 +199,20 @@ const usePlayer = (route) => {
       return;
     }
 
+    if (state === State.Playing || state === State.Paused) {
+      const isSamePlaylistPlaying = await checkIsSamePlaylist();
+
+      if (!isSamePlaylistPlaying) {
+        await setupInitialPlayerState();
+      }
+    }
+
     if (state === State.Playing) {
       await handleIsPlaying();
+    }
+
+    if (state === State.Paused) {
+      await handleIsPaused();
     }
   };
 
@@ -218,10 +221,8 @@ const usePlayer = (route) => {
   }, []);
 
   return {
-    image: currentTrack && currentTrack.artwork,
+    playlist,
   };
 };
 
 export default usePlayer;
-
-// no último e no primeiro áudio quando passa ou volta
