@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import EpisodesImages from './episodes-images/EpisodesImages';
 import usePlayer from './usePlayer';
 import PlayerControls from './player-controls/PlayerControls';
+import OptionsBar from './episode-options/OptionsBar';
 import ProgressBar from './ProgressBar';
 
 const Wrapper = styled(View)`
@@ -49,8 +50,8 @@ const Player = ({ route }) => {
         {' '}
       </AuthorText>
       <ProgressBar />
-
       <PlayerControls />
+      <OptionsBar />
     </Wrapper>
   );
 };

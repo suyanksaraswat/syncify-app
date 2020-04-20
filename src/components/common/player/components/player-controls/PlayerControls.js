@@ -10,8 +10,10 @@ const ButtonsWrapper = styled(View)`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding-left: ${({ theme }) => theme.metrics.extraLargeSize}px;
+  padding-right: ${({ theme }) => theme.metrics.extraLargeSize}px;
 `;
 
 const PlayerControls = () => {
