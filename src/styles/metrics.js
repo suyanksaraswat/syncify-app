@@ -1,5 +1,7 @@
 import { Dimensions, PixelRatio } from 'react-native';
 
+import isEqualsOrLargestThanIphoneX from '../utils/is-equals-or-largest-than-iphonex/isEqualsOrLargestThanIphoneX';
+
 const { width, height } = Dimensions.get('window');
 
 const getWidthFromDP = (widthPercentage) => {
@@ -21,6 +23,7 @@ const getHeightFromDP = (heightPercentage) => {
 };
 
 export default {
+  isEqualsOrLargestThanIphoneX: isEqualsOrLargestThanIphoneX(),
   extraSmallSize: getWidthFromDP('1%'),
   smallSize: getWidthFromDP('2%'),
   mediumSize: getWidthFromDP('3%'),
