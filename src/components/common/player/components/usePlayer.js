@@ -75,7 +75,6 @@ const usePlayer = (route) => {
   }));
 
   useTrackPlayerEvents(events, async (event) => {
-    console.log(event);
     if (event.type === Event.PlaybackError) {
       console.warn('An error occurred while playing the current track.');
     }

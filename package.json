@@ -75,6 +75,7 @@
     "lint-staged": "^10.1.2",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.4",
+    "react-native-testing-library": "^1.13.0",
     "react-test-renderer": "16.11.0"
   },
   "jest": {

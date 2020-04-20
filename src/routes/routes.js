@@ -2,6 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
+import BottomTabNavigator from '../components/utilities/bottom-tab-navigator/BottomTabNavigator';
+
 import ExploreStack, {
   StackId as ExploreStackId,
 } from '../components/screens/explore/routes/routes';
@@ -26,7 +28,14 @@ const Tab = createBottomTabNavigator();
 
 const Routes = () => (
   <NavigationContainer>
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBar={(props) => (
+        <BottomTabNavigator
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...props}
+        />
+      )}
+    >
       <Tab.Screen
         name={PlaylistsStackId}
         component={PlaylistsStack}

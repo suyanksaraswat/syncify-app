@@ -2,8 +2,7 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ThemeProvider } from 'styled-components';
 
-// import Navigation from './routes/routes';
-import PlayerNavigation from './components/common/player/PlayerNavigation';
+import Navigation from './routes/routes';
 import client from './config/client';
 import theme from './styles';
 
@@ -14,7 +13,7 @@ const App = () => (
     <ApolloProvider
       client={client}
     >
-      <PlayerNavigation />
+      <Navigation />
     </ApolloProvider>
   </ThemeProvider>
 );
