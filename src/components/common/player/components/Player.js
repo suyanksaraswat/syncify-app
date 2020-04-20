@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import TrackPlayer from 'react-native-track-player';
 
 import styled from 'styled-components';
+import metrics from '../../../../styles/metrics';
 
 import EpisodesImages from './episodes-images/EpisodesImages';
 import usePlayer from './usePlayer';
@@ -23,7 +24,6 @@ const EpisodeTitleText = styled(Text)`
   font-family: CircularStd-Bold;
   font-size: ${({ theme }) => theme.metrics.getWidthFromDP('6%')}px;
   color: ${({ theme }) => theme.colors.text};
-  margin-top: ${({ theme }) => theme.metrics.largeSize}px;
 `;
 
 const AuthorText = styled(EpisodeTitleText)`
@@ -41,17 +41,14 @@ const Player = ({ route }) => {
         initialIndex={indexEpisodeSelected}
         playlist={playlist}
       />
-      <EpisodeCover
-        image={{ uri: route.params.episodeSelected.image }}
-      />
       <EpisodeTitleText>
         {' '}
-        {route.params.episodeSelected.title}
+        {route.params.playlist[indexEpisodeSelected].title}
         {' '}
       </EpisodeTitleText>
       <AuthorText>
         {' '}
-        {route.params.episodeSelected.author}
+        {route.params.playlist[indexEpisodeSelected].author}
         {' '}
       </AuthorText>
       <ProgressBar />
