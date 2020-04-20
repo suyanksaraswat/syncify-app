@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import styled from 'styled-components';
-import Icon from '../../Icon';
+import Icon from '../../../Icon';
 
 const Touchable = styled(TouchableOpacity)`
   display: flex;

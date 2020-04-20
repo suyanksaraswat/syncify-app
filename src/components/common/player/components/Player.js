@@ -1,14 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import TrackPlayer from 'react-native-track-player';
 
 import styled from 'styled-components';
-import metrics from '../../../../styles/metrics';
 
 import EpisodesImages from './episodes-images/EpisodesImages';
 import usePlayer from './usePlayer';
-import EpisodeCover from './EpisodeCover';
-import PlayerControls from './PlayerControls';
+import PlayerControls from './player-controls/PlayerControls';
 import ProgressBar from './ProgressBar';
 
 const Wrapper = styled(View)`
