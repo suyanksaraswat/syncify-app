@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-
 import styled from 'styled-components';
 
 import EpisodesImages from './episodes-images/EpisodesImages';
@@ -40,15 +39,9 @@ const Player = ({ route }) => {
         playlist={playlist}
       />
       <EpisodeTitleText>
-        {' '}
         {route.params.playlist[indexEpisodeSelected].title}
-        {' '}
       </EpisodeTitleText>
-      <AuthorText>
-        {' '}
-        {route.params.playlist[indexEpisodeSelected].author}
-        {' '}
-      </AuthorText>
+      <AuthorText>{route.params.playlist[indexEpisodeSelected].author}</AuthorText>
       <ProgressBar />
       <PlayerControls />
       <OptionsBar />

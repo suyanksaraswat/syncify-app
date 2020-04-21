@@ -18,17 +18,17 @@ const ProgressContainer = styled(View)`
   height: 5px;
   width: 90%;
   margin-top: 10px;
-  backgroundcolor: #f0f;
+  background-color: #f0f;
   flex-direction: row;
 `;
 
 const ProgressPassed = styled(View)`
-  backgroundcolor: red;
+  background-color: red;
   flex: ${(props) => props.flex};
 `;
 
 const ProgressLeft = styled(View)`
-  backgroundcolor: grey;
+  background-color: grey;
   flex: ${(props) => props.flex};
 `;
 
