@@ -13,7 +13,7 @@ import metrics from '../../../../../styles/metrics';
 
 const events = [Event.PlaybackTrackChanged, Event.RemotePrevious, Event.RemoteNext];
 
-const useEpisodesImages = (playlist, initialIndex) => {
+const useEpisodesImages = (isOpeningFromMiniPlayer, playlist, initialIndex) => {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(initialIndex);
 
   const episodeImagesListRef = useRef(null);
@@ -28,7 +28,9 @@ const useEpisodesImages = (playlist, initialIndex) => {
 
   const playlistImages = useMemo(
     () => Platform.select({
-      ios: extractPlaylistImagesWithIds(playlist.slice(0, playlist.length - 1)),
+      ios: extractPlaylistImagesWithIds(
+        isOpeningFromMiniPlayer ? playlist : playlist.slice(0, playlist.length - 1),
+      ),
       android: extractPlaylistImagesWithIds(playlist),
     }),
     [playlist],
@@ -43,7 +45,10 @@ const useEpisodesImages = (playlist, initialIndex) => {
       setCurrentTrackIndex(currentTrackIndex - 1);
     }
 
-    if (!isFirstRender.current && event.type === Event.PlaybackTrackChanged) {
+    if (
+      (isOpeningFromMiniPlayer || !isFirstRender.current)
+      && event.type === Event.PlaybackTrackChanged
+    ) {
       const currentTrackId = await TrackPlayer.getCurrentTrack();
 
       const nextTrackIndex = playlist.findIndex(

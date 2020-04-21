@@ -1,25 +1,23 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components';
+
+import EpisodeList from '../../../common/player/components/episode-list/EpisodesList';
 
 const Wrapper = styled(View)`
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #f0f;
 `;
 
-const Message = styled(Text)`
-  font-size: ${({ theme }) => theme.metrics.extraLargeSize}px;
-  color: ${({ theme }) => theme.colors.text};
-`;
-
-const Playlists = () => (
+const Playlists = ({ navigation }) => (
   <Wrapper
     testID="playlists-wrapper"
   >
-    <Message>Playlists</Message>
+    <EpisodeList
+      navigation={navigation}
+    />
   </Wrapper>
 );
 

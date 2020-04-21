@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import { TouchableOpacity, Platform, Text } from 'react-native';
 import styled, { withTheme } from 'styled-components';
 
-import metrics from '../../../../styles/metrics';
-import Icon from '../../../common/Icon';
+import metrics from '../../../../../styles/metrics';
+import Icon from '../../../../common/Icon';
 
 const Wrapper = styled(TouchableOpacity)`
   width: ${({ width }) => width}px;

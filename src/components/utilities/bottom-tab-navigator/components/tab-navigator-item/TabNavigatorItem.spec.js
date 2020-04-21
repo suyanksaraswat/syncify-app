@@ -3,7 +3,7 @@ import { fireEvent, render } from 'react-native-testing-library';
 import { ThemeProvider } from 'styled-components';
 
 import TabNavigatorItem from './TabNavigatorItem';
-import theme from '../../../../styles';
+import theme from '../../../../../styles';
 
 const item = {
   title: 'Home',

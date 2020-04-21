@@ -10,7 +10,7 @@ const EpisodeList = ({ navigation }) => (
     keyExtractor={(item) => item.id}
     renderItem={({ item, index }) => (
       <EpisodeListItem
-        onPress={() => navigation.navigate('PlayerScreen', {
+        onPress={() => navigation.navigate('Player', {
           indexEpisodeSelected: index,
           playlist: episodes,
         })}
