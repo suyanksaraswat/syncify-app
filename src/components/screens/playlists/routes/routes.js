@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Playlists from '../components/Playlists';
+import headerOptions from '../../../../routes/utils';
+import EpisodeList from '../components/Playlists';
 import routeNames from './routeNames';
 
 const Stack = createStackNavigator();
@@ -9,8 +10,12 @@ const Stack = createStackNavigator();
 const PlaylistStack = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name={routeNames.PLAYLISTS}
-      component={Playlists}
+      component={EpisodeList}
+      name={routeNames.EPISODES_LIST}
+      options={() => ({
+        ...headerOptions.defaultHeaderOptions,
+        headerTitle: 'Episodes',
+      })}
     />
   </Stack.Navigator>
 );

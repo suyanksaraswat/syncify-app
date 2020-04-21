@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
-
 import TrackPlayer, {
   useTrackPlayerEvents,
   Capability,
@@ -16,13 +15,37 @@ const events = [
 ];
 
 const usePlayer = (route) => {
-  const { indexEpisodeSelected, playlist: playlistParam } = route.params;
+  const {
+    isOpeningFromMiniPlayer,
+    playlist: playlistParam,
+    indexEpisodeSelected,
+  } = route.params;
 
-  const playlist = Platform.select({
-    // for some reason, iOS never play the last track on the queue
-    ios: [...playlistParam, playlistParam[playlistParam.length - 1]],
-    android: playlistParam,
-  });
+  const getPlaylist = () => {
+    if (!isOpeningFromMiniPlayer) {
+      return Platform.select({
+        // for some reason, iOS never play the last track on the queue
+        ios: [...playlistParam, playlistParam[playlistParam.length - 1]],
+        android: playlistParam,
+      });
+    }
+
+    const rawPlaylist = playlistParam.map((rawPlaylistItem) => ({
+      durationInSeconds: rawPlaylistItem.duration,
+      image: rawPlaylistItem.artwork,
+      author: rawPlaylistItem.artist,
+      title: rawPlaylistItem.title,
+      audio: rawPlaylistItem.url,
+      id: rawPlaylistItem.id,
+    }));
+
+    return Platform.select({
+      ios: rawPlaylist.slice(0, rawPlaylist.length - 1),
+      android: rawPlaylist,
+    });
+  };
+
+  const playlist = getPlaylist();
 
   const getCurrentQueueTrack = async () => {
     const currentTrackId = await TrackPlayer.getCurrentTrack();
@@ -117,6 +140,7 @@ const usePlayer = (route) => {
         Capability.Pause,
         Capability.SkipToNext,
         Capability.SkipToPrevious,
+        Capability.SeekTo,
       ],
 
       notificationCapabilities: [
@@ -216,10 +240,14 @@ const usePlayer = (route) => {
   };
 
   useEffect(() => {
-    setupPlayer();
+    if (!isOpeningFromMiniPlayer) {
+      setupPlayer();
+    }
   }, []);
 
   return {
+    isOpeningFromMiniPlayer,
+    indexEpisodeSelected,
     playlist,
   };
 };

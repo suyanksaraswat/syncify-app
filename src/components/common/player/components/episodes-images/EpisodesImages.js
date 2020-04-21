@@ -18,12 +18,15 @@ const ImageComponent = styled(Image)`
   border-radius: ${({ theme }) => theme.metrics.smallSize}px;
 `;
 
-const EpisodesImages = ({ initialIndex, playlist }) => {
+const EpisodesImages = ({ isOpeningFromMiniPlayer, initialIndex, playlist }) => {
+  console.log('playlist: ', playlist.length);
+
   const {
     onEpisodesImagesMomentumScrollEnd,
     episodeImagesListRef,
     playlistImages,
-  } = useEpisodeImage(playlist, initialIndex);
+  } = useEpisodeImage(isOpeningFromMiniPlayer, playlist, initialIndex);
+  console.log('playlistImages: ', playlistImages.length);
 
   return (
     <FlatList

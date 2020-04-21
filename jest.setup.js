@@ -65,6 +65,7 @@ jest.mock('react-native-track-player', () => ({
   getBufferedPosition: jest.fn(),
   getState: jest.fn(),
   getRate: jest.fn(),
+  useTrackPlayerEvents: jest.fn(),
   Event: {
     PlaybackState: 'playback-state',
     PlaybackError: 'playback-error',
