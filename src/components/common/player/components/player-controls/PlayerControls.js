@@ -22,6 +22,16 @@ const PlayerControls = () => {
     playbackState === State.Playing || State.Buffering ? 'Playing' : 'Paused',
   );
 
+  const handlePlay = () => {
+    if (playerState === 'Paused') {
+      TrackPlayer.play();
+      setPlayerState('Playing');
+    } else if (playerState === 'Playing') {
+      TrackPlayer.pause();
+      setPlayerState('Paused');
+    }
+  };
+
   return (
     <ButtonsWrapper>
       <Button
@@ -34,26 +44,11 @@ const PlayerControls = () => {
         name="skip-previous-circle"
         size={55}
       />
-      {playerState === 'Paused' && (
-        <Button
-          onPress={() => {
-            TrackPlayer.play();
-            setPlayerState('Playing');
-          }}
-          name="play-circle"
-          size={70}
-        />
-      )}
-      {playerState === 'Playing' && (
-        <Button
-          onPress={() => {
-            TrackPlayer.pause();
-            setPlayerState('Paused');
-          }}
-          name="pause-circle"
-          size={70}
-        />
-      )}
+      <Button
+        onPress={handlePlay}
+        name={playerState === 'Paused' ? 'play-circle' : 'pause-circle'}
+        size={70}
+      />
       <Button
         onPress={() => console.log('Skip button pressed')}
         name="skip-next-circle"
