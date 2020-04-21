@@ -44,10 +44,7 @@ const EpisodeListItem = ({
       source={{ uri: image }}
     />
     <TextWrapper>
-      <EpisodeText>
-        {episodeTitle}
-        {' '}
-      </EpisodeText>
+      <EpisodeText>{episodeTitle}</EpisodeText>
       <AuthorText>{author}</AuthorText>
     </TextWrapper>
   </Wrapper>
