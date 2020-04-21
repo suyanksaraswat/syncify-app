@@ -13,6 +13,7 @@ const routeNames = items.map((item) => item.id);
 const index = 0;
 
 const state = {
+  routes: [{ state: undefined }],
   routeNames,
   index,
 };
