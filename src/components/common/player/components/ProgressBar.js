@@ -14,36 +14,40 @@ const Time = styled(Text)`
   font-size: ${({ theme }) => theme.metrics.largeSize}px;
 `;
 
+const ProgressContainer = styled(View)`
+  height: 5px;
+  width: 90%;
+  margin-top: 10px;
+  backgroundcolor: #f0f;
+  flex-direction: row;
+`;
+
+const ProgressPassed = styled(View)`
+  backgroundcolor: red;
+  flex: ${(props) => props.flex};
+`;
+
+const ProgressLeft = styled(View)`
+  backgroundcolor: grey;
+  flex: ${(props) => props.flex};
+`;
+
 const ProgressBar = () => {
   const { position, duration } = useProgress();
 
   return (
     <View>
-      <View
-        style={{
-          height: 5,
-          width: '90%',
-          marginTop: 10,
-          backgroundColor: '#f0f',
-          flexDirection: 'row',
-        }}
-      >
-        <View
-          style={{ flex: position, backgroundColor: 'red' }}
+      <ProgressContainer>
+        <ProgressPassed
+          flex={position}
         />
-        <View
-          style={{
-            flex: duration - position,
-            backgroundColor: 'grey',
-          }}
+        <ProgressLeft
+          flex={duration - position}
         />
-      </View>
+      </ProgressContainer>
       <TimerContainer>
         <Time>{new Date(Math.floor(position) * 1000).toISOString().substr(11, 8)}</Time>
-        <Time>
-          {' '}
-          {new Date(Math.floor(duration) * 1000).toISOString().substr(11, 8)}
-        </Time>
+        <Time>{new Date(Math.floor(duration) * 1000).toISOString().substr(11, 8)}</Time>
       </TimerContainer>
     </View>
   );
