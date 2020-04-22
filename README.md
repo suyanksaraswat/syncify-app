@@ -31,8 +31,14 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 ---
 ### Run locally
 
-clone the repo. Run these commands inside.
+clone the repo. Navigate into the folder then run these commands.
+
 `$ rm -rf node_modules && yarn && yarn clear && cd ios && pod install && cd ..`
+
+`$ npm install`
+
+`$ npm run start`
+
 `$ react-native run-ios`
 
 ---
