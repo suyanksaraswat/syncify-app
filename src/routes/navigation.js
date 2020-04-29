@@ -39,7 +39,7 @@ const routes = {
 
 navigation = {
 	...routes,
-	initialRoute: routes.PODCASTS.id,
+	initialRoute: routes.SOCIAL.id,
 	routes: Object.values(routes),
 }
 
