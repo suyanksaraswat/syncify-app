@@ -37,7 +37,7 @@ const routes = {
 	},
 }
 
-navigation = {
+const navigation = {
 	...routes,
 	initialRoute: routes.SOCIAL.id,
 	routes: Object.values(routes),

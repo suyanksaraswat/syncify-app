@@ -5,16 +5,19 @@ import BottomTabNavigator from './components/common/navigation/BottomTabNavigato
 export default function App({ containerRef, initialNavigationState }) {
 	return (
 		<View style={styles.container}>
-			{Platform.OS === 'ios' && <StatusBar barStyle='default' />}
+			{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
-			<BottomTabNavigator container={containerRef} initialNavigationState={initialNavigationState}/>
+			<BottomTabNavigator
+				container={containerRef}
+				initialNavigationState={initialNavigationState}
+			/>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+	},
 })
