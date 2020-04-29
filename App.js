@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { SplashScreen } from 'expo'
 
-import SyncifyApp from './src/SyncifyApp'
-import useLinking from './src/routes/useLinking'
+import SyncifyApp from '@app/SyncifyApp'
+import useLinking from '@app/routes/useLinking'
 
 export default function App(props) {
 	const [isLoadingComplete, setLoadingComplete] = React.useState(false)
@@ -29,12 +29,11 @@ export default function App(props) {
 
 	if (!isLoadingComplete && !props.skipLoadingScreen) {
 		return null
-	} 
-		return (
-			<SyncifyApp
-				containerRef={containerRef}
-				initialNavigationState={initialNavigationState}
-			/>
-		)
-	
+	}
+	return (
+		<SyncifyApp
+			containerRef={containerRef}
+			initialNavigationState={initialNavigationState}
+		/>
+	)
 }

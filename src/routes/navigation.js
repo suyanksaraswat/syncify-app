@@ -1,8 +1,8 @@
-import PodcastsScreen from '../components/screens/Podcasts'
-import ExploreScreen from '../components/screens/Explore'
-import SettingsScreen from '../components/screens/Settings'
-import TopChartsScreen from '../components/screens/TopCharts'
-import SocialScreen from '../components/screens/Social'
+import PodcastsScreen from '@app/components/screens/Podcasts'
+import ExploreScreen from '@app/components/screens/Explore'
+import SettingsScreen from '@app/components/screens/Settings'
+import TopChartsScreen from '@app/components/screens/TopCharts'
+import SocialScreen from '@app/components/screens/Social'
 
 const routes = {
 	PODCASTS: {
@@ -39,7 +39,7 @@ const routes = {
 
 const navigation = {
 	...routes,
-	initialRoute: routes.SOCIAL.id,
+	initialRoute: routes.PODCASTS.id,
 	routes: Object.values(routes),
 }
 

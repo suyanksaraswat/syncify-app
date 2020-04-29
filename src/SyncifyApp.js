@@ -1,17 +1,22 @@
 import * as React from 'react'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native'
-import BottomTabNavigator from './components/common/navigation/BottomTabNavigator'
+import { Provider as ReduxProvider } from 'react-redux'
 
-export default function App({ containerRef, initialNavigationState }) {
+import store from '@app/modules/store'
+import BottomTabNavigator from '@app/components/common/navigation/BottomTabNavigator'
+
+export default function SyncifyApp({ containerRef, initialNavigationState }) {
 	return (
-		<View style={styles.container}>
-			{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+		<ReduxProvider store={store}>
+			<View style={styles.container}>
+				{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
-			<BottomTabNavigator
-				container={containerRef}
-				initialNavigationState={initialNavigationState}
-			/>
-		</View>
+				<BottomTabNavigator
+					container={containerRef}
+					initialNavigationState={initialNavigationState}
+				/>
+			</View>
+		</ReduxProvider>
 	)
 }
 
