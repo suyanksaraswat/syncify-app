@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 const Wrapper = styled(View)`
 	width: 100%;
@@ -17,13 +18,19 @@ const AuthorText = styled(EpisodeTitleText)`
 	margin: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
-const TrackTextInfo = ({ track }) => {
+const TrackTextInfo = (props) => {
 	return (
 		<Wrapper>
-			<EpisodeTitleText>{track.title}</EpisodeTitleText>
-			<AuthorText>{track.author}</AuthorText>
+			<EpisodeTitleText>{props.title}</EpisodeTitleText>
+			<AuthorText>{props.artist}</AuthorText>
 		</Wrapper>
 	)
 }
 
-export default TrackTextInfo
+export default connect(
+	(state) => ({
+		title: state.player.currentTrack.title,
+		artist: state.player.currentTrack.artist,
+	}),
+	{}
+)(TrackTextInfo)
