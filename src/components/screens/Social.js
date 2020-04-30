@@ -1,13 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import styled from 'styled-components'
-
-const Wrapper = styled(View)`
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-`
+import Screen from '@app/components/layout/Screen'
 
 const Message = styled(Text)`
 	font-size: 20px;
@@ -15,9 +9,9 @@ const Message = styled(Text)`
 `
 
 const Social = () => (
-	<Wrapper>
+	<Screen>
 		<Message>Social</Message>
-	</Wrapper>
+	</Screen>
 )
 
 export default Social

@@ -3,8 +3,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import TabBarIcon from './TabBarIcon'
-import navigation from '../../../routes/navigation'
+import navigation from '@app/routes/navigation'
+import TabBarIcon from '@app/components/common/navigation/TabBarIcon'
+import Colors from '@app/styles/colors'
 
 const BottomTab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -15,13 +16,19 @@ const BottomTabNavigator = ({ containerRef, initialNavigationState }) => (
 		initialState={initialNavigationState}
 	>
 		<Stack.Navigator>
-			<Stack.Screen name="Top Charts" component={Navigator} />
+			<Stack.Screen name="Syncify" component={Navigator} />
 		</Stack.Navigator>
 	</NavigationContainer>
 )
 
 const Navigator = () => (
-	<BottomTab.Navigator initialRouteName={navigation.initialRoute}>
+	<BottomTab.Navigator
+		initialRouteName={navigation.initialRoute}
+		tabBarOptions={{
+			activeTintColor: Colors.activeBottomNavigatorBarItem,
+			inactiveTintColor: Colors.inactiveBottomNavigatorBarItem,
+		}}
+	>
 		{navigation.routes.map((x) => (
 			<BottomTab.Screen
 				key={x.id}

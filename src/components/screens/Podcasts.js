@@ -1,15 +1,9 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { play, pause } from '@app/modules/player/actions'
-
-const Wrapper = styled(View)`
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-`
+import Screen from '@app/components/layout/Screen'
 
 const Message = styled(Text)`
 	font-size: 20px;
@@ -17,7 +11,7 @@ const Message = styled(Text)`
 `
 
 const Podcasts = (props) => (
-	<Wrapper testID="playlists-wrapper">
+	<Screen testID="playlists-wrapper">
 		<Message>Podcasts: {props.playState}</Message>
 
 		<TouchableOpacity onPress={() => props.play()}>
@@ -27,7 +21,7 @@ const Podcasts = (props) => (
 		<TouchableOpacity onPress={() => props.pause()}>
 			<Text>Pause</Text>
 		</TouchableOpacity>
-	</Wrapper>
+	</Screen>
 )
 
 export default connect(

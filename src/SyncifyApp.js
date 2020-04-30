@@ -1,28 +1,30 @@
 import * as React from 'react'
-import { Platform, StatusBar, StyleSheet, View } from 'react-native'
+import { Platform, StatusBar, View } from 'react-native'
 import { Provider as ReduxProvider } from 'react-redux'
+import styled, { ThemeProvider } from 'styled-components'
+import theme from '@app/styles'
 
 import store from '@app/modules/store'
 import BottomTabNavigator from '@app/components/common/navigation/BottomTabNavigator'
 
+const Container = styled(View)`
+	flex: 1
+	background-color: #fff
+`
+
 export default function SyncifyApp({ containerRef, initialNavigationState }) {
 	return (
 		<ReduxProvider store={store}>
-			<View style={styles.container}>
-				{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+			<ThemeProvider theme={theme}>
+				<Container>
+					{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
-				<BottomTabNavigator
-					container={containerRef}
-					initialNavigationState={initialNavigationState}
-				/>
-			</View>
+					<BottomTabNavigator
+						container={containerRef}
+						initialNavigationState={initialNavigationState}
+					/>
+				</Container>
+			</ThemeProvider>
 		</ReduxProvider>
 	)
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-	},
-})
