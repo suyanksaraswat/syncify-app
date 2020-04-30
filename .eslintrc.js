@@ -57,6 +57,7 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'no-plusplus': 'off',
 		'react/display-name': 'off',
+		'import/extensions': 'off',
 
 		'no-console': 'error',
 		semi: ['error', 'never'],

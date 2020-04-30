@@ -1,10 +1,17 @@
 import PodcastsScreen from '@app/components/screens/Podcasts'
+import EpisodesScreen from '@app/components/screens/Episodes'
 import ExploreScreen from '@app/components/screens/Explore'
 import SettingsScreen from '@app/components/screens/Settings'
 import TopChartsScreen from '@app/components/screens/TopCharts'
 import SocialScreen from '@app/components/screens/Social'
 
 const routes = {
+	EPISODES: {
+		id: 'navigation/episodes',
+		component: EpisodesScreen,
+		title: 'Episodes',
+		icon: 'playlist-play',
+	},
 	PODCASTS: {
 		id: 'navigation/podcasts',
 		component: PodcastsScreen,

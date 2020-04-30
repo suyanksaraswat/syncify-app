@@ -5,7 +5,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import theme from '@app/styles'
 
 import store from '@app/modules/store'
-import BottomTabNavigator from '@app/components/common/navigation/BottomTabNavigator'
+import Router from '@app/routes/Router'
 
 const Container = styled(View)`
 	flex: 1
@@ -19,7 +19,7 @@ export default function SyncifyApp({ containerRef, initialNavigationState }) {
 				<Container>
 					{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
-					<BottomTabNavigator
+					<Router
 						container={containerRef}
 						initialNavigationState={initialNavigationState}
 					/>
