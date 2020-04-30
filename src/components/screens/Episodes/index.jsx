@@ -6,28 +6,26 @@ import { startPlayback } from '@app/modules/player/actions'
 import EpisodeListItem from './EpisodeListItem'
 import episodes from './episodes'
 
-const EpisodeList = (props) => (
-	<FlatList
-		testID="episode-list"
-		keyExtractor={(item) => item.id}
-		renderItem={({ item, index }) => (
-			<EpisodeListItem
-				onPress={() => {
-					props.startPlayback(item.audio)
-
-					props.navigation.navigate('Player', {
-						indexEpisodeSelected: index,
-						playlist: episodes,
-					})
-				}}
-				episodeTitle={item.title}
-				author={item.author}
-				image={item.image}
-			/>
-		)}
-		data={episodes}
-	/>
-)
+const EpisodeList = (props) => {
+	return (
+		<FlatList
+			testID="episode-list"
+			keyExtractor={(item) => item.id}
+			data={episodes}
+			renderItem={({ item }) => (
+				<EpisodeListItem
+					onPress={() => {
+						props.startPlayback(item)
+						props.navigation.navigate('Player')
+					}}
+					title={item.title}
+					artist={item.artist}
+					image={item.image}
+				/>
+			)}
+		/>
+	)
+}
 
 export default connect(() => ({}), {
 	startPlayback,

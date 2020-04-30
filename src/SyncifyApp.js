@@ -8,11 +8,6 @@ import theme from '@app/styles'
 import store from '@app/modules/store'
 import Router from '@app/routes/Router'
 
-const Container = styled(View)`
-	flex: 1
-	background-color: #fff
-`
-
 Audio.setAudioModeAsync({
 	allowsRecordingIOS: false,
 	staysActiveInBackground: false,
@@ -39,3 +34,8 @@ export default function SyncifyApp({ containerRef, initialNavigationState }) {
 		</ReduxProvider>
 	)
 }
+
+const Container = styled(View)`
+	flex: 1
+	background-color: #fff
+`

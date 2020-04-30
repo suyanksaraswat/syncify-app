@@ -1,9 +1,11 @@
 import React from 'react'
-
 import { View } from 'react-native'
-
 import styled from 'styled-components'
 import Button from '@app/components/common/Button'
+import { connect } from 'react-redux'
+
+import { playOrPause } from '@app/modules/player/actions'
+import PLAY_STATE from '@app/modules/player/playStateStatus'
 
 const ButtonsWrapper = styled(View)`
 	width: 100%;
@@ -15,9 +17,8 @@ const ButtonsWrapper = styled(View)`
 	padding-right: ${({ theme }) => theme.metrics.extraLargeSize}px;
 `
 
-const PlayerControls = () => {
+const PlayerControls = (props) => {
 	const [liked, setLiked] = React.useState(false)
-	const isPlaying = React.useState(false)
 
 	const handleLike = async () => {
 		if (liked) {
@@ -32,8 +33,8 @@ const PlayerControls = () => {
 			<Button onPress={() => {}} name="speedometer" size={35} />
 			<Button onPress={() => {}} name="skip-previous-circle" size={55} />
 			<Button
-				onPress={() => {}}
-				name={!isPlaying ? 'play-circle' : 'pause-circle'}
+				onPress={() => props.playOrPause()}
+				name={!props.isPlaying ? 'play-circle' : 'pause-circle'}
 				size={70}
 			/>
 			<Button onPress={() => {}} name="skip-next-circle" size={55} />
@@ -46,4 +47,11 @@ const PlayerControls = () => {
 	)
 }
 
-export default PlayerControls
+export default connect(
+	(state) => ({
+		isPlaying: state.player.playState === PLAY_STATE.PLAYING,
+	}),
+	{
+		playOrPause,
+	}
+)(PlayerControls)

@@ -1,7 +1,15 @@
 import React from 'react'
 import { Image, View } from 'react-native'
 import styled from 'styled-components'
-import episodes from '@app/components/screens/Episodes/episodes'
+import { connect } from 'react-redux'
+
+const EpisodesImages = (props) => {
+	return (
+		<Wrapper>
+			<ImageComponent source={{ uri: props.image }} />
+		</Wrapper>
+	)
+}
 
 const Wrapper = styled(View)`
 	width: ${({ theme }) => theme.metrics.width}px;
@@ -16,12 +24,9 @@ const ImageComponent = styled(Image)`
 	border-radius: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
-const EpisodesImages = () => {
-	return (
-		<Wrapper>
-			<ImageComponent source={{ uri: episodes[0].image }} />
-		</Wrapper>
-	)
-}
-
-export default EpisodesImages
+export default connect(
+	(state) => ({
+		image: state.player.currentTrack.image,
+	}),
+	{}
+)(EpisodesImages)

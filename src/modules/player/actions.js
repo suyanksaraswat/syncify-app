@@ -1,18 +1,27 @@
 import { Audio } from 'expo-av'
+import PLAY_STATE from '@app/modules/player/playStateStatus'
 
 const usePlaybackInstance = (getState) => {
 	return getState().player.playbackInstance
 }
 
 export const startPlayback = (item) => async (dispatch, getState) => {
+	dispatch({
+		type: 'player/START_PLAYBACK_LOADING',
+		payload: {
+			currentTrack: item,
+		},
+	})
+
+	const state = getState().player
+
 	let playbackInstance = usePlaybackInstance(getState)
 	if (playbackInstance != null) {
 		await playbackInstance.unloadAsync()
 		playbackInstance = null
 	}
 
-	const state = getState().player
-	const source = { uri: item }
+	const source = { uri: item.uri }
 	const initialStatus = {
 		shouldPlay: true,
 		rate: state.rate,
@@ -22,35 +31,49 @@ export const startPlayback = (item) => async (dispatch, getState) => {
 	}
 
 	const { sound } = await Audio.Sound.createAsync(source, initialStatus)
-	playbackInstance = sound
-	dispatch({ type: 'player/START_PLAYBACK', payload: { playbackInstance } })
+	dispatch({
+		type: 'player/START_PLAYBACK_SUCCEEDED',
+		payload: {
+			playbackInstance: sound,
+			currentTrack: item,
+		},
+	})
 }
 
-export const play = () => (dispatch, getState) => {
+export const playOrPause = () => async (dispatch, getState) => {
+	const playState = getState().player.playState
+	if (playState === PLAY_STATE.PLAYING) {
+		dispatch(pause())
+	} else {
+		dispatch(play())
+	}
+}
+
+export const play = () => async (dispatch, getState) => {
 	const playbackInstance = usePlaybackInstance(getState)
 	if (playbackInstance != null) {
 		playbackInstance.playAsync()
 	}
 
-	dispatch({ type: 'player/PLAY', payload: { playbackInstance } })
+	dispatch({ type: 'player/PLAY', payload: {} })
 }
 
-export const pause = () => (dispatch, getState) => {
+export const pause = () => async (dispatch, getState) => {
 	const playbackInstance = usePlaybackInstance(getState)
 	if (playbackInstance != null) {
 		playbackInstance.pauseAsync()
 	}
 
-	dispatch({ type: 'player/PAUSE', payload: { playbackInstance } })
+	dispatch({ type: 'player/PAUSE', payload: {} })
 }
 
-export const stop = () => (dispatch, getState) => {
+export const stop = () => async (dispatch, getState) => {
 	const playbackInstance = usePlaybackInstance(getState)
 	if (playbackInstance != null) {
 		playbackInstance.stopAsync()
 	}
 
-	dispatch({ type: 'player/STOP', payload: { playbackInstance } })
+	dispatch({ type: 'player/STOP', payload: {} })
 }
 
 // FOR REFERENCE BELOW

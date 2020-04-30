@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import navigation from '@app/routes/navigation'
+import tabs from '@app/routes/tabs'
 import Colors from '@app/styles/colors'
 import TabBarIcon from './TabBarIcon'
 
@@ -9,13 +9,13 @@ const BottomTab = createBottomTabNavigator()
 
 const BottomTabNavigator = () => (
 	<BottomTab.Navigator
-		initialRouteName={navigation.initialRoute}
+		initialRouteName={tabs.initialRoute}
 		tabBarOptions={{
 			activeTintColor: Colors.activeBottomNavigatorBarItem,
 			inactiveTintColor: Colors.inactiveBottomNavigatorBarItem,
 		}}
 	>
-		{navigation.routes.map((x) => (
+		{tabs.routes.map((x) => (
 			<BottomTab.Screen
 				key={x.id}
 				name={x.id}

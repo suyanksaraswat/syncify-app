@@ -30,14 +30,16 @@ const EpisodeText = styled(Text)`
 	color: ${({ theme }) => theme.colors.text};
 `
 
-const EpisodeListItem = ({ episodeTitle, onPress, author, image }) => (
-	<Wrapper onPress={onPress}>
-		<EpisodeImage source={{ uri: image }} />
-		<TextWrapper>
-			<EpisodeText>{episodeTitle}</EpisodeText>
-			<AuthorText>{author}</AuthorText>
-		</TextWrapper>
-	</Wrapper>
-)
+const EpisodeListItem = ({ title, artist, image, onPress }) => {
+	return (
+		<Wrapper onPress={onPress}>
+			<EpisodeImage source={{ uri: image }} />
+			<TextWrapper>
+				<EpisodeText>{title}</EpisodeText>
+				<AuthorText>{artist}</AuthorText>
+			</TextWrapper>
+		</Wrapper>
+	)
+}
 
 export default EpisodeListItem
