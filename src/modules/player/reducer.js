@@ -4,8 +4,8 @@ const LOADING_STRING = '... loading ...'
 export const initialState = {
 	playbackIstance: null,
 	playbackInstanceName: LOADING_STRING,
-	playbackInstancePosition: null,
-	playbackInstanceDuration: null,
+	playbackInstancePosition: 1,
+	playbackInstanceDuration: 1,
 	playbackInstanceUri: '',
 
 	playState: PLAY_STATE.STOPPED,
@@ -15,6 +15,7 @@ export const initialState = {
 	shouldCorrectPitch: true,
 	fullscreen: false,
 	currentTrack: {},
+	shouldPlayAtEndOfSeek: false,
 
 	showVideo: false,
 	isBuffering: false,
@@ -54,6 +55,48 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				playState: PLAY_STATE.PAUSED,
+			}
+		}
+
+		case 'player/UPDATE_STATUS': {
+			const status = action.payload.status
+			if (status.isLoaded) {
+				return {
+					...state,
+					playbackInstancePosition: status.positionMillis,
+					playbackInstanceDuration: status.durationMillis,
+					shouldPlay: status.shouldPlay,
+					isPlaying: status.isPlaying,
+					isBuffering: status.isBuffering,
+					rate: status.rate,
+					muted: status.isMuted,
+					volume: status.volume,
+					shouldCorrectPitch: status.shouldCorrectPitch,
+				}
+
+				// if (status.didJustFinish && !status.isLooping) {
+				// 	this._advanceIndex(true)
+				// 	this._updatePlaybackInstanceForIndex(true)
+				// }
+			}
+			if (status.error) {
+				// console.log(`FATAL PLAYER ERROR: ${status.error}`)
+			}
+
+			return state
+		}
+
+		case 'player/SLIDER_SEEKING_STARTED': {
+			return {
+				...state,
+				isSeeking: true,
+			}
+		}
+
+		case 'player/SLIDER_SEEKING_COMPLETE': {
+			return {
+				...state,
+				isSeeking: false,
 			}
 		}
 

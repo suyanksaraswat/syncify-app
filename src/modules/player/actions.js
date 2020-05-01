@@ -30,12 +30,18 @@ export const startPlayback = (item) => async (dispatch, getState) => {
 		isMuted: state.muted,
 	}
 
-	const { sound } = await Audio.Sound.createAsync(source, initialStatus)
+	const { sound } = await Audio.Sound.createAsync(
+		source,
+		initialStatus,
+		(status) => dispatch(updateStatus(status))
+	)
+
 	dispatch({
 		type: 'player/START_PLAYBACK_SUCCEEDED',
 		payload: {
 			playbackInstance: sound,
 			currentTrack: item,
+			playbackInstancePosition: 0,
 		},
 	})
 }
@@ -76,7 +82,66 @@ export const stop = () => async (dispatch, getState) => {
 	dispatch({ type: 'player/STOP', payload: {} })
 }
 
+export const updateStatus = (status) => async (dispatch) =>
+	dispatch({ type: 'player/UPDATE_STATUS', payload: { status } })
+
+export const seekSliderValueChange = () => async (dispatch, getState) => {
+	const playbackInstance = usePlaybackInstance(getState)
+	if (playbackInstance != null && !getState().player.isSeeking) {
+		dispatch({ type: 'player/SLIDER_SEEKING_STARTED', payload: {} })
+		playbackInstance.pauseAsync()
+	}
+}
+
+export const seekSliderSlidingComplete = (value) => async (
+	dispatch,
+	getState
+) => {
+	const playbackInstance = usePlaybackInstance(getState)
+
+	if (playbackInstance != null) {
+		const seekPosition = value * getState().player.playbackInstanceDuration
+		playbackInstance.playFromPositionAsync(seekPosition)
+	}
+
+	dispatch({ type: 'player/SLIDER_SEEKING_COMPLETE', payload: {} })
+}
+
 // FOR REFERENCE BELOW
+
+// const _onSeekSliderValueChange = (value) => {
+// 	if (this.playbackInstance != null && !this.isSeeking) {
+// 		this.isSeeking = true
+// 		this.shouldPlayAtEndOfSeek = this.state.shouldPlay
+// 		this.playbackInstance.pauseAsync()
+// 	}
+// }
+//
+// const _onSeekSliderSlidingComplete = async (value) => {
+// 	if (this.playbackInstance != null) {
+// 		this.isSeeking = false
+// 		const seekPosition = value * this.state.playbackInstanceDuration
+// 		if (this.shouldPlayAtEndOfSeek) {
+// 			this.playbackInstance.playFromPositionAsync(seekPosition)
+// 		} else {
+// 			this.playbackInstance.setPositionAsync(seekPosition)
+// 		}
+// 	}
+// }
+
+// const _getSeekSliderPosition = () => {
+// 	if (
+// 		this.playbackInstance != null &&
+// 		this.state.playbackInstancePosition != null &&
+// 		this.state.playbackInstanceDuration != null
+// 	) {
+// 		return (
+// 			this.state.playbackInstancePosition /
+// 			this.state.playbackInstanceDuration
+// 		)
+// 	}
+// 	return 0
+// }
 
 // const _onBackPressed = () => {
 // 	if (this.playbackInstance != null) {
@@ -128,40 +193,6 @@ export const stop = () => async (dispatch, getState) => {
 
 // const _onPitchCorrectionPressed = async (value) => {
 // 	this._trySetRate(this.state.rate, !this.state.shouldCorrectPitch)
-// }
-
-// const _onSeekSliderValueChange = (value) => {
-// 	if (this.playbackInstance != null && !this.isSeeking) {
-// 		this.isSeeking = true
-// 		this.shouldPlayAtEndOfSeek = this.state.shouldPlay
-// 		this.playbackInstance.pauseAsync()
-// 	}
-// }
-
-// const _onSeekSliderSlidingComplete = async (value) => {
-// 	if (this.playbackInstance != null) {
-// 		this.isSeeking = false
-// 		const seekPosition = value * this.state.playbackInstanceDuration
-// 		if (this.shouldPlayAtEndOfSeek) {
-// 			this.playbackInstance.playFromPositionAsync(seekPosition)
-// 		} else {
-// 			this.playbackInstance.setPositionAsync(seekPosition)
-// 		}
-// 	}
-// }
-
-// const _getSeekSliderPosition = () => {
-// 	if (
-// 		this.playbackInstance != null &&
-// 		this.state.playbackInstancePosition != null &&
-// 		this.state.playbackInstanceDuration != null
-// 	) {
-// 		return (
-// 			this.state.playbackInstancePosition /
-// 			this.state.playbackInstanceDuration
-// 		)
-// 	}
-// 	return 0
 // }
 
 // const _getMMSSFromMillis = (millis) => {

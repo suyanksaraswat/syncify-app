@@ -5,11 +5,13 @@ import EpisodeCover from './EpisodeCover'
 import TrackTextInfo from './TrackTextInfo'
 import PlayerControls from './PlayerControls'
 import OptionsBar from './OptionsBar'
+import ProgressBar from './ProgressBar'
 
 const Player = () => (
 	<Screen>
 		<EpisodeCover />
 		<TrackTextInfo track={episodes[0]} />
+		<ProgressBar />
 		<PlayerControls />
 		<OptionsBar />
 	</Screen>
