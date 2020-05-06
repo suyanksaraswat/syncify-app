@@ -1,5 +1,5 @@
 import { Audio } from 'expo-av'
-import PLAY_STATE from '@app/modules/player/playStateStatus'
+import { PLAY_STATE } from '@app/modules/constants'
 
 const usePlaybackInstance = (getState) => {
 	return getState().player.playbackInstance

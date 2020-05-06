@@ -5,7 +5,7 @@ import Button from '@app/components/common/Button'
 import { connect } from 'react-redux'
 
 import { playOrPause } from '@app/modules/player/actions'
-import PLAY_STATE from '@app/modules/player/playStateStatus'
+import { PLAY_STATE } from '@app/modules/constants'
 
 const ButtonsWrapper = styled(View)`
 	width: 100%;
