@@ -14,7 +14,7 @@ export const initialState = {
 	muted: false,
 	shouldCorrectPitch: true,
 	fullscreen: false,
-	currentTrack: {},
+	currentTrack: null,
 	shouldPlayAtEndOfSeek: false,
 
 	showVideo: false,

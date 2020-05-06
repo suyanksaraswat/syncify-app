@@ -1,8 +1,10 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { connect } from 'react-redux'
 
 import tabs from '@app/routes/tabs'
 import Colors from '@app/styles/colors'
+
 import TabBarIcon from './TabBarIcon'
 
 const BottomTab = createBottomTabNavigator()
@@ -31,4 +33,9 @@ const BottomTabNavigator = () => (
 	</BottomTab.Navigator>
 )
 
-export default BottomTabNavigator
+export default connect(
+	(state) => ({
+		currentTrack: state.player.currentTrack,
+	}),
+	{}
+)(BottomTabNavigator)

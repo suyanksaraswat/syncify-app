@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const EpisodesImages = (props) => {
 	return (
 		<Wrapper>
-			<ImageComponent source={{ uri: props.image }} />
+			<ImageComponent source={{ uri: props.currentTrack.image }} />
 		</Wrapper>
 	)
 }
@@ -26,7 +26,7 @@ const ImageComponent = styled(Image)`
 
 export default connect(
 	(state) => ({
-		image: state.player.currentTrack.image,
+		currentTrack: state.player.currentTrack || {},
 	}),
 	{}
 )(EpisodesImages)
