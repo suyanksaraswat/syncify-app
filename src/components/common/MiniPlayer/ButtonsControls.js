@@ -6,7 +6,7 @@ import Icon from '@app/components/common/Icon'
 import styles from '@app/styles'
 
 import { playOrPause } from '@app/modules/player/actions'
-import PLAY_STATE from '@app/modules/player/playStateStatus'
+import { PLAY_STATE } from '@app/modules/constants'
 
 const ButtonsWrapper = styled(View)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('22%')}px;

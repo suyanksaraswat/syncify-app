@@ -1,0 +1,25 @@
+import React from 'react'
+import { TouchableOpacity, Image } from 'react-native'
+import styled from 'styled-components'
+
+const Wrapper = styled(TouchableOpacity)`
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('24%')}px;
+	height: ${({ theme }) => theme.metrics.getWidthFromDP('24%')}px;
+	border: 1px solid;
+	border-color: ${({ theme }) => theme.colors.background};
+`
+
+const EpisodeImage = styled(Image)`
+	width: 100%;
+	height: 100%;
+`
+
+const PodcastItem = ({ image }) => {
+	return (
+		<Wrapper onPress={() => {}}>
+			<EpisodeImage source={{ uri: image }} />
+		</Wrapper>
+	)
+}
+
+export default PodcastItem
