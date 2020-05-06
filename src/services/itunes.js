@@ -16,4 +16,4 @@ class ItunesApi {
 	}
 }
 
-export const itunesApi = new ItunesApi()
+export default new ItunesApi()
