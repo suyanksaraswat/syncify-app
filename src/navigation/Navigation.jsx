@@ -27,11 +27,11 @@ const Navigation = (props) => (
 					/>
 
 					<RootStack.Screen
+						name="Player"
+						component={Player}
 						options={() => ({
 							animationEnabled: true,
 						})}
-						component={Player}
-						name="Player"
 					/>
 				</>
 			) : (

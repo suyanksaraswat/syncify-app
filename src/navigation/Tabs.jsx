@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import colors from '@app/styles/colors'
-import TabBar from './TabBar'
+import TabBarWithMiniPlayer from './TabBarWithMiniPlayer'
 import TabBarIcon from './TabBarIcon'
 
 import PodcastsStackScreen from './stacks/PodcastsStack'
@@ -34,7 +34,7 @@ const Tabs = createBottomTabNavigator()
 
 const TabsScreen = () => (
 	<Tabs.Navigator
-		tabBar={(props) => <TabBar {...props} />}
+		tabBar={(props) => <TabBarWithMiniPlayer {...props} />}
 		tabBarOptions={{
 			activeTintColor: colors.activeBottomNavigatorBarItem,
 			inactiveTintColor: colors.inactiveBottomNavigatorBarItem,

@@ -9,7 +9,7 @@ import MiniPlayer from '@app/components/common/MiniPlayer'
 const TabBar = (props) => {
 	return (
 		<Wrapper>
-			{props.currentTrack && <MiniPlayer />}
+			{props.currentTrack && <MiniPlayer navigation={props.navigation} />}
 			<BottomTabBar {...props} />
 		</Wrapper>
 	)
