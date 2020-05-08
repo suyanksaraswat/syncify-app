@@ -2,7 +2,7 @@ import * as React from 'react'
 import { SplashScreen } from 'expo'
 
 import SyncifyApp from '@app/SyncifyApp'
-import useLinking from '@app/routes/useLinking'
+import useLinking from '@app/navigation/useLinking'
 
 export default function App(props) {
 	const [isLoadingComplete, setLoadingComplete] = React.useState(false)

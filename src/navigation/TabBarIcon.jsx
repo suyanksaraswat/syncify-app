@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import * as React from 'react'
 
-import Colors from '@app/styles/colors'
+import colors from '@app/styles/colors'
 
 export default function TabBarIcon(props) {
 	return (
@@ -11,8 +11,8 @@ export default function TabBarIcon(props) {
 			style={{ marginBottom: -3 }}
 			color={
 				props.focused
-					? Colors.activeBottomNavigatorBarItem
-					: Colors.inactiveBottomNavigatorBarItem
+					? colors.activeBottomNavigatorBarItem
+					: colors.inactiveBottomNavigatorBarItem
 			}
 		/>
 	)

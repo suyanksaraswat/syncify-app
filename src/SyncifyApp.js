@@ -6,7 +6,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import theme from '@app/styles'
 
 import store from '@app/modules/store'
-import Router from '@app/routes/Router'
+import Navigation from '@app/navigation/Navigation'
 
 Audio.setAudioModeAsync({
 	allowsRecordingIOS: false,
@@ -25,7 +25,7 @@ export default function SyncifyApp({ containerRef, initialNavigationState }) {
 				<Container>
 					{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
-					<Router
+					<Navigation
 						container={containerRef}
 						initialNavigationState={initialNavigationState}
 					/>
