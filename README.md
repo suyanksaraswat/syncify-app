@@ -35,11 +35,9 @@ clone the repo. Navigate into the folder then run these commands.
 
 `$ rm -rf node_modules && yarn && yarn clear && cd ios && pod install && cd ..`
 
-`$ npm install`
+`$ yarn install`
 
-`$ npm run start`
-
-`$ react-native run-ios`
+`$ expo start`
 
 ---
 ### Contributing
