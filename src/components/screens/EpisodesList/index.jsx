@@ -4,6 +4,7 @@ import { ScrollView, View } from 'react-native'
 import styled from 'styled-components'
 
 import EpisodeItem from './EpisodeItem'
+import EpisodeHeader from './EpisodeHeader'
 
 const Wrapper = styled(View)`
 	flex-direction: column;
@@ -12,12 +13,17 @@ const Wrapper = styled(View)`
 
 const Episodes = (props) => (
 	<Wrapper>
+		<EpisodeHeader image={props.currentPodcast.feed.image} />
 		<ScrollView testID="episode-list">
 			{props.currentPodcast.items.map((podcast) => (
 				<EpisodeItem
 					key={podcast.link}
 					onPress={() => {}}
 					title={podcast.title}
+					pubDate={podcast.pubDate.substr(0, 10)}
+					image={podcast.thumbnail}
+					description={podcast.description}
+					duration={podcast.enclosure.duration}
 				/>
 			))}
 		</ScrollView>
@@ -25,6 +31,8 @@ const Episodes = (props) => (
 )
 
 export default connect(
-	(state) => ({ currentPodcast: state.podcasts.currentPodcast }),
+	(state) => ({
+		currentPodcast: state.podcasts.currentPodcast,
+	}),
 	{}
 )(Episodes)

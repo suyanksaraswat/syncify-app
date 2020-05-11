@@ -1,28 +1,89 @@
 import React from 'react'
-import { TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity, Text, View, Image } from 'react-native'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
+import { playOrPause } from '@app/modules/player/actions'
+import { PLAY_STATE } from '@app/modules/constants'
+import Button from '@app/components/common/Button'
+
 const Wrapper = styled(TouchableOpacity)`
-	width: 100%;
-	flex-direction: row;
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
+	flex-direction: column;
 	align-items: center;
 	padding: ${({ theme }) => theme.metrics.largeSize}px;
 `
 
-const EpisodeText = styled(Text)`
-	font-size: ${({ theme }) => theme.metrics.extraLargeSize}px;
-	color: ${({ theme }) => theme.colors.text};
+const Header = styled(View)`
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: ${({ theme }) => theme.metrics.extraSmallSize}px;
 `
-const EpisodeItem = ({ title }) => {
+
+const EpisodeBody = styled(Header)`
+	margin: 0px;
+`
+
+const HeaderText = styled(Text)`
+	font-size: ${({ theme }) => theme.metrics.largeSize}px;
+	color: ${({ theme }) => theme.colors.text};
+	flex: 5;
+	margin-left: ${({ theme }) => theme.metrics.smallSize}px;
+`
+
+const DateText = styled(Text)`
+	font-size: ${({ theme }) => theme.metrics.mediumSize}px;
+	color: ${({ theme }) => theme.colors.text};
+	flex: 1;
+`
+const EpisodeImage = styled(Image)`
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
+	height: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
+	border-radius: ${({ theme }) => theme.metrics.smallSize}px;
+	margin: ${({ theme }) => theme.metrics.smallSize}px;
+`
+const DescriptionTextBox = styled(View)`
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('50%')}px;
+	height: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
+	margin: ${({ theme }) => theme.metrics.smallSize}px;
+`
+
+const ButtonBox = styled(View)`
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('35%')}px;
+`
+
+const EpisodeItem = ({ title, pubDate, image, description, duration }) => {
 	return (
 		<Wrapper onPress={() => {}}>
-			<EpisodeText>{title}</EpisodeText>
+			<Header>
+				<HeaderText>{title}</HeaderText>
+				<DateText>{pubDate}</DateText>
+			</Header>
+			<EpisodeBody>
+				<EpisodeImage source={{ uri: image }} />
+				<DescriptionTextBox>
+					<DateText>{description}</DateText>
+				</DescriptionTextBox>
+				<ButtonBox>
+					<Button onPress={() => {}} name={'play-circle'} size={50} />
+					<DateText>
+						{new Date(duration * 1000).toISOString().substr(11, 8)}
+					</DateText>
+				</ButtonBox>
+			</EpisodeBody>
 		</Wrapper>
 	)
 }
 
 export default connect(
-	(state) => ({ currentPodcast: state.podcasts.currentPodcast }),
-	{}
+	(state) => ({
+		isPlaying: state.player.playState === PLAY_STATE.PLAYING,
+	}),
+	{
+		playOrPause,
+	}
 )(EpisodeItem)
