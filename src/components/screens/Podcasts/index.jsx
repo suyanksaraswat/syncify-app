@@ -16,7 +16,7 @@ const Podcasts = (props) => (
 			{props.subscriptions.map((podcast) => (
 				<PodcastItem
 					key={podcast.url}
-					onPress={() => {}}
+					onPress={() => props.navigation.navigate('Episodes')}
 					image={podcast.image}
 				/>
 			))}

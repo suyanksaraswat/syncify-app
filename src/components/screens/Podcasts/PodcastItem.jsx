@@ -14,9 +14,9 @@ const EpisodeImage = styled(Image)`
 	height: 100%;
 `
 
-const PodcastItem = ({ image }) => {
+const PodcastItem = ({ image, onPress }) => {
 	return (
-		<Wrapper onPress={() => {}}>
+		<Wrapper onPress={onPress}>
 			<EpisodeImage source={{ uri: image }} />
 		</Wrapper>
 	)
