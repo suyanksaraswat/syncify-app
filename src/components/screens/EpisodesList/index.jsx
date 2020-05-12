@@ -34,11 +34,13 @@ const EpisodeCounter = styled(View)`
 	align-items: center;
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
 	height: ${({ theme }) => theme.metrics.getWidthFromDP('10%')}px;
-	margin-left: ${({ theme }) => theme.metrics.getWidthFromDP('2%')}px;
+	padding-left: ${({ theme }) => theme.metrics.getWidthFromDP('2%')}px;
+	background-color: rgba(0, 0, 0, 0.7);
 `
 
 const CounterText = styled(Text)`
-	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('4%')}px;
+	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('3.5%')}px;
+	color: ${({ theme }) => theme.colors.background};
 `
 
 export default connect(
