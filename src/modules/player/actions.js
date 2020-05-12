@@ -21,7 +21,7 @@ export const startPlayback = (item) => async (dispatch, getState) => {
 		playbackInstance = null
 	}
 
-	const source = { uri: item.uri }
+	const source = { uri: item.enclosure.link }
 	const initialStatus = {
 		shouldPlay: true,
 		rate: state.rate,

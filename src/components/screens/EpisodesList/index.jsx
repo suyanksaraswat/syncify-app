@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { ScrollView, View, Text } from 'react-native'
 import styled from 'styled-components'
 
+import { startPlayback } from '@app/modules/player/actions'
 import EpisodeItem from './EpisodeItem'
 import EpisodeHeader from './EpisodeHeader'
 
@@ -16,7 +17,8 @@ const Episodes = (props) => (
 			{props.podcast.items.map((episode) => (
 				<EpisodeItem
 					key={episode.link}
-					onPress={() => {}}
+					onPressPlay={startPlayback}
+					navigation={props.navigation}
 					episode={episode}
 				/>
 			))}
@@ -47,5 +49,5 @@ export default connect(
 	(state) => ({
 		podcast: state.podcasts.currentPodcast,
 	}),
-	{}
+	{ startPlayback }
 )(Episodes)

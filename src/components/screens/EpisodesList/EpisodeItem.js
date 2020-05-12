@@ -4,35 +4,41 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import moment from 'moment'
 
-import { playOrPause } from '@app/modules/player/actions'
-import { PLAY_STATE } from '@app/modules/constants'
 import Button from '@app/components/common/Button'
+import { startPlayback } from '@app/modules/player/actions'
 
-const EpisodeItem = ({ episode }) => {
+const EpisodeItem = (props) => {
 	return (
 		<Wrapper onPress={() => {}}>
 			<Header>
 				<HeaderText ellipsizeMode="tail" numberOfLines={1}>
-					{episode.title}
+					{props.episode.title}
 				</HeaderText>
 				<DateText>
-					{moment(episode.pubDate.substr(0, 10), 'YYYYMMDD')
+					{moment(props.episode.pubDate.substr(0, 10), 'YYYYMMDD')
 						.fromNow()
 						.replace(' ago', '')}
 				</DateText>
 			</Header>
 
 			<EpisodeBody>
-				<EpisodeImage source={{ uri: episode.thumbnail }} />
+				<EpisodeImage source={{ uri: props.episode.thumbnail }} />
 				<DescriptionTextBox>
 					<EpisodeDescription ellipsizeMode="tail" numberOfLines={3}>
-						{episode.description}
+						{props.episode.description}
 					</EpisodeDescription>
 				</DescriptionTextBox>
 				<ButtonBox>
-					<Button onPress={() => {}} name={'play-circle'} size={50} />
+					<Button
+						onPress={() => {
+							props.startPlayback(props.episode)
+							props.navigation.navigate('Player')
+						}}
+						name={'play-circle'}
+						size={50}
+					/>
 					<DateText>
-						{new Date(episode.enclosure.duration * 1000)
+						{new Date(props.episode.enclosure.duration * 1000)
 							.toISOString()
 							.substr(11, 8)}
 					</DateText>
@@ -104,11 +110,4 @@ const ButtonBox = styled(View)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('35%')}px;
 `
 
-export default connect(
-	(state) => ({
-		isPlaying: state.player.playState === PLAY_STATE.PLAYING,
-	}),
-	{
-		playOrPause,
-	}
-)(EpisodeItem)
+export default connect(() => ({}), { startPlayback })(EpisodeItem)
