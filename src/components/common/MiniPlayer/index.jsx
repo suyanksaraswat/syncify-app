@@ -6,6 +6,29 @@ import { connect } from 'react-redux'
 import ButtonsControls from './ButtonsControls'
 import TextContent from './TextContent'
 
+const MiniPlayer = (props) => (
+	<Container>
+		<Wrapper testID="mini-player">
+			<LeftContentWrapper
+				onPress={() => props.navigation.navigate('Player')}
+			>
+				<EpisodeImage source={{ uri: props.currentTrack.image }} />
+				<TextContent />
+			</LeftContentWrapper>
+			<ButtonsControls />
+		</Wrapper>
+		<ProgressContainer>
+			<ProgressPassed flex={props.playbackInstancePosition} />
+			<ProgressLeft
+				flex={
+					props.playbackInstanceDuration -
+					props.playbackInstancePosition
+				}
+			/>
+		</ProgressContainer>
+	</Container>
+)
+
 const Container = styled(View)`
 	flex-direction: column;
 `
@@ -49,29 +72,6 @@ const ProgressLeft = styled(View)`
 	background-color: #eae5e5;
 	flex: ${(props) => props.flex};
 `
-
-const MiniPlayer = (props) => (
-	<Container>
-		<Wrapper testID="mini-player">
-			<LeftContentWrapper
-				onPress={() => props.navigation.navigate('Player')}
-			>
-				<EpisodeImage source={{ uri: props.currentTrack.image }} />
-				<TextContent />
-			</LeftContentWrapper>
-			<ButtonsControls />
-		</Wrapper>
-		<ProgressContainer>
-			<ProgressPassed flex={props.playbackInstancePosition} />
-			<ProgressLeft
-				flex={
-					props.playbackInstanceDuration -
-					props.playbackInstancePosition
-				}
-			/>
-		</ProgressContainer>
-	</Container>
-)
 
 export default connect(
 	(state) => ({

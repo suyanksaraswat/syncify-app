@@ -6,33 +6,29 @@ import styled from 'styled-components'
 import EpisodeItem from './EpisodeItem'
 import EpisodeHeader from './EpisodeHeader'
 
-const Wrapper = styled(View)`
-	flex-direction: column;
-	align-items: flex-start;
-`
-
 const Episodes = (props) => (
 	<Wrapper>
-		<EpisodeHeader image={props.currentPodcast.feed.image} />
+		<EpisodeHeader image={props.podcast.feed.image} />
 		<ScrollView testID="episode-list">
-			{props.currentPodcast.items.map((podcast) => (
+			{props.podcast.items.map((episode) => (
 				<EpisodeItem
-					key={podcast.link}
+					key={episode.link}
 					onPress={() => {}}
-					title={podcast.title}
-					pubDate={podcast.pubDate.substr(0, 10)}
-					image={podcast.thumbnail}
-					description={podcast.description}
-					duration={podcast.enclosure.duration}
+					episode={episode}
 				/>
 			))}
 		</ScrollView>
 	</Wrapper>
 )
 
+const Wrapper = styled(View)`
+	flex-direction: column;
+	align-items: flex-start;
+`
+
 export default connect(
 	(state) => ({
-		currentPodcast: state.podcasts.currentPodcast,
+		podcast: state.podcasts.currentPodcast,
 	}),
 	{}
 )(Episodes)

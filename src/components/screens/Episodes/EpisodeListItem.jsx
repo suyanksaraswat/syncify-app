@@ -2,6 +2,18 @@ import React from 'react'
 import { TouchableOpacity, Image, View, Text } from 'react-native'
 import styled from 'styled-components'
 
+const EpisodeListItem = ({ title, artist, image, onPress }) => {
+	return (
+		<Wrapper onPress={onPress}>
+			<EpisodeImage source={{ uri: image }} />
+			<TextWrapper>
+				<EpisodeText>{title}</EpisodeText>
+				<AuthorText>{artist}</AuthorText>
+			</TextWrapper>
+		</Wrapper>
+	)
+}
+
 const Wrapper = styled(TouchableOpacity)`
 	width: 100%;
 	flex-direction: row;
@@ -29,17 +41,5 @@ const EpisodeText = styled(Text)`
 	font-size: ${({ theme }) => theme.metrics.extraLargeSize}px;
 	color: ${({ theme }) => theme.colors.text};
 `
-
-const EpisodeListItem = ({ title, artist, image, onPress }) => {
-	return (
-		<Wrapper onPress={onPress}>
-			<EpisodeImage source={{ uri: image }} />
-			<TextWrapper>
-				<EpisodeText>{title}</EpisodeText>
-				<AuthorText>{artist}</AuthorText>
-			</TextWrapper>
-		</Wrapper>
-	)
-}
 
 export default EpisodeListItem

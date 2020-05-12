@@ -7,16 +7,6 @@ import { connect } from 'react-redux'
 import { playOrPause } from '@app/modules/player/actions'
 import { PLAY_STATE } from '@app/modules/constants'
 
-const ButtonsWrapper = styled(View)`
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	padding-left: ${({ theme }) => theme.metrics.extraLargeSize}px;
-	padding-right: ${({ theme }) => theme.metrics.extraLargeSize}px;
-`
-
 const PlayerControls = (props) => {
 	const [liked, setLiked] = React.useState(false)
 
@@ -46,6 +36,16 @@ const PlayerControls = (props) => {
 		</ButtonsWrapper>
 	)
 }
+
+const ButtonsWrapper = styled(View)`
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: ${({ theme }) => theme.metrics.extraLargeSize}px;
+	padding-right: ${({ theme }) => theme.metrics.extraLargeSize}px;
+`
 
 export default connect(
 	(state) => ({

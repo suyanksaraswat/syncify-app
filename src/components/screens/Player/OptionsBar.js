@@ -5,6 +5,13 @@ import styled from 'styled-components'
 
 import Button from '@app/components/common/Button'
 
+const OptionsBar = () => (
+	<OptionsWrapper>
+		<SocialText>+2 friends liked this</SocialText>
+		<Button name="dots-horizontal" size={35} />
+	</OptionsWrapper>
+)
+
 const OptionsWrapper = styled(View)`
 	width: 100%;
 	display: flex;
@@ -21,12 +28,5 @@ const SocialText = styled(Text)`
 	margin: ${({ theme }) => theme.metrics.smallSize}px;
 	color: ${({ theme }) => theme.colors.text};
 `
-
-const OptionsBar = () => (
-	<OptionsWrapper>
-		<SocialText>+2 friends liked this</SocialText>
-		<Button name="dots-horizontal" size={35} />
-	</OptionsWrapper>
-)
 
 export default OptionsBar

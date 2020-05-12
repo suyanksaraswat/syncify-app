@@ -7,6 +7,31 @@ import { playOrPause } from '@app/modules/player/actions'
 import { PLAY_STATE } from '@app/modules/constants'
 import Button from '@app/components/common/Button'
 
+const EpisodeItem = ({ episode }) => {
+	return (
+		<Wrapper onPress={() => {}}>
+			<Header>
+				<HeaderText>{episode.title}</HeaderText>
+				<DateText>{episode.pubDate.substr(0, 10)}</DateText>
+			</Header>
+			<EpisodeBody>
+				<EpisodeImage source={{ uri: episode.thumbnail }} />
+				<DescriptionTextBox>
+					<DateText>{episode.description}</DateText>
+				</DescriptionTextBox>
+				<ButtonBox>
+					<Button onPress={() => {}} name={'play-circle'} size={50} />
+					<DateText>
+						{new Date(episode.enclosure.duration * 1000)
+							.toISOString()
+							.substr(11, 8)}
+					</DateText>
+				</ButtonBox>
+			</EpisodeBody>
+		</Wrapper>
+	)
+}
+
 const Wrapper = styled(TouchableOpacity)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
 	flex-direction: column;
@@ -55,29 +80,6 @@ const ButtonBox = styled(View)`
 	align-items: center;
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('35%')}px;
 `
-
-const EpisodeItem = ({ title, pubDate, image, description, duration }) => {
-	return (
-		<Wrapper onPress={() => {}}>
-			<Header>
-				<HeaderText>{title}</HeaderText>
-				<DateText>{pubDate}</DateText>
-			</Header>
-			<EpisodeBody>
-				<EpisodeImage source={{ uri: image }} />
-				<DescriptionTextBox>
-					<DateText>{description}</DateText>
-				</DescriptionTextBox>
-				<ButtonBox>
-					<Button onPress={() => {}} name={'play-circle'} size={50} />
-					<DateText>
-						{new Date(duration * 1000).toISOString().substr(11, 8)}
-					</DateText>
-				</ButtonBox>
-			</EpisodeBody>
-		</Wrapper>
-	)
-}
 
 export default connect(
 	(state) => ({

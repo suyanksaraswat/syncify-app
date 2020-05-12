@@ -6,6 +6,30 @@ import Screen from '@app/components/layout/Screen'
 import styles from '@app/styles'
 import Icon from '@app/components/common/Icon'
 
+const EmptyPodcasts = () => (
+	<Screen testID="playlists-wrapper">
+		<Icon
+			name="view-list"
+			size={styles.metrics.getWidthFromDP('10%')}
+			color={styles.colors.text}
+		/>
+		<Message>No podcasts yet</Message>
+		<InfoMessage>
+			You can add podcasts by searching or try Top Charts tab for
+			inspiration
+		</InfoMessage>
+
+		<SearchButton onPress={() => {}}>
+			<ButtonText>Search</ButtonText>
+			<Icon
+				name="magnify"
+				size={styles.metrics.getWidthFromDP('6%')}
+				color={styles.colors.text}
+			/>
+		</SearchButton>
+	</Screen>
+)
+
 const Message = styled(Text)`
 	font-size: ${({ theme }) => theme.metrics.extraLargeSize}px;
 	color: black;
@@ -34,29 +58,5 @@ const ButtonText = styled(Text)`
 	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('5%')}px;
 	text-align: center;
 `
-
-const EmptyPodcasts = () => (
-	<Screen testID="playlists-wrapper">
-		<Icon
-			name="view-list"
-			size={styles.metrics.getWidthFromDP('10%')}
-			color={styles.colors.text}
-		/>
-		<Message>No podcasts yet</Message>
-		<InfoMessage>
-			You can add podcasts by searching or try Top Charts tab for
-			inspiration
-		</InfoMessage>
-
-		<SearchButton onPress={() => {}}>
-			<ButtonText>Search</ButtonText>
-			<Icon
-				name="magnify"
-				size={styles.metrics.getWidthFromDP('6%')}
-				color={styles.colors.text}
-			/>
-		</SearchButton>
-	</Screen>
-)
 
 export default EmptyPodcasts
