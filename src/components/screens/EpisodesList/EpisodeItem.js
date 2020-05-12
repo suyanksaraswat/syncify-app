@@ -46,7 +46,7 @@ const Wrapper = styled(TouchableOpacity)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
 	flex-direction: column;
 	align-items: center;
-	padding: ${({ theme }) => theme.metrics.largeSize}px;
+	padding: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
 const Header = styled(View)`
