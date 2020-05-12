@@ -11,13 +11,17 @@ const EpisodeItem = ({ episode }) => {
 	return (
 		<Wrapper onPress={() => {}}>
 			<Header>
-				<HeaderText>{episode.title}</HeaderText>
+				<HeaderText ellipsizeMode="tail" numberOfLines={1}>
+					{episode.title}
+				</HeaderText>
 				<DateText>{episode.pubDate.substr(0, 10)}</DateText>
 			</Header>
 			<EpisodeBody>
 				<EpisodeImage source={{ uri: episode.thumbnail }} />
 				<DescriptionTextBox>
-					<DateText>{episode.description}</DateText>
+					<EpisodeDescription ellipsizeMode="tail" numberOfLines={3}>
+						{episode.description}
+					</EpisodeDescription>
 				</DescriptionTextBox>
 				<ButtonBox>
 					<Button onPress={() => {}} name={'play-circle'} size={50} />
@@ -62,6 +66,13 @@ const DateText = styled(Text)`
 	color: ${({ theme }) => theme.colors.text};
 	flex: 1;
 `
+
+const EpisodeDescription = styled(Text)`
+	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('3.5%')}px;
+	color: ${({ theme }) => theme.colors.text};
+	flex: 1;
+`
+
 const EpisodeImage = styled(Image)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
 	height: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
@@ -72,6 +83,9 @@ const DescriptionTextBox = styled(View)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('50%')}px;
 	height: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
 	margin: ${({ theme }) => theme.metrics.smallSize}px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
 
 const ButtonBox = styled(View)`
