@@ -8,7 +8,7 @@ import EpisodeHeader from './EpisodeHeader'
 
 const Episodes = (props) => (
 	<Wrapper>
-		<EpisodeHeader image={props.podcast.feed.image} />
+		<EpisodeHeader podcast={props.podcast} />
 		<ScrollView testID="episode-list">
 			{props.podcast.items.map((episode) => (
 				<EpisodeItem

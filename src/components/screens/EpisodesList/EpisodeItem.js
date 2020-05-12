@@ -21,6 +21,7 @@ const EpisodeItem = ({ episode }) => {
 						.replace(' ago', '')}
 				</DateText>
 			</Header>
+
 			<EpisodeBody>
 				<EpisodeImage source={{ uri: episode.thumbnail }} />
 				<DescriptionTextBox>
@@ -49,6 +50,7 @@ const Wrapper = styled(TouchableOpacity)`
 `
 
 const Header = styled(View)`
+	position: relative;
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
 	flex-direction: row;
 	justify-content: space-between;
