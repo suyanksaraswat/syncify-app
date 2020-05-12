@@ -2,6 +2,7 @@ import React from 'react'
 import { TouchableOpacity, Text, View, Image } from 'react-native'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import moment from 'moment'
 
 import { playOrPause } from '@app/modules/player/actions'
 import { PLAY_STATE } from '@app/modules/constants'
@@ -14,7 +15,11 @@ const EpisodeItem = ({ episode }) => {
 				<HeaderText ellipsizeMode="tail" numberOfLines={1}>
 					{episode.title}
 				</HeaderText>
-				<DateText>{episode.pubDate.substr(0, 10)}</DateText>
+				<DateText>
+					{moment(episode.pubDate.substr(0, 10), 'YYYYMMDD')
+						.fromNow()
+						.replace(' ago', '')}
+				</DateText>
 			</Header>
 			<EpisodeBody>
 				<EpisodeImage source={{ uri: episode.thumbnail }} />
@@ -55,16 +60,18 @@ const EpisodeBody = styled(Header)`
 `
 
 const HeaderText = styled(Text)`
-	font-size: ${({ theme }) => theme.metrics.largeSize}px;
+	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('4.5%')}px;
 	color: ${({ theme }) => theme.colors.text};
 	flex: 5;
 	margin-left: ${({ theme }) => theme.metrics.smallSize}px;
+	margin-right: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
 const DateText = styled(Text)`
-	font-size: ${({ theme }) => theme.metrics.mediumSize}px;
+	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('3.5%')}px;
 	color: ${({ theme }) => theme.colors.text};
 	flex: 1;
+	margin-left: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
 const EpisodeDescription = styled(Text)`
