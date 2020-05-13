@@ -17,7 +17,6 @@ const Episodes = (props) => (
 			{props.podcast.items.map((episode) => (
 				<EpisodeItem
 					key={episode.link}
-					onPressPlay={startPlayback}
 					navigation={props.navigation}
 					episode={episode}
 				/>
