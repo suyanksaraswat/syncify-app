@@ -8,14 +8,6 @@ import styles from '@app/styles'
 import { playOrPause } from '@app/modules/player/actions'
 import { PLAY_STATE } from '@app/modules/constants'
 
-const ButtonsWrapper = styled(View)`
-	width: ${({ theme }) => theme.metrics.getWidthFromDP('22%')}px;
-	height: 100%;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-`
-
 const ButtonControls = (props) => {
 	return (
 		<ButtonsWrapper>
@@ -29,6 +21,14 @@ const ButtonControls = (props) => {
 		</ButtonsWrapper>
 	)
 }
+
+const ButtonsWrapper = styled(View)`
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('22%')}px;
+	height: 100%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+`
 
 export default connect(
 	(state) => ({
