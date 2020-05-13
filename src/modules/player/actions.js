@@ -107,6 +107,15 @@ export const seekSliderSlidingComplete = (value) => async (
 	dispatch({ type: 'player/SLIDER_SEEKING_COMPLETE', payload: {} })
 }
 
+export const skipSeconds = (secs) => async (dispatch, getState) => {
+	const playbackInstance = usePlaybackInstance(getState)
+	if (playbackInstance != null) {
+		const skipPosition =
+			getState().player.playbackInstancePosition + secs * 1000
+		playbackInstance.setPositionAsync(skipPosition)
+	}
+}
+
 // FOR REFERENCE BELOW
 
 // const _onSeekSliderValueChange = (value) => {
