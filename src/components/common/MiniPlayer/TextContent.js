@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const TextContent = (props) => (
 	<TextContentWrapper>
 		<TitleText>{props.currentTrack.title}</TitleText>
-		<AuthorText numberOfLines={1}>{props.currentTrack.artist}</AuthorText>
+		<AuthorText numberOfLines={1}>{props.currentTrack.author}</AuthorText>
 	</TextContentWrapper>
 )
 
