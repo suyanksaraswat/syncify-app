@@ -1,10 +1,10 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
-import Player from '@app/components/screens/Player'
 
 import TabsScreen from './Tabs'
 import AuthStackScreen from './stacks/AuthStack'
+import PlayerStackScreen from './stacks/PlayerStack'
 
 const RootStack = createStackNavigator()
 
@@ -28,10 +28,8 @@ const Navigation = (props) => (
 
 					<RootStack.Screen
 						name="Player"
-						component={Player}
-						options={() => ({
-							animationEnabled: true,
-						})}
+						component={PlayerStackScreen}
+						options={{ animationEnabled: true }}
 					/>
 				</>
 			) : (
