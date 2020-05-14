@@ -15,13 +15,11 @@ const PlayerControls = (props) => {
 				name="undo"
 				size={35}
 			/>
-			<Button onPress={() => {}} name="skip-previous-circle" size={55} />
 			<Button
 				onPress={() => props.playOrPause()}
 				name={!props.isPlaying ? 'play-circle' : 'pause-circle'}
 				size={70}
 			/>
-			<Button onPress={() => {}} name="skip-next-circle" size={55} />
 			<Button
 				onPress={() => props.skipSeconds(15)}
 				name="redo"
@@ -35,7 +33,7 @@ const ButtonsWrapper = styled(View)`
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	padding-left: ${({ theme }) => theme.metrics.extraLargeSize}px;
 	padding-right: ${({ theme }) => theme.metrics.extraLargeSize}px;
