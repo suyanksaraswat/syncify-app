@@ -3,19 +3,32 @@ import { TouchableOpacity, Image, View } from 'react-native'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
+import Icon from '@app/components/common/Icon'
+import styles from '@app/styles'
 import ButtonsControls from './ButtonsControls'
-import TextContent from './TextContent'
 
 const MiniPlayer = (props) => (
 	<Container>
-		<Wrapper testID="mini-player">
+		<Wrapper>
 			<LeftContentWrapper
 				onPress={() => props.navigation.navigate('Player')}
 			>
 				<EpisodeImage source={{ uri: props.currentTrack.thumbnail }} />
-				<TextContent />
 			</LeftContentWrapper>
-			<ButtonsControls />
+			<CenterContentWrapper
+				onPress={() => props.navigation.navigate('Player')}
+			>
+				<ButtonsControls />
+			</CenterContentWrapper>
+			<RightContentWrapper
+				onPress={() => props.navigation.navigate('Player')}
+			>
+				<Icon
+					name={'playlist-play'}
+					size={styles.metrics.getWidthFromDP('8%')}
+					color={styles.colors.text}
+				/>
+			</RightContentWrapper>
 		</Wrapper>
 		<ProgressContainer>
 			<ProgressPassed flex={props.playbackInstancePosition} />
@@ -34,32 +47,49 @@ const Container = styled(View)`
 `
 
 const Wrapper = styled(View)`
-	width: 100%;
-	height: ${({ theme }) => theme.metrics.getWidthFromDP('18%')}px;
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
+	height: ${({ theme }) => theme.metrics.getWidthFromDP('16%')}px;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-evenly;
-	padding-vertical: ${({ theme }) => theme.metrics.smallSize}px;
+	justify-content: space-between;
 	background-color: ${({ theme }) => theme.colors.bottomNavigatorBar};
+	padding: ${({ theme }) => theme.metrics.extraSmallSize}px;
 `
 
 const EpisodeImage = styled(Image)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('14%')}px;
-	height: 100%;
+	height: ${({ theme }) => theme.metrics.getWidthFromDP('14%')}px;
 	border-radius: ${({ theme }) => theme.metrics.extraSmallSize}px;
+	margin: ${({ theme }) => theme.metrics.mediumSize}px;
 `
 
 const LeftContentWrapper = styled(TouchableOpacity)`
 	height: 100%;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
+	flex: 1;
+`
+
+const CenterContentWrapper = styled(TouchableOpacity)`
+	height: 100%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex: 3;
+`
+
+const RightContentWrapper = styled(TouchableOpacity)`
+	height: 100%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	flex: 1;
 `
 
 const ProgressContainer = styled(View)`
-	height: 2px;
-	width: 90%;
-	margin: 10px;
+	height: 3px;
+	width: 100%;
 	flex-direction: row;
 `
 

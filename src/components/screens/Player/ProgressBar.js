@@ -53,7 +53,7 @@ const Time = styled(Text)`
 const ProgressContainer = styled(View)`
 	display: flex;
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 5px;
 	flex-direction: column;
 	align-items: center;
 `
@@ -61,7 +61,7 @@ const ProgressContainer = styled(View)`
 const SliderBar = styled(Slider)`
 	width: 100%;
 	height: 50px;
-	margin-top: ${({ theme }) => theme.metrics.mediumSize}px;
+	margin-top: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
 export default connect(
