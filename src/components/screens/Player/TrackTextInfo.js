@@ -19,15 +19,15 @@ const Wrapper = styled(View)`
 `
 
 const EpisodeTitleText = styled(Text)`
-	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('6%')}px;
+	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('5%')}px;
 	color: ${({ theme }) => theme.colors.text};
 	margin: ${({ theme }) => theme.metrics.mediumSize}px;
 	text-align: center;
 `
 
 const AuthorText = styled(EpisodeTitleText)`
-	font-size: ${({ theme }) => theme.metrics.extraLargeSize}px;
-	margin: ${({ theme }) => theme.metrics.smallSize}px;
+	font-size: ${({ theme }) => theme.metrics.largeSize}px;
+	margin: ${({ theme }) => theme.metrics.extraSmallSize}px;
 `
 
 export default connect(
