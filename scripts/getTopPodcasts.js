@@ -1,9 +1,9 @@
-// Scrap itunes TOP # podcasts and save JSON to local files
+// Scrap itunes TOP # podcasts and save in JSON to local files
 const fetch = require('node-fetch');
 const podcastFeedParser = require("podcast-feed-parser")
 var fs = require('fs');
 
-var path = '';
+var path = './src/modules/podcasts/data-new/';
 var numOfPodcasts = 100;
 
 async function getAndSaveJson (url,filename) {
@@ -15,7 +15,7 @@ async function getAndSaveJson (url,filename) {
     });
 }
 
-console.log(`Obtaining Top ${numOfPodcasts} Podcasts from ITUNES`);
+console.log(`Obtaining top ${numOfPodcasts} Podcasts from ITUNES and saving to ${path} ...`);
 
 fetch(`http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppodcasts/limit=${numOfPodcasts}/json`)
     .then(response => response.json())
@@ -29,7 +29,6 @@ fetch(`http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppodca
                     let feedURL = data.results[0].feedUrl;
                     let filename = podcast.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.json';
                     getAndSaveJson(feedURL,filename);
-                    //console.log(filename + ': ' + podcast + ': ' + feedURL);
                 });
         })
     });
