@@ -14,15 +14,12 @@ const returnUrl = 'http://localhost:19002/'
 
 /* eslint-disable no-alert, no-console */
 const toQueryString = (params) => {
-	return (
-		`?${ 
-		Object.entries(params)
-			.map(
-				([key, value]) =>
-					`${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-			)
-			.join('&')}`
-	)
+	return `?${Object.entries(params)
+		.map(
+			([key, value]) =>
+				`${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+		)
+		.join('&')}`
 }
 
 export const login = () => async (dispatch) => {
@@ -31,10 +28,8 @@ export const login = () => async (dispatch) => {
 	let redirectUrl
 	try {
 		redirectUrl = await AuthSessionNew.getRedirectUrl()
-		// eslint-disable-next-line no-use-before-define
 		console.log(`Redirect URL: ${redirectUrl}`)
 	} catch (e) {
-		// eslint-disable-next-line no-use-before-define
 		console.log(e)
 	}
 
@@ -46,19 +41,18 @@ export const login = () => async (dispatch) => {
 		scope: 'openid profile', // retrieve the user's profile
 		nonce: Math.random().toString(36), // ideally, this will be a random value
 	})
-	const authUrl = `${auth0Domain}/authorize${  queryParams}`
+	const authUrl = `${auth0Domain}/authorize${queryParams}`
 
 	// Perform the authentication
-	// eslint-disable-next-line no-use-before-define
+
 	console.log('Authentication request')
 	let response
 	try {
 		response = await AuthSessionNew.startAsync({ authUrl })
 	} catch (e) {
-		// eslint-disable-next-line no-use-before-define
 		console.log(e)
 	}
-	// eslint-disable-next-line no-use-before-define
+
 	console.log('Authentication response', response)
 
 	if (response.params.type === 'success') {
@@ -74,7 +68,7 @@ export const login = () => async (dispatch) => {
 		const jwtToken = response.params.id_token
 		const decoded = jwtDecode(jwtToken)
 		// Id token format: https://auth0.com/docs/api-auth/tutorials/adoption/api-tokens#access-vs-id-tokens
-		// eslint-disable-next-line no-use-before-define
+
 		console.log('Id token', JSON.stringify(decoded, null, 2))
 
 		const { name } = decoded
@@ -90,11 +84,11 @@ export const logout = () => async (dispatch) => {
 		returnTo: returnUrl,
 		client_id: auth0ClientId,
 	})
-	const logoutUrl = `${auth0Domain}/v2/logout${  queryParams}`
+	const logoutUrl = `${auth0Domain}/v2/logout${queryParams}`
 
 	// Log out
 	const response = await WebBrowser.openBrowserAsync(logoutUrl)
-	// eslint-disable-next-line no-use-before-define
+
 	console.log('Logout response', response)
 
 	if (response.type === 'cancel') {
