@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
+import { connect } from 'react-redux'
 
 import TabsScreen from './Tabs'
 import AuthStackScreen from './stacks/AuthStack'
@@ -8,15 +9,13 @@ import PlayerStackScreen from './stacks/PlayerStack'
 
 const RootStack = createStackNavigator()
 
-const userToken = 'abc'
-
 const Navigation = (props) => (
 	<NavigationContainer
 		container={props.containerRef}
 		initialNavigationState={props.initialNavigationState}
 	>
 		<RootStack.Navigator headerMode="none">
-			{userToken ? (
+			{props.userToken ? (
 				<>
 					<RootStack.Screen
 						name="Syncify"
@@ -45,4 +44,9 @@ const Navigation = (props) => (
 	</NavigationContainer>
 )
 
-export default Navigation
+export default connect(
+	(state) => ({
+		userToken: state.auth.idToken,
+	}),
+	{}
+)(Navigation)

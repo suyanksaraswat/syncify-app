@@ -1,0 +1,103 @@
+import * as WebBrowser from 'expo-web-browser'
+import jwtDecode from 'jwt-decode'
+import * as AuthSessionNew from 'expo-auth-session'
+import { Alert } from 'react-native'
+import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from 'react-native-dotenv'
+
+const auth0ClientId = AUTH0_CLIENT_ID
+const auth0Domain = AUTH0_DOMAIN
+const returnUrl = 'http://localhost:19002/'
+
+/**
+ * Converts an object to a query string.
+ */
+
+/* eslint-disable no-alert, no-console */
+const toQueryString = (params) => {
+	return (
+		`?${ 
+		Object.entries(params)
+			.map(
+				([key, value]) =>
+					`${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+			)
+			.join('&')}`
+	)
+}
+
+export const login = () => async (dispatch) => {
+	// Retrieve the redirect URL, add this to the callback URL list
+	// of your Auth0 application.
+	let redirectUrl
+	try {
+		redirectUrl = await AuthSessionNew.getRedirectUrl()
+		// eslint-disable-next-line no-use-before-define
+		console.log(`Redirect URL: ${redirectUrl}`)
+	} catch (e) {
+		// eslint-disable-next-line no-use-before-define
+		console.log(e)
+	}
+
+	// Structure the auth parameters and URL
+	const queryParams = toQueryString({
+		client_id: auth0ClientId,
+		redirect_uri: redirectUrl,
+		response_type: 'id_token', // id_token will return a JWT token
+		scope: 'openid profile', // retrieve the user's profile
+		nonce: Math.random().toString(36), // ideally, this will be a random value
+	})
+	const authUrl = `${auth0Domain}/authorize${  queryParams}`
+
+	// Perform the authentication
+	// eslint-disable-next-line no-use-before-define
+	console.log('Authentication request')
+	let response
+	try {
+		response = await AuthSessionNew.startAsync({ authUrl })
+	} catch (e) {
+		// eslint-disable-next-line no-use-before-define
+		console.log(e)
+	}
+	// eslint-disable-next-line no-use-before-define
+	console.log('Authentication response', response)
+
+	if (response.params.type === 'success') {
+		if (response.params.error) {
+			Alert(
+				'Authentication error',
+				response.params.error_description || 'something went wrong'
+			)
+			return
+		}
+
+		// Retrieve the JWT token and decode it
+		const jwtToken = response.params.id_token
+		const decoded = jwtDecode(jwtToken)
+		// Id token format: https://auth0.com/docs/api-auth/tutorials/adoption/api-tokens#access-vs-id-tokens
+		// eslint-disable-next-line no-use-before-define
+		console.log('Id token', JSON.stringify(decoded, null, 2))
+
+		const { name } = decoded
+		dispatch({
+			type: 'auth/LOGGED_IN',
+			payload: { name, idToken: jwtToken },
+		})
+	}
+}
+
+export const logout = () => async (dispatch) => {
+	const queryParams = toQueryString({
+		returnTo: returnUrl,
+		client_id: auth0ClientId,
+	})
+	const logoutUrl = `${auth0Domain}/v2/logout${  queryParams}`
+
+	// Log out
+	const response = await WebBrowser.openBrowserAsync(logoutUrl)
+	// eslint-disable-next-line no-use-before-define
+	console.log('Logout response', response)
+
+	if (response.type === 'cancel') {
+		dispatch({ type: 'auth/LOGGED_OUT', payload: { name: null } })
+	}
+}
