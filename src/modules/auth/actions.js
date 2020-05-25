@@ -54,10 +54,8 @@ export const login = () => async (dispatch) => {
 	}
 
 	console.log('Authentication response', response)
-	console.log(response.type)
 
 	if (response.type === 'success') {
-		console.log('Resounding success')
 		if (response.params.error) {
 			Alert(
 				'Authentication error',
