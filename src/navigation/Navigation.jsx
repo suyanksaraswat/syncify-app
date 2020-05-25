@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import TabsScreen from './Tabs'
 import AuthStackScreen from './stacks/AuthStack'
 import PlayerStackScreen from './stacks/PlayerStack'
+import StorybookUIRoot from '../../storybook'
 
 const RootStack = createStackNavigator()
 
@@ -32,17 +33,20 @@ const Navigation = (props) => (
 					/>
 				</>
 			) : (
-				<RootStack.Screen
-					name="Auth"
-					component={AuthStackScreen}
-					options={{
-						animationEnabled: false,
-					}}
-				/>
-			)}
-		</RootStack.Navigator>
-	</NavigationContainer>
-)
+					<>
+						<RootStack.Screen
+							name="Auth"
+							component={AuthStackScreen}
+							options={{
+								animationEnabled: false,
+							}}
+						/>
+					</>
+				)}
+			</RootStack.Navigator>
+		</NavigationContainer>
+	)
+}
 
 export default connect(
 	(state) => ({
