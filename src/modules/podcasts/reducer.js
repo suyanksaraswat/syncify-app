@@ -1,8 +1,9 @@
-import subscriptions from './data/subscriptions'
 import joeRogan from './data/joe-rogan'
 
+import top100 from './top100'
+
 export const initialState = {
-	subscriptions,
+	subscriptions: top100,
 	currentPodcast: joeRogan,
 }
 
