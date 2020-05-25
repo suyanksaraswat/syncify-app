@@ -1,5 +1,6 @@
 import React from 'react'
 import EpisodeHeader from '../../src/components/screens/EpisodesList/EpisodeHeader'
+import { CenteredView } from '../CenteredView'
 
 export default function () {
 	const podcast = {
@@ -10,5 +11,9 @@ export default function () {
 		},
 	}
 
-	return <EpisodeHeader podcast={podcast} />
+	return (
+		<CenteredView>
+			<EpisodeHeader podcast={podcast} />
+		</CenteredView>
+	)
 }
