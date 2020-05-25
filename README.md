@@ -31,9 +31,17 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 ---
 ### Run locally
 
-clone the repo. Run these commands inside.
-`$ rm -rf node_modules && yarn && yarn clear && cd ios && pod install && cd ..`
-`$ react-native run-ios`
+
+1. Make sure you have a global install of Expo
+`$ yarn install expo-cli --global`
+
+2. Clone the repo.
+
+3. Create a .env file and ask a dev for auth0 details or use your own test login set up.
+
+4. Run these commands inside:
+`$ yarn install`
+`$ expo start`
 
 ---
 ### Contributing
