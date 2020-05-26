@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import TabsScreen from './Tabs'
 import AuthStackScreen from './stacks/AuthStack'
 import PlayerStackScreen from './stacks/PlayerStack'
-import StorybookUIRoot from '../../storybook'
 
 const RootStack = createStackNavigator()
 
