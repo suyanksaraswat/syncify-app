@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ScrollView, View } from 'react-native'
+import { View, FlatList } from 'react-native'
 import styled from 'styled-components'
 
 import { selectPodcast } from '@app/modules/podcasts/actions'
@@ -8,24 +8,32 @@ import PodcastItem from './PodcastItem'
 
 const Podcasts = (props) => (
 	<Wrapper>
-		<ScrollView testID="podcast-list" horizontal>
-			{props.subscriptions.map((podcast) => (
-				<PodcastItem
-					key={podcast.url}
+		<FlatList
+			data={props.subscriptions}
+			numColumns={4}
+			renderItem={({ item }) => (
+				<Item
+					key={item.meta.description}
 					onPress={() => {
-						props.selectPodcast(podcast.title)
+						props.selectPodcast(item.meta.title)
 						props.navigation.navigate('Episodes')
 					}}
-					image={podcast.image}
+					image={item.meta.imageURL}
 				/>
-			))}
-		</ScrollView>
+			)}
+			keyExtractor={(item) => item.meta.imageURL}
+		/>
 	</Wrapper>
 )
 
 const Wrapper = styled(View)`
 	flex-direction: column;
-	align-items: flex-start;
+	align-items: center;
+`
+
+const Item = styled(PodcastItem)`
+	flex-direction: row;
+	flex-wrap: wrap;
 `
 
 export default connect(

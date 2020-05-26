@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const EpisodesImages = (props) => {
 	return (
 		<Wrapper>
-			<ImageComponent source={{ uri: props.currentTrack.thumbnail }} />
+			<ImageComponent source={{ uri: props.currentTrack.imageURL }} />
 		</Wrapper>
 	)
 }

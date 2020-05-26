@@ -22,10 +22,10 @@ const EpisodeItem = (props) => {
 			</Header>
 
 			<EpisodeBody>
-				<EpisodeImage source={{ uri: props.episode.thumbnail }} />
+				<EpisodeImage source={{ uri: props.episode.imageURL }} />
 				<DescriptionTextBox>
 					<EpisodeDescription ellipsizeMode="tail" numberOfLines={3}>
-						{props.episode.description}
+						{props.episode.subtitle || props.episode.description}
 					</EpisodeDescription>
 				</DescriptionTextBox>
 				<ButtonBox>
@@ -37,11 +37,6 @@ const EpisodeItem = (props) => {
 						name={'play-circle'}
 						size={50}
 					/>
-					<DateText>
-						{new Date(props.episode.enclosure.duration * 1000)
-							.toISOString()
-							.substr(11, 8)}
-					</DateText>
 				</ButtonBox>
 			</EpisodeBody>
 		</Wrapper>
