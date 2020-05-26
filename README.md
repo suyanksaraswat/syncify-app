@@ -33,7 +33,7 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 
 
 1. Make sure you have a global install of Expo
-`$ yarn install expo-cli --global`
+`$ yarn global add expo-cli`
 
 2. Clone the repo.
 
