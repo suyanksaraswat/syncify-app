@@ -15,12 +15,13 @@ const Podcasts = (props) => (
 				<Item
 					key={item.meta.description}
 					onPress={() => {
-						props.selectPodcast(item.title)
+						props.selectPodcast(item.meta.title)
 						props.navigation.navigate('Episodes')
 					}}
 					image={item.meta.imageURL}
 				/>
 			)}
+			keyExtractor={(item) => item.meta.imageURL}
 		/>
 	</Wrapper>
 )

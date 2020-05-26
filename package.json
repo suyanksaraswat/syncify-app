@@ -38,7 +38,7 @@
 		"expo-av": "^8.1.0",
 		"expo-constants": "~9.0.0",
 		"expo-font": "~8.1.0",
-		"expo-web-browser": "~8.1.0",
+		"expo-web-browser": "~8.2.0",
 		"moment": "^2.25.3",
 		"node-fetch": "^2.6.0",
 		"react": "~16.9.0",

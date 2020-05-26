@@ -1,17 +1,11 @@
-import { PODCAST_TITLE } from '@app/modules/constants'
-import freakonomics from './data/freakonomics'
-import joeRogan from './data/joe-rogan'
+import top100 from './top100'
 
-export const selectPodcast = (podcast) => async (dispatch) => {
-	if (podcast === PODCAST_TITLE.JOE_ROGAN) {
-		dispatch({
-			type: 'SELECT_PODCAST',
-			payload: joeRogan,
-		})
-	} else if (podcast === PODCAST_TITLE.FREAKONOMICS) {
-		dispatch({
-			type: 'SELECT_PODCAST',
-			payload: freakonomics,
-		})
-	}
+export const selectPodcast = (title) => async (dispatch) => {
+	const currentPodcast = top100.find(
+		(podcast) => podcast.meta.title === title
+	)
+	dispatch({
+		type: 'SELECT_PODCAST',
+		payload: currentPodcast,
+	})
 }

@@ -2,13 +2,16 @@ import React from 'react'
 import { View, Image, Button, ImageBackground, Text } from 'react-native'
 import styled from 'styled-components'
 
-const EpisodeHeader = ({ podcast }) => {
+const EpisodeHeader = (props) => {
 	return (
-		<HeaderBackground source={{ uri: podcast.feed.image }} blurRadius={8}>
+		<HeaderBackground
+			source={{ uri: props.podcast.meta.imageURL }}
+			blurRadius={8}
+		>
 			<BlurredWrapper>
-				<EpisodeImage source={{ uri: podcast.feed.image }} />
+				<EpisodeImage source={{ uri: props.podcast.meta.imageURL }} />
 				<PodcastInfo>
-					<PodcastName>{podcast.feed.title}</PodcastName>
+					<PodcastName>{props.podcast.meta.title}</PodcastName>
 					<Button title="Subscribe" />
 				</PodcastInfo>
 			</BlurredWrapper>
