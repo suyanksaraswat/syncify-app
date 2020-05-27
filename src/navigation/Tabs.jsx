@@ -25,8 +25,8 @@ const tabs = {
 	PROFILE: {
 		id: 'navigation/settings',
 		component: ProfileStackScreen,
-		title: 'Settings',
-		icon: 'settings',
+		title: 'Profile',
+		icon: 'account',
 	},
 }
 

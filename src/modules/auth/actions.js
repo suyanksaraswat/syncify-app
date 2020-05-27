@@ -6,7 +6,7 @@ import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from 'react-native-dotenv'
 
 const auth0ClientId = AUTH0_CLIENT_ID
 const auth0Domain = AUTH0_DOMAIN
-const returnUrl = 'http://localhost:19002/'
+const returnUrl = 'https://github.com/syncify-team'
 
 /**
  * Converts an object to a query string.
@@ -92,6 +92,6 @@ export const logout = () => async (dispatch) => {
 	console.log('Logout response', response)
 
 	if (response.type === 'cancel') {
-		dispatch({ type: 'auth/LOGGED_OUT', payload: { name: null } })
+		dispatch({ type: 'auth/LOGGED_OUT', payload: { idToken: null } })
 	}
 }
