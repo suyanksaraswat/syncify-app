@@ -8,13 +8,13 @@ Users can listen at the exact same time (live-sync) or catch up on things the ot
 
 ## Covid-19
 
-Due to the covid-19 crisis this app suddenly felt a more urgent priority with it's purpose of reducing feelings of isolation. As such I am making it Open source to get things moving faster and contribute to maintaining the sanity of many people going through hard times.
+Due to the covid-19 crisis this app is a more urgent priority with it's purpose of reducing feelings of isolation. As such I am making it Open source to get things moving faster and contribute to maintaining the sanity of many people going through hard times.
 
 ## Become a User
 
 The app isn't released yet but you can signup to be a beta tester here
 
-[Syncify Sign Up](https://syncify.landen.co)
+[Syncify Sign Up](https://syncifyapp.com)
 
 ---
 ### Background Work
@@ -47,6 +47,14 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 ---
 ### Contributing
 You can assign yourself tasks to work on the priority features. Or build features you feel are useful and make a PR and we'll happily review.
+
+#### Pull requests
+We use a development branch
+- Create your branches off 'development'
+- Branches should be labelled with relevant tags at the start - `feat/user-login`, `bug/loading-error`
+- Pull requests should be made into 'development'
+
+#### Say hi
 
 Join the [Slack group](https://join.slack.com/t/syncify-app/shared_invite/zt-ch9hm0av-EG1ILFkLx1qHyddw90YJrg)
 
