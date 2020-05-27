@@ -2,9 +2,11 @@ node_modules/
 .expo/*
 npm-debug.*
 *.jks
+*.env
 *.p8
 *.p12
 *.key
+*.env
 *.mobileprovision
 *.orig.*
 web-build/

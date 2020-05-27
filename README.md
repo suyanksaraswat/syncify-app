@@ -31,10 +31,15 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 ---
 ### Run locally
 
-clone the repo. Navigate into the folder then run these commands.
 
-`$ rm -rf node_modules && yarn && yarn clear && cd ios && pod install && cd ..`
+1. Make sure you have a global install of Expo
+`$ yarn global add expo-cli`
 
+2. Clone the repo.
+
+3. Create a .env file and ask a dev for auth0 details or use your own test login set up.
+
+4. Run these commands inside:
 `$ yarn install`
 
 `$ expo start`
