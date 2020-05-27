@@ -10,67 +10,76 @@ Users can listen at the exact same time (live-sync) or catch up on things the ot
 
 Due to the covid-19 crisis this app is a more urgent priority with it's purpose of reducing feelings of isolation. As such I am making it Open source to get things moving faster and contribute to maintaining the sanity of many people going through hard times.
 
-## Become a User
+## Become a user
 
 The app isn't released yet but you can signup to be a beta tester here
 
 [Syncify Sign Up](https://syncifyapp.com)
 
 ---
-### Background Work
+
+### Background work
 
 This idea has been worked at during Hack the Press hackathons where a few different basic prototypes have been built.
 
 [SyncKick - Database demo](https://github.com/samjam48/SyncKick)
-- basic syncing between demo users using PostgreSQL storing of data
+
+-   basic syncing between demo users using PostgreSQL storing of data
 
 [Synckick - Commenting demo](https://github.com/samjam48/sync-kick-hack)
-- Creating of transcripts on podcasts allowing users to add comments as they listen and converse with their friends around content
 
+-   Creating of transcripts on podcasts allowing users to add comments as they listen and converse with their friends around content
 
 ---
+
 ### Run locally
 
-
 1. Make sure you have a global install of Expo
-`$ yarn global add expo-cli`
+   `$ yarn global add expo-cli`
 
 2. Clone the repo.
 
 3. Create a .env file and ask a dev for auth0 details or use your own test login set up.
 
 4. Run these commands inside:
-`$ yarn install`
+   `$ yarn install`
 
 `$ expo start`
 
 ---
+
 ### Contributing
+
 You can assign yourself tasks to work on the priority features. Or build features you feel are useful and make a PR and we'll happily review.
 
 #### Pull requests
+
 We use a development branch
-- Create your branches off 'development'
-- Branches should be labelled with relevant tags at the start - `feat/user-login`, `bug/loading-error`
-- Pull requests should be made into 'development'
+
+-   Create your branches off 'development'
+-   Branches should be labelled with relevant tags at the start - `feat/user-login`, `bug/loading-error`
+-   Pull requests should be made into 'development'
 
 #### Say hi
 
-Join the [Slack group](https://join.slack.com/t/syncify-app/shared_invite/zt-ch9hm0av-EG1ILFkLx1qHyddw90YJrg)
+Request to join the Slack group
 
 Connect with me at [LinkedIn](https://www.linkedin.com/in/sharris48/)
 
 Thank you!
 
 ---
+
 ### Database
 
 The current database structure for the MVP (subject to change)
 
-[Image](https://i.imgur.com/87wC3PK.png)
+![](https://i.imgur.com/BsqcZPC.png)
 
 Details and code here - https://dbdiagram.io/d/5e8648fb4495b02c3b892c24
 
 ---
+
 ### License
+
 This project is licensed under the GNU License - see the LICENSE.md file for details
