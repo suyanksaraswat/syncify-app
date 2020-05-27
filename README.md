@@ -41,6 +41,7 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 
 4. Run these commands inside:
 `$ yarn install`
+
 `$ expo start`
 
 ---

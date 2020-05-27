@@ -7,7 +7,7 @@ const TrackTextInfo = (props) => {
 	return (
 		<Wrapper>
 			<EpisodeTitleText>{props.currentTrack.title}</EpisodeTitleText>
-			<AuthorText>{props.currentTrack.author}</AuthorText>
+			<AuthorText>{props.podcast.meta.author}</AuthorText>
 		</Wrapper>
 	)
 }
@@ -33,6 +33,7 @@ const AuthorText = styled(EpisodeTitleText)`
 export default connect(
 	(state) => ({
 		currentTrack: state.player.currentTrack || {},
+		podcast: state.podcasts.currentPodcast,
 	}),
 	{}
 )(TrackTextInfo)

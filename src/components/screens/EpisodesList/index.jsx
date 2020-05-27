@@ -10,13 +10,14 @@ import EpisodeHeader from './EpisodeHeader'
 const Episodes = (props) => (
 	<Wrapper>
 		<EpisodeHeader podcast={props.podcast} />
+
 		<EpisodeCounter>
-			<CounterText>{props.podcast.items.length} episodes</CounterText>
+			<CounterText>{props.podcast.episodes.length} episodes</CounterText>
 		</EpisodeCounter>
 		<ScrollView testID="episode-list">
-			{props.podcast.items.map((episode) => (
+			{props.podcast.episodes.map((episode) => (
 				<EpisodeItem
-					key={episode.link}
+					key={episode.description}
 					navigation={props.navigation}
 					episode={episode}
 				/>
