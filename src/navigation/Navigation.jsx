@@ -32,20 +32,19 @@ const Navigation = (props) => (
 					/>
 				</>
 			) : (
-					<>
-						<RootStack.Screen
-							name="Auth"
-							component={AuthStackScreen}
-							options={{
-								animationEnabled: false,
-							}}
-						/>
-					</>
-				)}
-			</RootStack.Navigator>
-		</NavigationContainer>
-	)
-}
+				<>
+					<RootStack.Screen
+						name="Auth"
+						component={AuthStackScreen}
+						options={{
+							animationEnabled: false,
+						}}
+					/>
+				</>
+			)}
+		</RootStack.Navigator>
+	</NavigationContainer>
+)
 
 export default connect(
 	(state) => ({
