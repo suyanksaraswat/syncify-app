@@ -45,6 +45,22 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 `$ expo start`
 
 ---
+### Storybook
+Storybook can be started with the following commands depending on the platform
+```
+ - yarn run ios-storybook
+ - yarn run android-storybook
+```
+
+Stories live in the `storybook/stories` folder. To add a new story, create a file in the folder
+and add your story in that file. Then add the component in `storybook/stories/index.js` like so:
+```
+storiesOf('UI Components', module)
+	...
+	.add('Component', () => <Component />)
+    ...
+```
+---
 ### Contributing
 You can assign yourself tasks to work on the priority features. Or build features you feel are useful and make a PR and we'll happily review.
 
