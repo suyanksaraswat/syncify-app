@@ -8,13 +8,9 @@ import TabBarIcon from './TabBarIcon'
 import PodcastsStackScreen from './stacks/PodcastsStack'
 import ExploreStackScreen from './stacks/ExploreStack'
 import ProfileStackScreen from './stacks/ProfileStack'
-<<<<<<< HEAD
 import SocialStackScreen from './stacks/SocialStack'
-=======
-import StorybookUIRoot from '../../storybook'
->>>>>>> add storybook to tabs
 
-let tabs = {
+const tabs = {
 	PODCASTS: {
 		id: 'navigation/podcasts',
 		component: PodcastsStackScreen,
@@ -39,18 +35,6 @@ let tabs = {
 		title: 'Profile',
 		icon: 'account',
 	},
-}
-
-if (__DEV__) {
-	tabs = {
-		...tabs,
-		STORYBOOK: {
-			id: 'navigation/storybook',
-			component: StorybookUIRoot,
-			title: 'Storybook',
-			icon: 'book-open-outline',
-		},
-	}
 }
 
 const Tabs = createBottomTabNavigator()

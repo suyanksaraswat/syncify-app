@@ -1,6 +1,5 @@
 import React from 'react'
 import EpisodeItem from '../../src/components/screens/EpisodesList/EpisodeItem'
-import { CenteredView } from '../CenteredView'
 
 export default function () {
 	const props = {
@@ -15,9 +14,5 @@ export default function () {
 		},
 	}
 
-	return (
-		<CenteredView>
-			<EpisodeItem {...props} />
-		</CenteredView>
-	)
+	return <EpisodeItem {...props} />
 }
