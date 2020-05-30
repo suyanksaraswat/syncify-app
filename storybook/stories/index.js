@@ -5,40 +5,29 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import theme from '@app/styles'
 import rootReducer from '../../src/modules/reducers'
-import { CenteredView } from '../CenteredView'
 
-import MiniPlayer from './MiniPlayer'
-import Button from './Button'
-import Icon from './Icon'
-import EpisodeItem from './EpisodeItem'
-import EpisodeHeader from './EpisodeHeader'
-import EpisodeCover from './EpisodeCover'
-import OptionsBar from './OptionsBar'
-import PlayerControls from './PlayerControls'
-import ProgressBar from './ProgressBar'
-import TrackTextInfo from './TrackTextInfo'
-import PodcastItem from './PodcastItem'
-import PodcastsEmptyState from './PodcastsEmptyState'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
+import EpisodeList from './EpisodeList'
+import Social from './Social'
+import Explore from './Explore'
+import Profile from './Profile'
+import Settings from './Settings'
+import TopCharts from './TopCharts'
 
 const store = createStore(rootReducer)
 
 storiesOf('UI Components', module)
 	.addDecorator((storyFn) => (
 		<Provider store={store}>
-			<ThemeProvider theme={theme}>
-				<CenteredView>{storyFn()}</CenteredView>
-			</ThemeProvider>
+			<ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
 		</Provider>
 	))
-	.add('MiniPlayer', () => <MiniPlayer />)
-	.add('Button', () => <Button />)
-	.add('Icon', () => <Icon />)
-	.add('EpisodeItem', () => <EpisodeItem />)
-	.add('EpisodeHeader', () => <EpisodeHeader />)
-	.add('EpisodeCover', () => <EpisodeCover />)
-	.add('OptionsBar', () => <OptionsBar />)
-	.add('PlayerControls', () => <PlayerControls />)
-	.add('ProgressBar', () => <ProgressBar />)
-	.add('TrackTextInfo', () => <TrackTextInfo />)
-	.add('PodcastItem', () => <PodcastItem />)
-	.add('PodcastsEmptyState', () => <PodcastsEmptyState />)
+	.add('SignIn', () => <SignIn />)
+	.add('SignUp', () => <SignUp />)
+	.add('EpisodeList', () => <EpisodeList />)
+	.add('Social', () => <Social />)
+	.add('Explore', () => <Explore />)
+	.add('Profile', () => <Profile />)
+	.add('Settings', () => <Settings />)
+	.add('TopCharts', () => <TopCharts />)

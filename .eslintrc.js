@@ -38,7 +38,6 @@ module.exports = {
 		Promise: true,
 		window: true,
 		localStorage: true,
-		__DEV__: true,
 	},
 
 	rules: {
