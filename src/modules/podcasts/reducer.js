@@ -1,10 +1,8 @@
-import joeRogan from './data/joe-rogan'
-
 import top100 from './top100'
 
 export const initialState = {
 	subscriptions: top100,
-	currentPodcast: joeRogan,
+	currentPodcast: null,
 }
 
 export default function reducer(state = initialState, action) {

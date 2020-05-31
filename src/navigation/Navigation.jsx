@@ -32,13 +32,15 @@ const Navigation = (props) => (
 					/>
 				</>
 			) : (
-				<RootStack.Screen
-					name="Auth"
-					component={AuthStackScreen}
-					options={{
-						animationEnabled: false,
-					}}
-				/>
+				<>
+					<RootStack.Screen
+						name="Auth"
+						component={AuthStackScreen}
+						options={{
+							animationEnabled: false,
+						}}
+					/>
+				</>
 			)}
 		</RootStack.Navigator>
 	</NavigationContainer>
