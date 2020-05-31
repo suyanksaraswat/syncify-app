@@ -1,39 +1,13 @@
 import * as React from 'react'
-import { SplashScreen } from 'expo'
+import Constants from 'expo-constants'
 
-import SyncifyApp from '@app/SyncifyApp'
-import useLinking from '@app/navigation/useLinking'
+import Storybook from './storybook'
+import Main from './Main'
 
 export default function App(props) {
-	const [isLoadingComplete, setLoadingComplete] = React.useState(false)
-	const [initialNavigationState, setInitialNavigationState] = React.useState()
-	const containerRef = React.useRef()
-	const { getInitialState } = useLinking(containerRef)
-
-	// Load any resources or data that we need prior to rendering the app
-	React.useEffect(() => {
-		async function loadResourcesAndDataAsync() {
-			try {
-				SplashScreen.preventAutoHide()
-				setInitialNavigationState(await getInitialState())
-			} catch (e) {
-				// console.warn(e)
-			} finally {
-				setLoadingComplete(true)
-				SplashScreen.hide()
-			}
-		}
-
-		loadResourcesAndDataAsync()
-	}, [])
-
-	if (!isLoadingComplete && !props.skipLoadingScreen) {
-		return null
+	if (Constants.manifest.slug === 'storybook') {
+		return <Storybook />
 	}
-	return (
-		<SyncifyApp
-			containerRef={containerRef}
-			initialNavigationState={initialNavigationState}
-		/>
-	)
+
+	return <Main {...props} />
 }
