@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
 
 const TrackTextInfo = (props) => {
 	return (
@@ -30,10 +29,4 @@ const AuthorText = styled(EpisodeTitleText)`
 	margin: ${({ theme }) => theme.metrics.extraSmallSize}px;
 `
 
-export default connect(
-	(state) => ({
-		currentTrack: state.player.currentTrack || {},
-		podcast: state.podcasts.currentPodcast,
-	}),
-	{}
-)(TrackTextInfo)
+export default TrackTextInfo
