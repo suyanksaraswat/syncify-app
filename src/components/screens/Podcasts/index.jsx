@@ -7,6 +7,7 @@ const PodcastsContainer = (props) => (
 	<Podcasts
 		subscriptions={props.subscriptionsList}
 		selectPodcast={props.selectPodcast}
+		navigation={props.navigation}
 	/>
 )
 

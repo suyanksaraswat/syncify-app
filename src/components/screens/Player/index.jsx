@@ -10,19 +10,19 @@ import {
 import { PLAY_STATE } from '@app/modules/constants'
 import PlayerScreen from './PlayerScreen'
 
-const Player = (props) => {
-	;<PlayerScreen
+const Player = (props) => (
+	<PlayerScreen
 		playbackInstancePosition={props.playbackInstancePosition}
 		playbackInstanceDuration={props.playbackInstanceDuration}
 		seekSliderValueChange={props.seekSliderValueChange}
 		seekSliderSlidingComplete={props.seekSliderSlidingComplete}
 		currentTrack={props.currentTrack}
-		podcast={props.currentPodcast}
+		podcast={props.podcast}
 		isPlaying={props.isPlaying}
 		playOrPause={props.playOrPause}
 		skipSeconds={props.skipSeconds}
 	/>
-}
+)
 
 export default connect(
 	(state) => ({
