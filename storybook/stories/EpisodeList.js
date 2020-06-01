@@ -10,9 +10,13 @@ export default function () {
 			},
 			episodes: [
 				{
-					description: 'description',
-					title: 'title',
-					pubDate: '2020-04-27 00:00:00',
+					title:
+						'418. What Will College Look Like in the Fall (and Beyond)?',
+					description:
+						'Three university presidents try to answer our listeners’ questions. The result? Not much pomp and a whole lot of circumstance.',
+					imageURL:
+						'https://www.omnycontent.com/d/playlist/aaea4e69-af51-495e-afc9-a9760146922b/14a43378-edb2-49be-8511-ab0d000a7030/d1b9612f-bb1b-4b85-9c0c-ab0d004ab37a/image.jpg?t=1589407970&size=Large',
+					pubDate: '2020-05-14T03:00:00.000Z',
 					enclosure: {
 						type: 'audio/mpeg',
 						duration: 3230,

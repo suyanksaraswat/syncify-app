@@ -1,7 +1,6 @@
 import React from 'react'
 import { Image, View } from 'react-native'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
 
 const EpisodesImages = (props) => {
 	return (
@@ -24,9 +23,4 @@ const ImageComponent = styled(Image)`
 	border-radius: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
-export default connect(
-	(state) => ({
-		currentTrack: state.player.currentTrack || {},
-	}),
-	{}
-)(EpisodesImages)
+export default EpisodesImages

@@ -1,11 +1,6 @@
 import React from 'react'
 import { Text, View, Slider } from 'react-native'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import {
-	seekSliderValueChange,
-	seekSliderSlidingComplete,
-} from '@app/modules/player/actions'
 
 const ProgressSlider = (props) => {
 	const getSeekSliderPosition = () => {
@@ -64,13 +59,4 @@ const SliderBar = styled(Slider)`
 	margin-top: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
-export default connect(
-	(state) => ({
-		playbackInstancePosition: state.player.playbackInstancePosition,
-		playbackInstanceDuration: state.player.playbackInstanceDuration,
-	}),
-	{
-		seekSliderValueChange,
-		seekSliderSlidingComplete,
-	}
-)(ProgressSlider)
+export default ProgressSlider
