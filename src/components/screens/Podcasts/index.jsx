@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { selectPodcast } from '@app/modules/podcasts/actions'
 import Podcasts from './PodcastsScreen'
 
-
 const PodcastsContainer = (props) => (
 	<Podcasts
 		subscriptions={props.subscriptionsList}

@@ -10,7 +10,7 @@ const PlayerScreen = (props) => (
 		<EpisodeCover currentTrack={props.currentTrack} />
 		<TrackTextInfo
 			currentTrack={props.currentTrack}
-			podcast={props.currentPodcast}
+			podcast={props.podcast}
 		/>
 		<ProgressBar
 			playbackInstancePosition={props.playbackInstancePosition}
