@@ -3,9 +3,9 @@ import { Text } from 'react-native'
 
 import Screen from '@app/components/layout/Screen'
 
-const Episode = () => (
+const Episode = (props) => (
 	<Screen>
-		<Text> Episode Info </Text>
+		<Text> {props.episode.title} </Text>
 	</Screen>
 )
 

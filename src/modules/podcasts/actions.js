@@ -9,3 +9,10 @@ export const selectPodcast = (title) => async (dispatch) => {
 		payload: currentPodcast,
 	})
 }
+
+export const selectEpisode = (episode) => async (dispatch) => {
+	dispatch({
+		type: 'SELECT_EPISODE',
+		payload: episode,
+	})
+}
