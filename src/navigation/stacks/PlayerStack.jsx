@@ -6,7 +6,7 @@ const PlayerStack = createStackNavigator()
 
 const PlayerStackScreen = () => (
 	<PlayerStack.Navigator>
-		<PlayerStack.Screen name="Player" component={Player} />
+		<PlayerStack.Screen name="Playing now" component={Player} />
 	</PlayerStack.Navigator>
 )
 
