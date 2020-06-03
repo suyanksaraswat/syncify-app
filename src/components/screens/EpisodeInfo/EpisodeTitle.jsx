@@ -22,9 +22,10 @@ const Wrapper = styled(View)`
 `
 
 const PodcastTitleText = styled(Text)`
-	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('7%')}px;
+	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('7.5%')}px;
 	color: ${({ theme }) => theme.colors.text};
 	margin: ${({ theme }) => theme.metrics.mediumSize}px;
+	font-weight: bold;
 `
 
 const EpisodeTitleText = styled(PodcastTitleText)`
