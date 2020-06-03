@@ -20,7 +20,6 @@ const Wrapper = styled(View)`
 const ImageComponent = styled(Image)`
 	width: 30%;
 	height: 100%;
-	border-radius: ${({ theme }) => theme.metrics.smallSize}px;
 `
 
 export default EpisodesImage

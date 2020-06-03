@@ -6,9 +6,7 @@ import moment from 'moment'
 const LengthAndDate = (props) => (
 	<Metrics>
 		<Metric>
-			{new Date(Math.floor(props.episode.enclosure.duration) * 1000)
-				.toISOString()
-				.substr(11, 8)}
+			{moment.utc(props.episode.duration * 1000).format('HH:mm:ss')}
 		</Metric>
 		<Metric>
 			{moment(props.episode.pubDate.substr(0, 10), 'YYYYMMDD').fromNow()}
