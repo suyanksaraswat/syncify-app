@@ -1,13 +1,12 @@
 import React from 'react'
-import { Text } from 'react-native'
 import Screen from '@app/components/layout/Screen'
 import EpisodeCover from './EpisodeCover'
-
+import EpisodeTitle from './EpisodeTitle'
 
 const Episode = (props) => (
 	<Screen>
 		<EpisodeCover episode={props.episode} />
-		<Text> {props.episode.title} </Text>
+		<EpisodeTitle episode={props.episode} podcast={props.podcast} />
 	</Screen>
 )
 

@@ -3,6 +3,13 @@ import Episode from '../../src/components/screens/EpisodeInfo/EpisodeScreen'
 
 export default function () {
 	const props = {
+		podcast: {
+			meta: {
+				imageURL:
+					'https://f.prxu.org/96/images/a52a20dd-7b8e-46be-86a0-dda86b0953fc/99-300.png',
+				title: 'Freakonomics Radio',
+			},
+		},
 		episode: {
 			title: '418. What Will College Look Like in the Fall (and Beyond)?',
 			description:
