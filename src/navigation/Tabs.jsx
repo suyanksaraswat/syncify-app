@@ -8,19 +8,26 @@ import TabBarIcon from './TabBarIcon'
 import PodcastsStackScreen from './stacks/PodcastsStack'
 import ExploreStackScreen from './stacks/ExploreStack'
 import ProfileStackScreen from './stacks/ProfileStack'
+import SocialStackScreen from './stacks/SocialStack'
 
 const tabs = {
 	PODCASTS: {
 		id: 'navigation/podcasts',
 		component: PodcastsStackScreen,
-		title: 'Podcasts',
-		icon: 'playlist-play',
+		title: 'Home',
+		icon: 'home',
 	},
 	EXLPORE: {
 		id: 'navigation/explore',
 		component: ExploreStackScreen,
 		title: 'Explore',
 		icon: 'magnify',
+	},
+	SOCIAL: {
+		id: 'navigation/social',
+		component: SocialStackScreen,
+		title: 'Social',
+		icon: 'account-multiple',
 	},
 	PROFILE: {
 		id: 'navigation/settings',

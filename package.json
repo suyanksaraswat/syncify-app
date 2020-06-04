@@ -8,7 +8,9 @@
 		"eject": "expo eject",
 		"test": "jest --watchAll",
 		"lint": "eslint --fix --ext .jsx --ext .js src/",
-		"prettier": "prettier '**/*.+(js|jsx)' --write"
+		"prettier": "prettier '**/*.+(js|jsx)' --write",
+		"ios-storybook": "SLUG=storybook yarn run ios",
+		"android-storybook": "SLUG=storybook yarn run android"
 	},
 	"private": true,
 	"husky": {
@@ -43,6 +45,7 @@
 		"expo-auth-session": "^1.2.1",
 		"expo-av": "^8.1.0",
 		"expo-constants": "~9.0.0",
+		"expo-file-system": "~8.1.0",
 		"expo-font": "~8.1.0",
 		"expo-web-browser": "~8.2.0",
 		"graphql": "^15.0.0",
@@ -67,6 +70,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.8.6",
+		"@storybook/react-native": "^5.3.18",
 		"babel-eslint": "^10.1.0",
 		"babel-plugin-module-resolver": "^4.0.0",
 		"babel-preset-expo": "~8.1.0",

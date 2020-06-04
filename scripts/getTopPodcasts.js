@@ -27,9 +27,9 @@ fetch(
 				.then((resData) => {
 					const podcast = resData.results[0].collectionName
 					const feedURL = resData.results[0].feedUrl
-					const filename =
-						`${podcast.replace(/[^a-z0-9]/gi, '_').toLowerCase() 
-						}.json`
+					const filename = `${podcast
+						.replace(/[^a-z0-9]/gi, '_')
+						.toLowerCase()}.json`
 					getAndSaveJson(feedURL, filename)
 				})
 		})

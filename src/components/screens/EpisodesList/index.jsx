@@ -7,7 +7,7 @@ import { startPlayback } from '@app/modules/player/actions'
 import EpisodeItem from './EpisodeItem'
 import EpisodeHeader from './EpisodeHeader'
 
-const Episodes = (props) => (
+export const Episodes = (props) => (
 	<Wrapper>
 		<EpisodeHeader podcast={props.podcast} />
 
