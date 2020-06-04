@@ -13,7 +13,7 @@ const EpisodesImage = (props) => {
 const Wrapper = styled(View)`
 	width: ${({ theme }) => theme.metrics.width}px;
 	height: ${({ theme }) => theme.metrics.getWidthFromDP('30%')}px;
-	margin-bottom: ${({ theme }) => theme.metrics.extraLargeSize}px;
+	margin: ${({ theme }) => theme.metrics.extraLargeSize}px;
 	align-items: center;
 `
 
