@@ -4,6 +4,9 @@ import * as AuthSessionNew from 'expo-auth-session'
 import { Alert } from 'react-native'
 import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from 'react-native-dotenv'
 
+import { client } from '../../graphql/client'
+import { SignInMutation } from '../../graphql/mutations/user'
+
 const auth0ClientId = AUTH0_CLIENT_ID
 const auth0Domain = AUTH0_DOMAIN
 const returnUrl = 'https://github.com/syncify-team'
@@ -38,7 +41,7 @@ export const login = () => async (dispatch) => {
 		client_id: auth0ClientId,
 		redirect_uri: redirectUrl,
 		response_type: 'id_token', // id_token will return a JWT token
-		scope: 'openid profile', // retrieve the user's profile
+		scope: 'openid profile email', // retrieve the user's profile
 		nonce: Math.random().toString(36), // ideally, this will be a random value
 	})
 	const authUrl = `${auth0Domain}/authorize${queryParams}`
@@ -68,10 +71,23 @@ export const login = () => async (dispatch) => {
 		const jwtToken = response.params.id_token
 		const decoded = jwtDecode(jwtToken)
 		// Id token format: https://auth0.com/docs/api-auth/tutorials/adoption/api-tokens#access-vs-id-tokens
-
+		console.log(jwtToken)
 		console.log('Id token', JSON.stringify(decoded, null, 2))
 
-		const { name } = decoded
+		try {
+			response = await client.mutate({
+				variables: { token: jwtToken },
+				mutation: SignInMutation,
+			})
+		} catch (error) {
+			console.log(error)
+		}
+
+		const {
+			first_name: firstName,
+			last_name: lastName,
+		} = response.data.signIn
+		const name = `${firstName} ${lastName}`
 		dispatch({
 			type: 'auth/LOGGED_IN',
 			payload: { name, idToken: jwtToken },
