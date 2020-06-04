@@ -2,10 +2,6 @@ import React from 'react'
 import { View } from 'react-native'
 import styled from 'styled-components'
 import Button from '@app/components/common/Button'
-import { connect } from 'react-redux'
-
-import { playOrPause, skipSeconds } from '@app/modules/player/actions'
-import { PLAY_STATE } from '@app/modules/constants'
 
 const PlayerControls = (props) => {
 	return (
@@ -39,12 +35,4 @@ const ButtonsWrapper = styled(View)`
 	padding-right: ${({ theme }) => theme.metrics.extraLargeSize}px;
 `
 
-export default connect(
-	(state) => ({
-		isPlaying: state.player.playState === PLAY_STATE.PLAYING,
-	}),
-	{
-		playOrPause,
-		skipSeconds,
-	}
-)(PlayerControls)
+export default PlayerControls

@@ -14,6 +14,8 @@ import Explore from './Explore'
 import Profile from './Profile'
 import Settings from './Settings'
 import TopCharts from './TopCharts'
+import Podcasts from './Podcasts'
+import Player from './Player'
 
 const store = createStore(rootReducer)
 
@@ -31,3 +33,5 @@ storiesOf('UI Components', module)
 	.add('Profile', () => <Profile />)
 	.add('Settings', () => <Settings />)
 	.add('TopCharts', () => <TopCharts />)
+	.add('Podcasts', () => <Podcasts />)
+	.add('Player', () => <Player />)

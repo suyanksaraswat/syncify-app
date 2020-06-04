@@ -13,7 +13,7 @@ const MiniPlayer = (props) => (
 			<LeftContentWrapper
 				onPress={() => props.navigation.navigate('Player')}
 			>
-				<EpisodeImage source={{ uri: props.currentTrack.thumbnail }} />
+				<EpisodeImage source={{ uri: props.currentTrack.imageURL }} />
 			</LeftContentWrapper>
 			<CenterContentWrapper
 				onPress={() => props.navigation.navigate('Player')}
