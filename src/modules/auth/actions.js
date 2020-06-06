@@ -1,7 +1,8 @@
 import * as WebBrowser from 'expo-web-browser'
 import jwtDecode from 'jwt-decode'
 import * as AuthSessionNew from 'expo-auth-session'
-import { Alert } from 'react-native'
+import { AsyncStorage , Alert } from 'react-native'
+
 import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from 'react-native-dotenv'
 
 import { client } from '../../graphql/client'
@@ -71,8 +72,14 @@ export const login = () => async (dispatch) => {
 		const jwtToken = response.params.id_token
 		const decoded = jwtDecode(jwtToken)
 		// Id token format: https://auth0.com/docs/api-auth/tutorials/adoption/api-tokens#access-vs-id-tokens
-		console.log(jwtToken)
 		console.log('Id token', JSON.stringify(decoded, null, 2))
+
+		try {
+			await AsyncStorage.setItem('token', jwtToken)
+		} catch (error) {
+			// Error saving data
+			console.log(error)
+		}
 
 		try {
 			response = await client.mutate({
