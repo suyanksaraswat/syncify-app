@@ -1,7 +1,7 @@
 import * as WebBrowser from 'expo-web-browser'
 import jwtDecode from 'jwt-decode'
 import * as AuthSessionNew from 'expo-auth-session'
-import { AsyncStorage , Alert } from 'react-native'
+import { AsyncStorage, Alert } from 'react-native'
 
 import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from 'react-native-dotenv'
 
@@ -87,7 +87,8 @@ export const login = () => async (dispatch) => {
 				mutation: SignInMutation,
 			})
 		} catch (error) {
-			console.log(error)
+			console.log(`Error in Logging in: ${error}`)
+			// dispatch an error message instead
 		}
 
 		const {

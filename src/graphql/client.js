@@ -3,6 +3,7 @@ import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { AsyncStorage } from 'react-native'
+import { GRAPHQL_API_URL } from 'react-native-dotenv'
 
 const authLink = setContext(async (_, { headers }) => {
 	// get the authentication token from local storage if it exists
@@ -17,9 +18,7 @@ const authLink = setContext(async (_, { headers }) => {
 })
 
 const client = new ApolloClient({
-	link: authLink.concat(
-		createHttpLink({ uri: 'http://192.168.0.139:3000/graphql' })
-	),
+	link: authLink.concat(createHttpLink({ uri: GRAPHQL_API_URL })),
 	cache: new InMemoryCache(),
 })
 
