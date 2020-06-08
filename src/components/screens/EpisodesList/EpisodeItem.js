@@ -6,10 +6,16 @@ import moment from 'moment'
 
 import Button from '@app/components/common/Button'
 import { startPlayback } from '@app/modules/player/actions'
+import { selectEpisode } from '@app/modules/podcasts/actions'
 
 const EpisodeItem = (props) => {
 	return (
-		<Wrapper onPress={() => {}}>
+		<Wrapper
+			onPress={() => {
+				props.selectEpisode(props.episode)
+				props.navigation.navigate('Episode')
+			}}
+		>
 			<Header>
 				<HeaderText ellipsizeMode="tail" numberOfLines={1}>
 					{props.episode.title}
@@ -105,4 +111,7 @@ const ButtonBox = styled(View)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('35%')}px;
 `
 
-export default connect(() => ({}), { startPlayback })(EpisodeItem)
+export default connect(
+	(state) => ({ subscriptionsList: state.podcasts.subscriptions }),
+	{ startPlayback, selectEpisode }
+)(EpisodeItem)
