@@ -49,5 +49,7 @@ export default connect(
 	(state) => ({
 		podcast: state.podcasts.currentPodcast,
 	}),
-	{ startPlayback }
+	{
+		startPlayback,
+	}
 )(Episodes)
