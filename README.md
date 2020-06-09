@@ -35,16 +35,33 @@ This idea has been worked at during Hack the Press hackathons where a few differ
 ### Run locally
 
 1. Make sure you have a global install of Expo
-   `$ yarn global add expo-cli`
+
+`$ yarn global add expo-cli`
 
 2. Clone the repo.
 
-3. Create a .env file and ask a dev for auth0 details or use your own test login set up.
+3. Create a .env file and ask a dev for auth0 details _(or use your own test login set up)_. It should have the format
+
+```
+AUTH0_CLIENT_ID=
+AUTH0_DOMAIN=
+GRAPHQL_API_URL=http://{IP_ADDRESS_HERE}:3000/graphql
+```
+
+
 
 4. Run these commands inside:
-   `$ yarn install`
+
+`$ yarn install`
 
 `$ expo start`
+
+
+#### Important note
+
+You will need to have the back end server running locally to be able to login to the app. _(you can use storybook for quick development of screens and components)_
+
+
 
 ---
 
