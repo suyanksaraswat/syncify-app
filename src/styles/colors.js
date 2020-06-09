@@ -6,4 +6,5 @@ export default {
 	activeBottomNavigatorBarItem: 'rgba(0, 0, 0, 0.8)',
 	inactiveBottomNavigatorBarItem: '#BBB',
 	skyBlue: '#4C82FC',
+	redWatermelon: '#FB3640',
 }

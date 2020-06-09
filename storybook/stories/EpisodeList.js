@@ -7,6 +7,7 @@ export default function () {
 			meta: {
 				imageURL:
 					'https://f.prxu.org/96/images/a52a20dd-7b8e-46be-86a0-dda86b0953fc/99-300.png',
+				title: 'Freakonomics Radio',
 			},
 			episodes: [
 				{

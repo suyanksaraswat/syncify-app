@@ -18,6 +18,7 @@ const Social = (props) => (
 					image={friend.imageUrl}
 					firstName={friend.first_name}
 					lastName={friend.last_name}
+					username={friend.username}
 				/>
 			))}
 		</ScrollView>
