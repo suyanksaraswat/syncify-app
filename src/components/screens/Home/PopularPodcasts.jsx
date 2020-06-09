@@ -27,7 +27,7 @@ const PopularPodcasts = (props) => (
 
 const Container = styled(View)`
 	width: ${({ theme }) => theme.metrics.getWidthFromDP('95%')}px;
-	margin-top: ${({ theme }) => theme.metrics.getWidthFromDP('5%')}px;
+	margin-top: ${({ theme }) => theme.metrics.getWidthFromDP('2%')}px;
 `
 
 const Item = styled(SquareItemCover)`
