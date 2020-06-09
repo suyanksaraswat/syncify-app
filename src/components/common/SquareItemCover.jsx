@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity, Image } from 'react-native'
 import styled from 'styled-components'
 
-const PodcastItem = ({ image, onPress }) => {
+const SquareItemCover = ({ image, onPress }) => {
 	return (
 		<Wrapper onPress={onPress}>
 			<EpisodeImage source={{ uri: image }} />
@@ -22,4 +22,4 @@ const EpisodeImage = styled(Image)`
 	height: 100%;
 `
 
-export default PodcastItem
+export default SquareItemCover
