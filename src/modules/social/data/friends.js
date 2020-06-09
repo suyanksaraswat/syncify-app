@@ -2,6 +2,7 @@ export default [
 	{
 		first_name: 'John',
 		last_name: 'Doe',
+		username: 'johndoe',
 		imageUrl:
 			'https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Erik%20Reis,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1454956716/ufx48jpdmmyaglyrxbvj.jpg',
 		podcasts: [
@@ -37,6 +38,7 @@ export default [
 	{
 		first_name: 'Jane',
 		last_name: 'Doe',
+		username: 'janedoe',
 		imageUrl:
 			'https://hackspirit.com/wp-content/uploads/2017/08/woman-female.jpg',
 		podcasts: [
@@ -73,6 +75,7 @@ export default [
 	{
 		first_name: 'Jim',
 		last_name: 'Doe',
+		username: 'jimdoe',
 		imageUrl:
 			'https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Erik%20Reis,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1454956716/ufx48jpdmmyaglyrxbvj.jpg',
 		podcasts: [
@@ -108,6 +111,7 @@ export default [
 	{
 		first_name: 'Mary',
 		last_name: 'Doe',
+		username: 'marydoe',
 		imageUrl:
 			'https://hackspirit.com/wp-content/uploads/2017/08/woman-female.jpg',
 		podcasts: [
@@ -143,6 +147,7 @@ export default [
 	{
 		first_name: 'John',
 		last_name: 'Doe',
+		username: 'johndoe',
 		imageUrl:
 			'https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Erik%20Reis,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1454956716/ufx48jpdmmyaglyrxbvj.jpg',
 		podcasts: [
