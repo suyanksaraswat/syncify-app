@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, FlatList } from 'react-native'
 import styled from 'styled-components'
-import podcasts from '@app/modules/podcasts/data/top100'
+import podcasts from '@app/modules/podcasts/top100'
 
 import SquareItemCover from '@app/components/common/SquareItemCover'
 
