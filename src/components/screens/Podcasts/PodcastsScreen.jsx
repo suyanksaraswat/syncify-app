@@ -3,9 +3,14 @@ import { View, FlatList } from 'react-native'
 import styled from 'styled-components'
 
 import PodcastItem from './PodcastItem'
+import SearchBar from './SearchBar'
 
 const Podcasts = (props) => (
 	<Wrapper>
+		<SearchBar
+			searchPodcasts={props.searchPodcasts}
+			data={props.subscriptions}
+		/>
 		<FlatList
 			data={props.subscriptions}
 			numColumns={4}
@@ -26,7 +31,7 @@ const Podcasts = (props) => (
 
 const Wrapper = styled(View)`
 	flex-direction: column;
-	align-items: center;
+	margin: ${({ theme }) => theme.metrics.getWidthFromDP('2.5%')}px;
 `
 
 const Item = styled(PodcastItem)`

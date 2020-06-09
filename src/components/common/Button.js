@@ -4,9 +4,9 @@ import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components'
 import Icon from './Icon'
 
-const Button = ({ onPress, name, size }) => (
+const Button = ({ onPress, name, size, color }) => (
 	<Touchable onPress={onPress}>
-		<Icon color="black" name={name} size={size} />
+		<Icon color={color || 'black'} name={name} size={size} />
 	</Touchable>
 )
 
