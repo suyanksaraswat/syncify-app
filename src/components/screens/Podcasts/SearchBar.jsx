@@ -12,7 +12,7 @@ const SearchBar = (props) => {
 			<Search
 				onChangeText={(text) => {
 					onChangeText(text)
-					props.filterData(text)
+					props.searchPodcasts(text)
 				}}
 				value={value}
 				clearTextOnFocus={true}
@@ -20,7 +20,7 @@ const SearchBar = (props) => {
 			/>
 			<Button
 				onPress={() => {
-					props.filterData(value)
+					props.searchPodcasts(value)
 				}}
 				name="magnify"
 				size={25}

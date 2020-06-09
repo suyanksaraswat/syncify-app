@@ -7,7 +7,10 @@ import SearchBar from './SearchBar'
 
 const Podcasts = (props) => (
 	<Wrapper>
-		<SearchBar filterData={props.filterData} data={props.subscriptions} />
+		<SearchBar
+			searchPodcasts={props.searchPodcasts}
+			data={props.subscriptions}
+		/>
 		<FlatList
 			data={props.subscriptions}
 			numColumns={4}
