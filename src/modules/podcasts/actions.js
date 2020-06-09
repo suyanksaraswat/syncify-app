@@ -16,3 +16,17 @@ export const selectEpisode = (episode) => async (dispatch) => {
 		payload: episode,
 	})
 }
+
+export const filterData = (input) => async (dispatch, getState) => {
+	const allPodcasts = getState().podcasts.allPodcasts
+
+	const matchesPodcast = (podcast) =>
+		podcast.meta.title.toLowerCase().indexOf(input.toLowerCase()) > -1
+
+	dispatch({
+		type: 'SEARCH_PODCASTS',
+		payload: {
+			filteredPodcasts: allPodcasts.filter(matchesPodcast),
+		},
+	})
+}

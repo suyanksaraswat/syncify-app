@@ -4,19 +4,24 @@ import styled from 'styled-components'
 
 import Button from '@app/components/common/Button'
 
-const SearchBar = () => {
+const SearchBar = (props) => {
 	const [value, onChangeText] = React.useState(null)
 
 	return (
 		<SearchWrap>
 			<Search
-				onChangeText={(text) => onChangeText(text)}
+				onChangeText={(text) => {
+					onChangeText(text)
+					props.filterData(text)
+				}}
 				value={value}
 				clearTextOnFocus={true}
 				placeholder="Search for podcasts"
 			/>
 			<Button
-				onPress={() => {}}
+				onPress={() => {
+					props.filterData(value)
+				}}
 				name="magnify"
 				size={25}
 				color="#4C82FC"

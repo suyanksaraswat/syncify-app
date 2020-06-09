@@ -7,7 +7,7 @@ import SearchBar from './SearchBar'
 
 const Podcasts = (props) => (
 	<Wrapper>
-		<SearchBar />
+		<SearchBar filterData={props.filterData} data={props.subscriptions} />
 		<FlatList
 			data={props.subscriptions}
 			numColumns={4}
@@ -28,7 +28,7 @@ const Podcasts = (props) => (
 
 const Wrapper = styled(View)`
 	flex-direction: column;
-	align-items: center;
+	margin: ${({ theme }) => theme.metrics.getWidthFromDP('2.5%')}px;
 `
 
 const Item = styled(PodcastItem)`
