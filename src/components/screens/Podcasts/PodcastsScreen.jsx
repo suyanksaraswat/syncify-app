@@ -3,9 +3,11 @@ import { View, FlatList } from 'react-native'
 import styled from 'styled-components'
 
 import PodcastItem from './PodcastItem'
+import SearchBar from './SearchBar'
 
 const Podcasts = (props) => (
 	<Wrapper>
+		<SearchBar />
 		<FlatList
 			data={props.subscriptions}
 			numColumns={4}
