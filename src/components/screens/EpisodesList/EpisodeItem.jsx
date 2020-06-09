@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableOpacity, Text, View, Image } from 'react-native'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 import { connect } from 'react-redux'
 import moment from 'moment'
 
@@ -11,6 +11,7 @@ import { selectEpisode } from '@app/modules/podcasts/actions'
 const EpisodeItem = (props) => {
 	return (
 		<Wrapper
+			testID="episode-item"
 			onPress={() => {
 				props.selectEpisode(props.episode)
 				props.navigation.navigate('Episode')
@@ -36,6 +37,7 @@ const EpisodeItem = (props) => {
 				</DescriptionTextBox>
 				<ButtonBox>
 					<Button
+						testID="play-btn"
 						onPress={() => {
 							props.startPlayback(props.episode)
 							props.navigation.navigate('Player')

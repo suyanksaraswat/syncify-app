@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, Button, ImageBackground, Text } from 'react-native'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 const EpisodeHeader = (props) => {
 	return (

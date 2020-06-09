@@ -1,0 +1,551 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EpisodesList/> should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Array [
+        Object {
+          "width": 750,
+        },
+      ]
+    }
+  >
+    <Image
+      blurRadius={8}
+      source={
+        Object {
+          "uri": "https://media.npr.org/assets/img/2020/03/17/coronavirus_daily_final__sq-2aca96317281db7f8671e5bf24e68fb77b66bbed.png?s=1400",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": undefined,
+            "width": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgba(0, 0, 0, 0.5)",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "width": 750,
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://media.npr.org/assets/img/2020/03/17/coronavirus_daily_final__sq-2aca96317281db7f8671e5bf24e68fb77b66bbed.png?s=1400",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 15,
+              "height": 225,
+              "marginBottom": 15,
+              "marginLeft": 15,
+              "marginRight": 15,
+              "marginTop": 15,
+              "width": 225,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "height": 225,
+              "justifyContent": "space-between",
+              "width": 450,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#F2F2F2",
+                "fontSize": 41.5,
+              },
+            ]
+          }
+        >
+          Coronavirus Daily
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Subscribe
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0, 0, 0, 0.7)",
+          "flexDirection": "row",
+          "height": 75,
+          "paddingLeft": 15,
+          "width": 750,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#F2F2F2",
+            "fontSize": 26.5,
+          },
+        ]
+      }
+    >
+      2
+       episodes
+    </Text>
+  </View>
+  <RCTScrollView
+    testID="episode-list"
+  >
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "opacity": 1,
+            "paddingBottom": 15,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+            "paddingTop": 15,
+            "width": 750,
+          }
+        }
+        testID="episode-item"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginBottom": 7.5,
+                "marginLeft": 7.5,
+                "marginRight": 7.5,
+                "marginTop": 7.5,
+                "position": "relative",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0, 0, 0, 0.8)",
+                  "flexBasis": 0,
+                  "flexGrow": 5,
+                  "flexShrink": 1,
+                  "fontSize": 34,
+                  "marginLeft": 15,
+                  "marginRight": 15,
+                },
+              ]
+            }
+          >
+            Indoor Spread, Workers' Anxieties, And Our Warped Sense Of Time 
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0, 0, 0, 0.8)",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "fontSize": 26.5,
+                  "marginLeft": 15,
+                },
+              ]
+            }
+          >
+            22 days
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginBottom": 0,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "position": "relative",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://media.npr.org/assets/img/2020/05/19/gettyimages-1213973220_wide-d815a707d752c125f63807322558f5e4866c1df9.jpg?s=1400",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderRadius": 15,
+                  "height": 112.5,
+                  "marginBottom": 15,
+                  "marginLeft": 15,
+                  "marginRight": 15,
+                  "marginTop": 15,
+                  "width": 112.5,
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "height": 112.5,
+                  "justifyContent": "center",
+                  "marginBottom": 15,
+                  "marginLeft": 15,
+                  "marginRight": 15,
+                  "marginTop": 15,
+                  "width": 375,
+                },
+              ]
+            }
+          >
+            <Text
+              ellipsizeMode="tail"
+              numberOfLines={3}
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.8)",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "fontSize": 26.5,
+                  },
+                ]
+              }
+            >
+              Some Americans being called back to work say they don't feel safe. Plus, scientists are learning more about how the coronavirus spreads indoors.
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "width": 262.5,
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="play-btn"
+            >
+              <Text />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "opacity": 1,
+            "paddingBottom": 15,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+            "paddingTop": 15,
+            "width": 750,
+          }
+        }
+        testID="episode-item"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginBottom": 7.5,
+                "marginLeft": 7.5,
+                "marginRight": 7.5,
+                "marginTop": 7.5,
+                "position": "relative",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0, 0, 0, 0.8)",
+                  "flexBasis": 0,
+                  "flexGrow": 5,
+                  "flexShrink": 1,
+                  "fontSize": 34,
+                  "marginLeft": 15,
+                  "marginRight": 15,
+                },
+              ]
+            }
+          >
+            Encouraging Vaccine News; Pandemic Grows More Political  
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0, 0, 0, 0.8)",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "fontSize": 26.5,
+                  "marginLeft": 15,
+                },
+              ]
+            }
+          >
+            23 days
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginBottom": 0,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "position": "relative",
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://media.npr.org/assets/img/2020/05/18/gettyimages-1213147461_wide-36bc5fdc5dfdf40d5b6ab8a91d690f3d2428681d.jpg?s=1400",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderRadius": 15,
+                  "height": 112.5,
+                  "marginBottom": 15,
+                  "marginLeft": 15,
+                  "marginRight": 15,
+                  "marginTop": 15,
+                  "width": 112.5,
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "height": 112.5,
+                  "justifyContent": "center",
+                  "marginBottom": 15,
+                  "marginLeft": 15,
+                  "marginRight": 15,
+                  "marginTop": 15,
+                  "width": 375,
+                },
+              ]
+            }
+          >
+            <Text
+              ellipsizeMode="tail"
+              numberOfLines={3}
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.8)",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "fontSize": 26.5,
+                  },
+                ]
+              }
+            >
+              Social scientists are concerned politicization of the coronavirus is inflaming an already divided nation. Plus, promising results from an early vaccine trial. 
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "width": 262.5,
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="play-btn"
+            >
+              <Text />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
