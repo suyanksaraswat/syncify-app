@@ -10,6 +10,8 @@ import EpisodesList from '../EpisodesList'
 
 const mockStore = configureStore([])
 
+jest.mock('moment', () => () => ({ fromNow: () => '10 days' }))
+
 const podcast = {
 	meta: {
 		title: 'Coronavirus Daily',

@@ -6,7 +6,8 @@
 		"ios": "expo start --ios",
 		"web": "expo start --web",
 		"eject": "expo eject",
-		"test": "jest --watchAll",
+		"test": "jest",
+		"test:dev": "jest --watchAll",
 		"lint": "eslint --fix --ext .jsx --ext .js src/",
 		"prettier": "prettier '**/*.+(js|jsx)' --write",
 		"ios-storybook": "SLUG=storybook yarn run ios",
@@ -15,7 +16,8 @@
 	"private": true,
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged"
+			"pre-commit": "lint-staged",
+			"pre-push": "npm test"
 		}
 	},
 	"lint-staged": {

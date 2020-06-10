@@ -253,7 +253,7 @@ exports[`<EpisodesList/> should render correctly 1`] = `
               ]
             }
           >
-            22 days
+            10 days
           </Text>
         </View>
         <View
@@ -436,7 +436,7 @@ exports[`<EpisodesList/> should render correctly 1`] = `
               ]
             }
           >
-            23 days
+            10 days
           </Text>
         </View>
         <View
