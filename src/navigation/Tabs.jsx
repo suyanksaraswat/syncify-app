@@ -5,19 +5,19 @@ import colors from '@app/styles/colors'
 import TabBarWithMiniPlayer from './TabBarWithMiniPlayer'
 import TabBarIcon from './TabBarIcon'
 
-import PodcastsStackScreen from './stacks/PodcastsStack'
 import ExploreStackScreen from './stacks/ExploreStack'
 import ProfileStackScreen from './stacks/ProfileStack'
 import SocialStackScreen from './stacks/SocialStack'
+import HomeStackScreen from './stacks/HomeStack'
 
 const tabs = {
-	PODCASTS: {
-		id: 'navigation/podcasts',
-		component: PodcastsStackScreen,
+	HOME: {
+		id: 'navigation/home',
+		component: HomeStackScreen,
 		title: 'Home',
 		icon: 'home',
 	},
-	EXLPORE: {
+	EXPLORE: {
 		id: 'navigation/explore',
 		component: ExploreStackScreen,
 		title: 'Explore',

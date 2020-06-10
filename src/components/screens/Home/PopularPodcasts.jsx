@@ -1,19 +1,15 @@
 import React from 'react'
 import { View, FlatList } from 'react-native'
 import styled from 'styled-components'
+import podcasts from '@app/modules/podcasts/top100'
 
 import SquareItemCover from '@app/components/common/SquareItemCover'
-import SearchBar from './SearchBar'
 
-const Podcasts = (props) => (
-	<Wrapper>
-		<SearchBar
-			searchPodcasts={props.searchPodcasts}
-			data={props.subscriptions}
-		/>
+const PopularPodcasts = (props) => (
+	<Container>
 		<FlatList
-			data={props.subscriptions}
-			numColumns={4}
+			data={podcasts}
+			horizontal
 			renderItem={({ item }) => (
 				<Item
 					key={item.meta.description}
@@ -26,12 +22,12 @@ const Podcasts = (props) => (
 			)}
 			keyExtractor={(item) => item.meta.imageURL}
 		/>
-	</Wrapper>
+	</Container>
 )
 
-const Wrapper = styled(View)`
-	flex-direction: column;
-	margin: ${({ theme }) => theme.metrics.getWidthFromDP('2.5%')}px;
+const Container = styled(View)`
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('95%')}px;
+	margin-top: ${({ theme }) => theme.metrics.getWidthFromDP('2%')}px;
 `
 
 const Item = styled(SquareItemCover)`
@@ -39,4 +35,4 @@ const Item = styled(SquareItemCover)`
 	flex-wrap: wrap;
 `
 
-export default Podcasts
+export default PopularPodcasts

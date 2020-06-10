@@ -145,9 +145,9 @@ export default [
 		],
 	},
 	{
-		first_name: 'John',
+		first_name: 'Johny',
 		last_name: 'Doe',
-		username: 'johndoe',
+		username: 'johnydoe',
 		imageUrl:
 			'https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Erik%20Reis,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1454956716/ufx48jpdmmyaglyrxbvj.jpg',
 		podcasts: [
