@@ -5,6 +5,13 @@ import SocialScreen from './SocialScreen'
 
 const Social = (props) => <SocialScreen {...props} />
 
-export default connect((state) => ({ allUsers: state.social.allUsers, results: state.social.results }), {
-	getAllUsers, search
-})(Social)
+export default connect(
+	(state) => ({
+		allUsers: state.social.allUsers,
+		results: state.social.results,
+	}),
+	{
+		getAllUsers,
+		search,
+	}
+)(Social)

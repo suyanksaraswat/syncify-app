@@ -10,7 +10,7 @@ export default function reducer(state = initialState, action) {
 		case CONNECTIONS_SEARCH_SUCCESS: {
 			return {
 				...state,
-				results: action.payload
+				results: action.payload,
 			}
 		}
 

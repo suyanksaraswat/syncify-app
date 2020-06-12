@@ -14,7 +14,7 @@ const SocialScreen = (props) => {
 
 	const renderConnections = () => {
 		return (
-			<>
+			<ScrollScreen>
 				<HeaderBox>
 					<HeaderText>My Connections</HeaderText>
 					<Button
@@ -43,25 +43,23 @@ const SocialScreen = (props) => {
 						keyExtractor={(item) => item.id}
 					/>
 				)}
-			</>
+			</ScrollScreen>
 		)
 	}
 
 	return (
-		<ScrollScreen>
-			<Screen>
-				<SearchBar
-					value={searchValue}
-					onChange={setSearchValue}
-					placeholder="Search for connections"
-				/>
-				{searchValue ? (
-					<Results results={props.results} />
-				) : (
-					renderConnections()
-				)}
-			</Screen>
-		</ScrollScreen>
+		<Screen>
+			<SearchBar
+				value={searchValue}
+				onChange={setSearchValue}
+				placeholder="Search for connections"
+			/>
+			{searchValue ? (
+				<Results results={props.results} />
+			) : (
+				renderConnections()
+			)}
+		</Screen>
 	)
 }
 

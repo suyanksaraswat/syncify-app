@@ -26,10 +26,12 @@ const Results = ({ results }) => {
 
 	return (
 		<>
-			<HeaderBox>
-				<HeaderText>Results</HeaderText>
-			</HeaderBox>
 			<FlatList
+				LisHeaderComponent={
+					<HeaderBox>
+						<HeaderText>Results</HeaderText>
+					</HeaderBox>
+				}
 				data={results}
 				renderItem={renderItem}
 				keyExtractor={(item) => item.id}
