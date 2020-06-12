@@ -1,54 +1,72 @@
 import React from 'react'
-import { View, Text, FlatList } from 'react-native'
 import styled from 'styled-components'
+import { View, Text, FlatList, ScrollView } from 'react-native'
 import Screen from '@app/components/layout/Screen'
+import SearchBar from '@app/components/common/SearchBar'
+import useSearch from '@app/hooks/useSearch'
 import Button from '@app/components/common/Button'
+import Results from './Results'
+import { HeaderBox, HeaderText } from './styles'
 import FriendsList from './FriendsList'
 
-const SocialScreen = (props) => (
-	<Screen>
-		<HeaderBox>
-			<HeaderText>My Connections</HeaderText>
-			<Button
-				onPress={() => {
-					props.getAllUsers()
-				}}
-				name="account-plus"
-				size={35}
-			/>
-		</HeaderBox>
-		<FriendsList />
-		{props.allUsers && (
-			<HeaderBox>
-				<HeaderText>Add More Friends</HeaderText>
-			</HeaderBox>
-		)}
-		{props.allUsers && (
-			<FlatList
-				data={props.allUsers}
-				numColumns={1}
-				renderItem={({ item }) => (
-					<View key={item.id} onPress={() => {}}>
-						<Text>{item.username}</Text>
-					</View>
-				)}
-				keyExtractor={(item) => item.id}
-			/>
-		)}
-	</Screen>
-)
+const SocialScreen = (props) => {
+	const { searchValue, setSearchValue } = useSearch(props.search)
 
-const HeaderBox = styled(View)`
-	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
-	height: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
-	padding: ${({ theme }) => theme.metrics.largeSize}px;
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-`
-const HeaderText = styled(Text)`
-	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('6.5%')}px;
-	color: ${({ theme }) => theme.colors.skyBlue};
+	const renderConnections = () => {
+		return (
+			<>
+				<HeaderBox>
+					<HeaderText>My Connections</HeaderText>
+					<Button
+						onPress={() => {
+							props.getAllUsers()
+						}}
+						name="account-plus"
+						size={35}
+					/>
+				</HeaderBox>
+				<FriendsList />
+				{props.allUsers && (
+					<HeaderBox>
+						<HeaderText>Add More Friends</HeaderText>
+					</HeaderBox>
+				)}
+				{props.allUsers && (
+					<FlatList
+						data={props.allUsers}
+						numColumns={1}
+						renderItem={({ item }) => (
+							<View key={item.id} onPress={() => {}}>
+								<Text>{item.username}</Text>
+							</View>
+						)}
+						keyExtractor={(item) => item.id}
+					/>
+				)}
+			</>
+		)
+	}
+
+	return (
+		<ScrollScreen>
+			<Screen>
+				<SearchBar
+					value={searchValue}
+					onChange={setSearchValue}
+					placeholder="Search for connections"
+				/>
+				{searchValue ? (
+					<Results results={props.results} />
+				) : (
+					renderConnections()
+				)}
+			</Screen>
+		</ScrollScreen>
+	)
+}
+
+const ScrollScreen = styled(ScrollView)`
+	height: 100%;
 `
 
 export default SocialScreen

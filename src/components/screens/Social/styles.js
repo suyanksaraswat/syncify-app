@@ -6,10 +6,10 @@ export const HeaderBox = styled(View)`
 	height: ${({ theme }) => theme.metrics.getWidthFromDP('15%')}px;
 	padding: ${({ theme }) => theme.metrics.largeSize}px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
+	flex-direction: row;
 `
 export const HeaderText = styled(Text)`
 	font-size: ${({ theme }) => theme.metrics.getWidthFromDP('6.5%')}px;
 	color: ${({ theme }) => theme.colors.skyBlue};
-	flex: 1;
 `
