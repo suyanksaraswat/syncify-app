@@ -1,9 +1,10 @@
+import React from 'react'
 import { connect } from 'react-redux'
-import { search } from '@app/modules/social/actions'
-import Social from './Social'
+import { search, getAllUsers } from '@app/modules/social/actions'
+import SocialScreen from './SocialScreen'
 
-const mapStateToProps = (state) => ({ results: state.social.results })
+const Social = (props) => <SocialScreen {...props} />
 
-const mapDispatchToProps = { search }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Social)
+export default connect((state) => ({ allUsers: state.social.allUsers, results: state.social.results }), {
+	getAllUsers, search
+})(Social)
