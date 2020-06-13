@@ -1,7 +1,8 @@
-import top100 from './top100'
+// import top100 from './top100'
+import podcastList from './podcastList'
 
 export const selectPodcast = (title) => async (dispatch) => {
-	const currentPodcast = top100.find(
+	const currentPodcast = podcastList.find(
 		(podcast) => podcast.meta.title === title
 	)
 	dispatch({
