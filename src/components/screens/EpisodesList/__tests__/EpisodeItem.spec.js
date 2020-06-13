@@ -19,17 +19,10 @@ const podcast = {
 		imageURL:
 			'https://media.npr.org/assets/img/2020/03/17/coronavirus_daily_final__sq-2aca96317281db7f8671e5bf24e68fb77b66bbed.png?s=1400',
 		lastUpdated: '2020-05-19T22:17:00.000Z',
-		link: 'https://www.npr.org/podcasts/510355/coronavirusdaily',
-		language: 'en-us',
 		author: 'NPR',
 		summary:
 			"A daily news podcast about the coronavirus pandemic, covering all dimensions of the story from science to economics and politics as well as society and culture. Hosted by Kelly McEvers from Embedded. Approximately 10 minutes in length. Publishing weekday afternoons. Includes stories and interviews from NPR's Science, International, National, Business and Washington reporting teams, as well as station reporters, and the crews at Morning Edition and All Things Considered.",
 		categories: ['News'],
-		owner: {
-			name: 'NPR',
-			email: 'podcasts@npr.org',
-		},
-		blocked: false,
 	},
 	episodes: [
 		{
@@ -42,18 +35,12 @@ const podcast = {
 			imageURL:
 				'https://media.npr.org/assets/img/2020/05/19/gettyimages-1213973220_wide-d815a707d752c125f63807322558f5e4866c1df9.jpg?s=1400',
 			pubDate: '2020-05-19T22:17:00.000Z',
-			link:
-				'https://www.npr.org/2020/05/19/858569583/indoor-spread-workers-anxieties-and-our-warped-sense-of-time',
 			enclosure: {
 				length: '11464370',
 				type: 'audio/mpeg',
 				url:
 					'https://play.podtrac.com/npr-510355/edge1.pod.npr.org/anon.npr-podcasts/podcast/npr/covid/2020/05/20200519_covid_coronavirus_daily_51920__-_mix_gs_final-b05898ef-1259-49dc-b9d9-377ded6a47fd.mp3?awCollectionId=510355&awEpisodeId=858569583&aw_0_1st.cv=yes&orgId=1&topicId=1007&aggIds=812054919&d=718&p=510355&story=858569583&t=podcast&e=858569583&size=11464370&ft=pod&f=510355',
 			},
-			duration: 718,
-			summary:
-				"Some Americans being called back to work say they don't feel safe. Plus, scientists are learning more about how the coronavirus spreads indoors.",
-			explicit: false,
 		},
 		{
 			title: 'Encouraging Vaccine News; Pandemic Grows More Political  ',
@@ -64,18 +51,12 @@ const podcast = {
 			imageURL:
 				'https://media.npr.org/assets/img/2020/05/18/gettyimages-1213147461_wide-36bc5fdc5dfdf40d5b6ab8a91d690f3d2428681d.jpg?s=1400',
 			pubDate: '2020-05-18T21:20:00.000Z',
-			link:
-				'https://www.npr.org/2020/05/18/857833174/encouraging-vaccine-news-pandemic-grows-more-political',
 			enclosure: {
 				length: '10534877',
 				type: 'audio/mpeg',
 				url:
 					'https://play.podtrac.com/npr-510355/edge1.pod.npr.org/anon.npr-podcasts/podcast/npr/covid/2020/05/20200518_covid_51820-8cf49d17-da02-4ce5-9070-3489b69248d4.mp3?awCollectionId=510355&awEpisodeId=857833174&orgId=1&topicId=1006&d=659&p=510355&story=857833174&t=podcast&e=857833174&size=10534877&ft=pod&f=510355',
 			},
-			duration: 659,
-			summary:
-				'Social scientists are concerned politicization of the coronavirus is inflaming an already divided nation. Plus, promising results from an early vaccine trial. ',
-			explicit: false,
 		},
 	],
 }

@@ -1,55 +1,55 @@
 {
 	"podcasts": [
 		{
-			"id": 1273606075,
+			"id": "1273606075",
 			"name": "Growth Mindset Podcast"
 		},
 		{
-			"id": 1502095206,
+			"id": "1502095206",
 			"name": "Wiser Than Yesterday"
 		},
 		{
-			"id": 360084272,
+			"id": "360084272",
 			"name": "Joe Rogan Podcast"
 		},
 		{
-			"id": 1503559501,
+			"id": "1503559501",
 			"name": "Fake Doctors, Real Friends"
 		},
 		{
-			"id": 863897795,
+			"id": "863897795",
 			"name": "Tim Ferris Podcast"
 		},
 		{
-			"id": 1436083034,
+			"id": "1436083034",
 			"name": "YC Startup School"
 		},
 		{
-			"id": 342735925,
+			"id": "342735925",
 			"name": "Desert Island Discs"
 		},
 		{
-			"id": 1460030305,
+			"id": "1460030305",
 			"name": "Your undivided attention"
 		},
 		{
-			"id": 1357657583,
+			"id": "1357657583",
 			"name": "Caliphate"
 		},
 		{
-			"id": 1128413893,
+			"id": "1128413893",
 			"name": "So Many White Guys"
 		},
 		{
-			"id": 1036276968,
+			"id": "1036276968",
 			"name": "Scene On Radio"
 		},
 		{
-			"id": 566985372,
+			"id": "566985372",
 			"name": "Yo, Is This Racist"
 		},
 		{
-			"id": 151230264,
+			"id": "151230264",
 			"name": "Economist Radio"
 		}
 	]

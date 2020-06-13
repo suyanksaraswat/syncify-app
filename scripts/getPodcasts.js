@@ -5,32 +5,42 @@ const podcastFeedParser = require('podcast-feed-parser')
 const requestedPodcasts = require('./requestedPodcasts').podcasts
 
 const path = '../src/modules/podcasts'
-const numOfPodcasts = 100
+const numOfPodcasts = 30
 
 const podcastsIndex = []
 
+const options = {
+	fields: {
+		meta: ['title', 'description', 'imageURL', 'author', 'categories'],
+		episodes: [
+			'title',
+			'description',
+			'subtitle',
+			'imageURL',
+			'pubDate',
+			'enclosure',
+		],
+	},
+	required: {
+		meta: ['title', 'description'],
+	},
+}
+
 async function getAndSaveJson(url, name) {
-	await podcastFeedParser
-		.getPodcastFromURL(url)
-		.then((podcastres) => {
-			fs.writeFile(
-				`${path}/data/${name}.json`,
-				JSON.stringify(podcastres),
-				(err) => {
-					if (err) {
-						throw err
-					}
+	const podcast = await podcastFeedParser.getPodcastFromURL(url, options)
+
+	if (typeof podcast !== 'undefined') {
+		fs.writeFile(
+			`${path}/data/${name}.json`,
+			JSON.stringify(podcast),
+			(err) => {
+				if (err) {
+					throw err
 				}
-			)
-			podcastsIndex.push(`require('./data/${name}.json')`)
-			return 'success'
-		})
-		.catch((error) => {
-			throw error
-			// console.log("---- in error catch ----")
-			// console.log(error)
-			// console.log({ url })
-		})
+			}
+		)
+		podcastsIndex.push(`require('./data/${name}.json')`)
+	}
 }
 
 fetch(
@@ -38,9 +48,9 @@ fetch(
 )
 	.then((response) => response.json())
 	.then((data) => {
-		const topPodcastIds = data.feed.entry.map(
-			(element) => element.id.attributes['im:id']
-		)
+		const topPodcastIds = data.feed.entry.map((element) => {
+			return element.id.attributes['im:id']
+		})
 		const requestedPodcastIds = requestedPodcasts.map(
 			(element) => element.id
 		)
