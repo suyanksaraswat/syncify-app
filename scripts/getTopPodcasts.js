@@ -1,7 +1,6 @@
 // Scrape itunes TOP # podcasts and save in JSON to local files
 const fetch = require('node-fetch')
 const fs = require('fs')
-// const podcastFeedParser = require('../src/services/feed-parser')
 const podcastFeedParser = require('podcast-feed-parser')
 
 const path = '../src/modules/podcasts/data/'
