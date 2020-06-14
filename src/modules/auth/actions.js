@@ -71,11 +71,17 @@ export const login = () => async (dispatch) => {
 		// Retrieve the JWT token and decode it
 		const jwtToken = response.params.id_token
 		const decoded = jwtDecode(jwtToken)
+		const { exp } = decoded
+
 		// Id token format: https://auth0.com/docs/api-auth/tutorials/adoption/api-tokens#access-vs-id-tokens
 		console.log('Id token', JSON.stringify(decoded, null, 2))
 
 		try {
 			await AsyncStorage.setItem('token', jwtToken)
+			await AsyncStorage.setItem(
+				'expiryTime',
+				JSON.stringify(new Date(exp * 1000))
+			)
 		} catch (error) {
 			// Error saving data
 			console.log(error)
@@ -96,6 +102,7 @@ export const login = () => async (dispatch) => {
 			last_name: lastName,
 		} = response.data.signIn
 		const name = `${firstName} ${lastName}`
+
 		dispatch({
 			type: 'auth/LOGGED_IN',
 			payload: { name, idToken: jwtToken },
@@ -115,7 +122,12 @@ export const logout = () => async (dispatch) => {
 
 	console.log('Logout response', response)
 
-	if (response.type === 'cancel') {
+	if (response.type === 'opened') {
+		try {
+			await AsyncStorage.clear()
+		} catch (error) {
+			console.log(error)
+		}
 		dispatch({ type: 'auth/LOGGED_OUT', payload: { idToken: null } })
 	}
 }
