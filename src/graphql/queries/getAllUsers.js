@@ -5,8 +5,12 @@ const GetAllUsersQuery = gql`
 		users {
 			id
 			username
+			email
 			first_name
 			last_name
+			social_login_type
+			auth0_id
+			image_url
 		}
 	}
 `

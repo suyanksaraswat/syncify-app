@@ -55,7 +55,7 @@ const SocialScreen = (props) => {
 				placeholder="Search for connections"
 			/>
 			{searchValue ? (
-				<Results results={props.results} />
+				<Results results={props.allUsers} />
 			) : (
 				renderConnections()
 			)}

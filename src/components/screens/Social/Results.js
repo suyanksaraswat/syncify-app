@@ -12,7 +12,11 @@ const Results = ({ results }) => {
 	)
 
 	const renderItem = ({
-		item: { first_name: firstName, last_name: lastName, imageUrl },
+		item: {
+			first_name: firstName,
+			last_name: lastName,
+			image_url: imageUrl,
+		},
 	}) => {
 		return (
 			<FriendItem
