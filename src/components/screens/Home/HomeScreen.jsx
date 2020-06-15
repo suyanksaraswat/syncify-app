@@ -15,12 +15,6 @@ const HomeScreen = (props) => (
 			<HeaderText>Popular podcasts</HeaderText>
 		</HeaderBox>
 		<PopularPodcasts {...props} />
-
-		{/* <HorizontalPodcasts
-			title="Popular podcasts"
-			data={filteredpodcastlist}
-			{...props}
-		/> */}
 	</Wrapper>
 )
 
