@@ -10,10 +10,7 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import EpisodeList from './EpisodeList'
 import Social from './Social'
-import Explore from './Explore'
 import Profile from './Profile'
-import Settings from './Settings'
-import TopCharts from './TopCharts'
 import Podcasts from './Podcasts'
 import Player from './Player'
 import EpisodeInfo from './EpisodeInfo'
@@ -31,10 +28,7 @@ storiesOf('UI Components', module)
 	.add('SignUp', () => <SignUp />)
 	.add('EpisodeList', () => <EpisodeList />)
 	.add('Social', () => <Social />)
-	.add('Explore', () => <Explore />)
 	.add('Profile', () => <Profile />)
-	.add('Settings', () => <Settings />)
-	.add('TopCharts', () => <TopCharts />)
 	.add('Podcasts', () => <Podcasts />)
 	.add('Player', () => <Player />)
 	.add('Episode Info', () => <EpisodeInfo />)

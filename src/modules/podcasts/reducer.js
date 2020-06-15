@@ -1,8 +1,8 @@
-import top100 from './top100'
+import podcastList from './podcastList'
 
 export const initialState = {
-	allPodcasts: top100,
-	subscriptions: top100,
+	allPodcasts: podcastList,
+	subscriptions: podcastList,
 	currentPodcast: null,
 	currentEpisode: null,
 }

@@ -4,20 +4,22 @@ import styled from 'styled-components'
 
 const FriendItem = (props) => {
 	return (
-		<Wrapper onPress={() => {}}>
-			<FriendsImage source={{ uri: props.image }} />
-			<NameTextBox>
-				<FriendsName ellipsizeMode="tail" numberOfLines={1}>
-					{props.firstName} {props.lastName}
-				</FriendsName>
-				<Username>{props.username}</Username>
-			</NameTextBox>
-		</Wrapper>
+		<ItemContainer>
+			<Wrapper onPress={() => {}}>
+				<FriendsImage source={{ uri: props.image }} />
+				<NameTextBox>
+					<FriendsName ellipsizeMode="tail" numberOfLines={3}>
+						{props.firstName} {props.lastName}
+					</FriendsName>
+					<Username>{props.username}</Username>
+				</NameTextBox>
+			</Wrapper>
+			{props.renderIcon && props.renderIcon()}
+		</ItemContainer>
 	)
 }
 
 const Wrapper = styled(TouchableOpacity)`
-	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-start;
@@ -45,6 +47,11 @@ const NameTextBox = styled(View)`
 	margin: ${({ theme }) => theme.metrics.smallSize}px;
 	display: flex;
 	flex-direction: column;
+`
+export const ItemContainer = styled(View)`
+	width: ${({ theme }) => theme.metrics.getWidthFromDP('100%')}px;
+	flex-direction: row;
+	align-items: center;
 `
 
 export default FriendItem

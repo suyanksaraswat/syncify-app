@@ -1,10 +1,10 @@
 import React from 'react'
-import top100 from '@app/modules/podcasts/top100'
+import podcastList from '@app/modules/podcasts/podcastList'
 import Podcasts from '../../src/components/screens/Podcasts/PodcastsScreen'
 
 export default function () {
 	const props = {
-		subscriptions: top100,
+		subscriptions: podcastList,
 		selectPodcast: { selectPodcast: () => {} },
 	}
 
