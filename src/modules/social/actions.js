@@ -50,3 +50,26 @@ export const searchUsers = (input) => async (dispatch, getState) => {
 		},
 	})
 }
+
+export const searchSubscriptions = (input) => async (dispatch, getState) => {
+	const subscriptions = getState().social.subscriptions
+	const lowCaseInput = input.toLowerCase()
+
+	const matchesSubscription = (user) => {
+		const firstName = user.friend.first_name
+			.toLowerCase()
+			.indexOf(lowCaseInput)
+		const lastName = user.friend.last_name
+			.toLowerCase()
+			.indexOf(lowCaseInput)
+
+		return firstName > -1 || lastName > -1
+	}
+
+	dispatch({
+		type: 'SEARCH_SUBSCRIPTIONS',
+		payload: {
+			filteredSubscriptions: subscriptions.filter(matchesSubscription),
+		},
+	})
+}
