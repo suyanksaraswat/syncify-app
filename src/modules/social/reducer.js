@@ -4,6 +4,7 @@ export const initialState = {
 	allUsers: [],
 	results: [],
 	filteredUsers: null,
+	subscriptions: [],
 }
 
 export default function reducer(state = initialState, action) {
@@ -19,6 +20,13 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				allUsers: action.payload.users,
+			}
+		}
+
+		case 'GET_CONNECTIONS': {
+			return {
+				...state,
+				subscriptions: action.payload.connections,
 			}
 		}
 

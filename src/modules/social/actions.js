@@ -1,4 +1,5 @@
 import { GetAllUsersQuery } from '@app/graphql/queries/getAllUsers'
+import { getConnectionsQuery } from '@app/graphql/queries/getConnections'
 import { client } from '@app/graphql/client'
 import searchResults from './data/searchResults'
 
@@ -19,12 +20,20 @@ export const getAllUsers = () => async (dispatch) => {
 	})
 }
 
+export const getConnections = (userId) => async (dispatch) => {
+	const response = await client.query({
+		variables: { id: userId },
+		query: getConnectionsQuery,
+	})
+
+	dispatch({
+		type: 'GET_CONNECTIONS',
+		payload: { connections: response.data.friendList },
+	})
+}
+
 export const searchUsers = (input) => async (dispatch, getState) => {
-	let allUsers = getState().social.allUsers
-	if (!allUsers) {
-		getAllUsers()
-		allUsers = getState().social.allUsers
-	}
+	const allUsers = getState().social.allUsers
 	const lowCaseInput = input.toLowerCase()
 
 	const matchesUser = (user) => {
