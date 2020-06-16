@@ -4,6 +4,7 @@ import {
 	getAllUsers,
 	searchUsers,
 	getConnections,
+	searchSubscriptions,
 } from '@app/modules/social/actions'
 import SocialScreen from './SocialScreen'
 
@@ -21,10 +22,12 @@ export default connect(
 		allUsers: state.social.allUsers,
 		filteredUsers: state.social.filteredUsers,
 		subscriptions: state.social.subscriptions,
+		filteredSubscriptions: state.social.filteredSubscriptions,
 	}),
 	{
 		getAllUsers,
 		searchUsers,
 		getConnections,
+		searchSubscriptions,
 	}
 )(Social)

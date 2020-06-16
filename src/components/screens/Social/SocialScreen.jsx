@@ -16,15 +16,16 @@ const SocialScreen = (props) => {
 				value={value}
 				onChange={(text) => {
 					onChangeText(text)
-					if (props.allUsers.length < 1) {
-						props.getAllUsers()
-					}
 					props.searchUsers(text)
+					props.searchSubscriptions(text)
 				}}
 				placeholder="Search for connections"
 			/>
 			{value ? (
-				<Results results={props.filteredUsers} />
+				<Results
+					users={props.filteredUsers}
+					connections={props.filteredSubscriptions}
+				/>
 			) : (
 				<ScrollScreen>
 					<HeaderBox>
