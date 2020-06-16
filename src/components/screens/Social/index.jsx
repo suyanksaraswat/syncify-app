@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { search, getAllUsers } from '@app/modules/social/actions'
+import { getAllUsers, searchUsers } from '@app/modules/social/actions'
 import SocialScreen from './SocialScreen'
 
 const Social = (props) => <SocialScreen {...props} />
@@ -8,10 +8,10 @@ const Social = (props) => <SocialScreen {...props} />
 export default connect(
 	(state) => ({
 		allUsers: state.social.allUsers,
-		results: state.social.results,
+		filteredUsers: state.social.filteredUsers,
 	}),
 	{
 		getAllUsers,
-		search,
+		searchUsers,
 	}
 )(Social)

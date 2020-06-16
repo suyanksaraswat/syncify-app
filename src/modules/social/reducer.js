@@ -1,8 +1,9 @@
 import { CONNECTIONS_SEARCH_SUCCESS } from './actions'
 
 export const initialState = {
-	allUsers: null,
+	allUsers: [],
 	results: [],
+	filteredUsers: null,
 }
 
 export default function reducer(state = initialState, action) {
@@ -18,6 +19,13 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				allUsers: action.payload.users,
+			}
+		}
+
+		case 'SEARCH_USERS': {
+			return {
+				...state,
+				filteredUsers: action.payload.filteredUsers,
 			}
 		}
 

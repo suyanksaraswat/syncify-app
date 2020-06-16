@@ -3,14 +3,13 @@ import styled from 'styled-components'
 import { View, Text, FlatList, ScrollView } from 'react-native'
 import Screen from '@app/components/layout/Screen'
 import SearchBar from '@app/components/common/SearchBar'
-import useSearch from '@app/hooks/useSearch'
 import Button from '@app/components/common/Button'
 import Results from './Results'
 import { HeaderBox, HeaderText } from './styles'
 import FriendsList from './FriendsList'
 
 const SocialScreen = (props) => {
-	const { searchValue, setSearchValue } = useSearch(props.search)
+	const [value, onChangeText] = React.useState(null)
 
 	const renderConnections = () => {
 		return (
@@ -26,7 +25,7 @@ const SocialScreen = (props) => {
 					/>
 				</HeaderBox>
 				<FriendsList />
-				{props.allUsers && (
+				{props.allUsers.length > 0 && (
 					<HeaderBox>
 						<HeaderText>Add More Friends</HeaderText>
 					</HeaderBox>
@@ -50,12 +49,18 @@ const SocialScreen = (props) => {
 	return (
 		<Screen>
 			<SearchBar
-				value={searchValue}
-				onChange={setSearchValue}
+				value={value}
+				onChange={(text) => {
+					onChangeText(text)
+					if (props.allUsers.length < 1) {
+						props.getAllUsers()
+					}
+					props.searchUsers(text)
+				}}
 				placeholder="Search for connections"
 			/>
-			{searchValue ? (
-				<Results results={props.allUsers} />
+			{value ? (
+				<Results results={props.filteredUsers} />
 			) : (
 				renderConnections()
 			)}
