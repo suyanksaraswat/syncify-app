@@ -10,17 +10,6 @@ import FriendsList from './FriendsList'
 const SocialScreen = (props) => {
 	const [value, onChangeText] = React.useState(null)
 
-	const renderConnections = () => {
-		return (
-			<ScrollScreen>
-				<HeaderBox>
-					<HeaderText>My Connections</HeaderText>
-				</HeaderBox>
-				<FriendsList />
-			</ScrollScreen>
-		)
-	}
-
 	return (
 		<Screen>
 			<SearchBar
@@ -37,7 +26,15 @@ const SocialScreen = (props) => {
 			{value ? (
 				<Results results={props.filteredUsers} />
 			) : (
-				renderConnections()
+				<ScrollScreen>
+					<HeaderBox>
+						<HeaderText>My Connections</HeaderText>
+					</HeaderBox>
+					<FriendsList
+						subscriptions={props.subscriptions}
+						navigation={props.navigation}
+					/>
+				</ScrollScreen>
 			)}
 		</Screen>
 	)

@@ -1,18 +1,17 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
-import friends from '@app/modules/social/data/friends'
 import FriendItem from './FriendItem'
 
-const FriendsList = (props) => (
+const FriendsList = ({ subscriptions, navigation }) => (
 	<ScrollView>
-		{friends.map((friend) => (
+		{subscriptions.map((subscription) => (
 			<FriendItem
-				key={friends.indexOf(friend)}
-				navigation={props.navigation}
-				image={friend.imageUrl}
-				firstName={friend.first_name}
-				lastName={friend.last_name}
-				username={friend.username}
+				key={subscriptions.indexOf(subscription)}
+				navigation={navigation}
+				image={subscription.friend.image_url}
+				firstName={subscription.friend.first_name}
+				lastName={subscription.friend.last_name}
+				username={subscription.friend.username}
 			/>
 		))}
 	</ScrollView>
