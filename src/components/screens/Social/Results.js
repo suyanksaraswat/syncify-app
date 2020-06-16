@@ -16,6 +16,7 @@ const Results = ({ results }) => {
 			first_name: firstName,
 			last_name: lastName,
 			image_url: imageUrl,
+			username,
 		},
 	}) => {
 		return (
@@ -24,6 +25,7 @@ const Results = ({ results }) => {
 				lastName={lastName}
 				image={imageUrl}
 				renderIcon={renderIcon}
+				username={username}
 			/>
 		)
 	}
